@@ -5,6 +5,7 @@
 const data = [
     {
         name: 'Park Oliwski',
+        id: 1,
         favorite: false,
         priceRange: 'free',
         type: 'nature',
@@ -15,6 +16,7 @@ const data = [
     },
     {
         name: 'Rezerwat Mewia Łacha',
+        id: 2,
         favorite: false,
         priceRange: 'free',
         type: 'nature',
@@ -25,6 +27,7 @@ const data = [
     },
     {
         name: 'Stare Miasto',
+        id: 3,
         favorite: false,
         priceRange: 'free',
         type: 'culture',
@@ -35,6 +38,7 @@ const data = [
     },
     {
         name: 'Europejskie Centrum Solidarności',
+        id: 4,
         favorite: false,
         priceRange: 'cheap',
         type: 'culture',
@@ -45,6 +49,7 @@ const data = [
     },
     {
         name: 'Plaża w Brzeźnie',
+        id: 5,
         favorite: false,
         priceRange: 'free',
         type: 'nature',
@@ -55,6 +60,7 @@ const data = [
     },
     {
         name: 'Muzeum II Wojny Światowej',
+        id: 6,
         favorite: false,
         priceRange: 'cheap',
         type: 'culture',
@@ -64,44 +70,47 @@ const data = [
         descriptionLong: 'Muzeum II Wojny Światowej powstało w Gdańsku przy placu Władysława Bartoszewskiego, nad Motławą, blisko historycznego centrum miasta. Muzeum ma za cel upowszechniać wiedzę o II wojnie światowej oraz służyć pielęgnowaniu pamięci o jej ofiarach i bohaterach; ma być nowoczesnym obiektem pod względem formy, a także prowadzonej działalności wystawienniczej, edukacyjnej i badawczej.'
     },
     {
-        name: '',
+        name: 'Stadion Energa Gdansk',
+        id: 7,
         favorite: false,
-        priceRange: '',
-        type: '',
-        img: 'url',
+        priceRange: 'medium',
+        type: 'sport',
+        img: 'https://lh3.googleusercontent.com/proxy/-8sssvDAS5jSy71UQlDOqmbSZT18fOVYa4K7N0w_yfdpWhxgyTOzNF51sOh9XZAIKe3w4m-dk-wUUv7oLejLiYuVL6bhN3-LwEs9yvsry2QQfUXMCXbxsLLzVT-PSrqQwA',
         location:'Gdańsk',
         descriptionShort: '',
-        descriptionLong: ''
+        descriptionLong: 'Stadion piłkarski w Gdańsku, znajdujący się przy ulicy Pokoleń Lechii Gdańsk 1, w dzielnicy Letnica. Stanowi własność miasta Gdańska, a jego głównym użytkownikiem jest klub piłkarski Lechia Gdańsk. Stadion został oddany do użytku 19 lipca 2011 roku, a pierwszym oficjalnym meczem było spotkanie Lechii z Cracovią rozegrane 14 sierpnia tego samego roku.'
     },
     {
-        name: '',
+        name: 'PitStop Gdańsk Tor Gokartowy',
+        id: 8,
         favorite: false,
-        priceRange: '',
-        type: '',
+        priceRange: 'medium',
+        type: 'sport',
         img: 'url',
         location:'Gdańsk',
-        descriptionShort: '',
-        descriptionLong: ''
+        descriptionShort: 'https://lh6.googleusercontent.com/proxy/SlXykDjO8C7HVwy2o3_oxtvMnZPR3GY7PMGNSk6YEEipjWmHoLYnXB7HM4XcfkYz380AzmYgXLPjS4RhESaHmjKh1dG2w8c6In5_ls4GQy3BdEb4I2Dhhby8Hw',
+        descriptionLong: 'Największy i najszybszy tor kartingowy na pomorzu oraz jedyny kryty tor z gokartami elektrycznymi.'
     },
     {
-        name: '',
+        name: 'Restauracja Filharmonia',
+        id: 9,
         favorite: false,
-        priceRange: '',
-        type: '',
-        img: 'url',
+        priceRange: 'expensive',
+        type: 'restaurant',
+        img: 'https://img.grouponcdn.com/deal/3Dk2udTDMxXnzeoRMB9WYJ8LTKeK/3D-2048x1229/v1/c700x420.jpg',
         location:'Gdańsk',
         descriptionShort: '',
-        descriptionLong: ''
+        descriptionLong: 'Restauracja Filharmonia zlokalizowana w zabytkowym gdańskim budynku to miejsce, które proponuje autorskie menu oparte wyłącznie na świeżych, sezonowych produktach. Wykwintne smaki kuchni międzynarodowej tworzymy myśląc w nowoczesny sposób o gotowaniu będącym harmonijnym zestawieniem doznań, smaków, tekstur i zapachów poszczególnych składników potraw'
     },
     {
-        name: '',
+        name: 'Eliksir',
+        id: 10,
         favorite: false,
-        priceRange: '',
-        type: '',
-        img: 'url',
+        priceRange: 'medium',
+        type: 'restaurant',
+        img: 'https://magazif.com/wp-content/uploads/wnetrze-gdanskiego-eliksiru-restauracja-ikona.jpg',
         location:'Gdańsk',
         descriptionShort: '',
-        descriptionLong: ''
-    },
-
+        descriptionLong: 'Eliksir jest unikalnym połączaniem restauracji, koktajlbaru, niezależnej przestrzeni eventowej oraz cigar roomu. Myślą przewodnią lokalu jest foodpairing czyli sztuka łączenia smaków ze specjalnie dopasowanymi koktajlami'
+    }
 ]
