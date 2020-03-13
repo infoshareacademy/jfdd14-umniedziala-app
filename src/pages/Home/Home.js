@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
+import './Home.css';
 import AddNewPlace from '../AddNewPlace/AddNewPlace';
 
 class Home extends Component {
     render() {
         return( 
-        <div>
+        <main className="dashboard">
             <AddNewPlace />
-        </div>
+        </main>
         )
     }
 }
