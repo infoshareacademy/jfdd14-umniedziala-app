@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
+import './Sidebar.css';
 
 class Sidebar extends Component {
     static propTypes = {
@@ -13,16 +14,16 @@ class Sidebar extends Component {
         home: "Strona główna",
         allList: "Wszystkie atrakcje",
         favourite: "Moje ulubione",
-        addNew: "Dodaj własną"
+        addNew: "Dodaj własną atrakcję"
     };
     
     render() {
         return (
-        <nav>
-            <Link to="/">{this.props.home}</Link>
-            <Link to="/placelist">{this.props.allList}</Link>
-            <Link to="/placelist">{this.props.favourite}</Link>
-            <Link to="/addnewplace">{this.props.addNew}</Link>
+        <nav className="sidebar">
+            <Link to="/" className="sidebar__link">{this.props.home}</Link>
+            <Link to="/placelist" className="sidebar__link">{this.props.allList}</Link>
+            <Link to="/placelist" className="sidebar__link">{this.props.favourite}</Link>
+            <Link to="/addnewplace" className="sidebar__link">{this.props.addNew}</Link>
         </nav>
         )
     }

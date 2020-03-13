@@ -1,20 +1,17 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
+import logo from '../../logo_white.png';
+import './Header.css';
 
 class Header extends Component {
-    static propTypes = {
-        title: PropTypes.string.isRequired,
-    };
-    static defaultProps = {
-        logoUrl: "",
-        title: "tripcity"
-    };
     
     render() {
         return (
-        <header>
-            <h1><Link to="/">{this.props.title}</Link></h1>
+        <header className="header">
+            <div className="header__imageBox">
+                <img src={logo} alt="logo" className="header__image"></img>
+            </div>
+            <h1><Link to="/" className="header__titleLink">tripcity</Link></h1>
         </header>
         )
     }

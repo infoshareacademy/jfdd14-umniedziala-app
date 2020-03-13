@@ -1,0 +1,22 @@
+.header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--color-blue);
+}
+
+.header__image {
+    height: 50px;
+    padding: 0 10px;
+}
+
+.header__titleLink {
+    font-family: 'Comfortaa';
+    padding: 0 10px;
+    color: var(--color-white);
+    text-decoration: none;
+}
