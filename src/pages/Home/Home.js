@@ -1,8 +1,13 @@
 import React, {Component} from 'react';
+import AddNewPlace from '../AddNewPlace/AddNewPlace';
 
 class Home extends Component {
     render() {
-        return <div></div>
+        return( 
+        <div>
+            <AddNewPlace />
+        </div>
+        )
     }
 }
 
