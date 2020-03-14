@@ -5,22 +5,22 @@ import { Button, Input} from 'semantic-ui-react';
 
 
 function AddNewPlace() {
+    
     return (
         <main className='dashboard'>
-            <div class='addPlace'>
-                <h1 class='addPlace__h1'>Dodaj swoje miejsce</h1>
-                <div class='addPlace__name'>Nazwa:<br></br><Input></Input></div>
-                <div class='addPlace__price'>Cena:<br></br><Input></Input></div>
-                <div class='addPlace__category'>Kategoria:<br></br><Input></Input></div>
-                <div class='addPlace__img'>Zdjęcie:<br></br><Input></Input></div>
-                <div class='addPlace__location'>Lokalizacja:<br></br><Input></Input></div>
-                <div class='addPlace__description'>Opis:<br></br><Input></Input></div>
-                <Button center>Dodaj nowe miejsce</Button>
+            <div className='addPlace'>
+                <h1 className='addPlace__h1'>Dodaj swoje miejsce</h1>
+                <div className='addPlace__name'><span>Nazwa miejsca:</span><Input></Input></div>
+                <div className='addPlace__price'><span>Cena:</span><Input></Input>(tanio, średnio, drogo)</div>
+                <div className='addPlace__category'><span>Kategoria:</span><Input></Input></div>
+                <div className='addPlace__img'><span>Zdjęcie:</span><Input></Input ></div>
+                <div className='addPlace__location'><span>Lokalizacja:</span><Input></Input></div>
+                <div className='addPlace__description'><span>Opis:</span><Input></Input></div>
+                <Button>Dodaj nowe miejsce</Button>
             </div>
         </main>
        
     )
-}
-
-
-export default AddNewPlace;
+    }
+    
+    export default AddNewPlace;
