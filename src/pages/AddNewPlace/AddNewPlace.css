@@ -11,6 +11,6 @@ padding-bottom: 10px;
     padding-right: 20px;
     }
 
-.ui.button{
-    margin-top: 20px;
+.dashboard__h1 {
+    text-align: center;
 }
