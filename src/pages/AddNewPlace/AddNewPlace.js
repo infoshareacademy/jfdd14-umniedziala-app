@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './AddNewPlace.css';
 import {Form} from 'semantic-ui-react'; // jezeli wprowadzanie zaawansowane to musi być form jezeli nie to wywalić
-
+import {Link} from 'react-router-dom'
 
 
 // function AddNewPlace() {
@@ -85,19 +85,19 @@ import {Form} from 'semantic-ui-react'; // jezeli wprowadzanie zaawansowane to m
             <Form.Group inline>
               <label>Cena:</label>
               <Form.Radio
-                label='Tanio'
+                label='Tanio ($)'
                 value='sm'
                 checked={value === 'sm'}
                 onChange={this.handleChange}
               />
               <Form.Radio
-                label='Średnio'
+                label='Średnio ($$)'
                 value='md'
                 checked={value === 'md'}
                 onChange={this.handleChange}
               />
               <Form.Radio
-                label='Drogo'
+                label='Drogo ($$$)'
                 value='lg'
                 checked={value === 'lg'}
                 onChange={this.handleChange}
@@ -105,7 +105,9 @@ import {Form} from 'semantic-ui-react'; // jezeli wprowadzanie zaawansowane to m
             </Form.Group>
             <Form.TextArea label='Opis' placeholder='Opisz atrakcję' />
             <Form.Checkbox label='Zgadzam się z warunkami korzystania z usługi' />
-            <Form.Button>Dodaj atrakcję</Form.Button>
+            <Link to='/placeadded'>
+                <Form.Button>Dodaj atrakcję</Form.Button>
+            </Link>
           </Form>
           </main>
         )
