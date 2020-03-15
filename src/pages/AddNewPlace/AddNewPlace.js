@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './AddNewPlace.css';
-import { Button, Input, Form} from 'semantic-ui-react'; // jezeli wprowadzanie zaawansowane to musi być form jezeli nie to wywalić
+import {Form} from 'semantic-ui-react'; // jezeli wprowadzanie zaawansowane to musi być form jezeli nie to wywalić
 
 
 
@@ -33,7 +33,7 @@ import { Button, Input, Form} from 'semantic-ui-react'; // jezeli wprowadzanie z
       { key: 'Gdy', text: 'Gdynia', value: 'gdynia' },
     ]
     
-    class FormExampleSubcomponentControl extends Component {
+    class FormAddPlace extends Component {
       state = {}
     
       handleChange = (e, { value }) => this.setState({ value })
@@ -112,4 +112,4 @@ import { Button, Input, Form} from 'semantic-ui-react'; // jezeli wprowadzanie z
       }
     }
     
-    export default FormExampleSubcomponentControl
+    export default FormAddPlace

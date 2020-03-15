@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import './NewPlaceAdded.css';
-import { Button} from 'semantic-ui-react';
+import {Button} from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
+
 
 
 class NewPlaceAdded extends Component {
