@@ -1,0 +1,16 @@
+.dashboard {
+    padding: 70px 10px 10px 230px;
+}
+
+.addPlace > * {
+padding-top: 10px;
+padding-bottom: 10px;
+}
+
+.addPlace span {  
+    padding-right: 20px;
+    }
+
+.dashboard__h1 {
+    text-align: center;
+}
