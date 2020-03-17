@@ -11,7 +11,7 @@ class Header extends Component {
             <div className="header__imageBox">
                 <img src={logo} alt="logo" className="header__image"></img>
             </div>
-            <h1><Link to="/" className="header__titleLink">tripcity</Link></h1>
+            <h1 className="header__title"><Link to="/" className="header__titleLink">tripcity</Link></h1>
         </header>
         )
     }
