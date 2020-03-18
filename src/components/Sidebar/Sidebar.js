@@ -19,7 +19,8 @@ class Sidebar extends Component {
     
     render() {
         return (
-        <nav className="sidebar">
+        <nav className={this.props.visibility}>
+            {this.visibility}
             <Link to="/" className="sidebar__link">{this.props.home}</Link>
             <Link to="/placelist" className="sidebar__link">{this.props.allList}</Link>
             <Link to="/placelist" className="sidebar__link">{this.props.favourite}</Link>

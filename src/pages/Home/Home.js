@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import FavBarChart from '../../components/FavBarChart/FavBarChart';
+import CityPieChart from '../../components/CityPieChart/CityPieChart';
 import './Home.css';
 
 class Home extends Component {
@@ -11,8 +12,8 @@ class Home extends Component {
                 <FavBarChart />
             </div>
             <div className="dashboard__chart">
-                <h3 className="dashboard__chartTitle">Podział wg miast:</h3>
-                <FavBarChart />
+                <h3 className="dashboard__chartTitle">Atrakcje w naszej bazie wg miast:</h3>
+                <CityPieChart />
             </div>
         </main>
         )

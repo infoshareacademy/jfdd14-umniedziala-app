@@ -1,5 +1,5 @@
 .dashboard {
-    padding: 70px 10px 10px 230px;
+    padding: 70px 10px 10px 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -13,4 +13,10 @@
 .dashboard__chartTitle {
     font-family: Comfortaa;
     text-align: center;
+}
+
+@media (min-width: 900px) {
+    .dashboard {
+        padding: 70px 10px 10px 230px;
+    }
 }
