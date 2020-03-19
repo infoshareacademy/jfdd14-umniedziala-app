@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 .addNewPlace__dashboard {
     padding: 70px 10px 10px 230px;
 }
 
+=======
+>>>>>>> develop
 .addPlace > * {
 padding-top: 10px;
 padding-bottom: 10px;
@@ -9,8 +12,12 @@ padding-bottom: 10px;
 
 .addPlace span {  
     padding-right: 20px;
+<<<<<<< HEAD
     }
 
 .addNewPlace__dashboard--h1 {
     text-align: center;
 }
+=======
+    }
+>>>>>>> develop

@@ -340,6 +340,12 @@
             "descriptionShort": '',
             "descriptionLong": 'FALLA to restauracje z nowoczesną kuchnią roślinną z elementami Bliskiego Wschodu, działające zgodnie z zasadami slow food. FALLA to świeże lokalne produkty, wzbogacone nutą orientalnych przypraw, odważne autorskie kompozycje smaków oraz eksplozja kolorów na talerzu, a przede wszystkim szczera miłość do jedzenia.'
         },
+<<<<<<< HEAD
     ]
 
     export default data;
+=======
+    ];
+
+export default data;
+>>>>>>> develop
