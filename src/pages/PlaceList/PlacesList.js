@@ -1,10 +1,14 @@
 import React, {Component} from 'react';
+import '../PlaceList/PlaceList.css';
+import SearchBar from '../../components/SearchBar/SearchBar.js'
 
 class PlaceList extends Component {
     
 
     render() {
-        return <div></div>
+        return <main className="main">
+            <SearchBar />
+        </main>
     }
 }
 

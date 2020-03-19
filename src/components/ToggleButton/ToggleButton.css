@@ -1,0 +1,11 @@
+.toggle-button__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 50rem;
+    padding-right: 3rem;
+}
+
+p {
+    color: var(--color-dark)
+}

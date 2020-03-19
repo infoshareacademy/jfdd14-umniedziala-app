@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
+import { Input } from 'semantic-ui-react';
+import '../SearchBar/SearchBar.css';
+import  ToggleButton from '../ToggleButton/ToggleButton.js'
+
 
 function SearchBar() {
-    const [value, setValue] = useState('')
 
-    const 
-
-    return <div>
-        <input placeholder="Wpisz nazwę" ></input>
+    return (<div className="search-bar__wrapper">
+        <Input className="search-bar__input" action='Wyszukaj' placeholder='Wpisz nazwę...' />
+        <ToggleButton text={"Zmień kryteria wyszukiwania"}/>
     </div>
+    )
 }
 
 export default SearchBar
