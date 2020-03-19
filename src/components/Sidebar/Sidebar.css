@@ -1,18 +1,31 @@
 .sidebar {
     padding-top: 60px;
-    display: inline-flex;
+    display: none;
     flex-direction: column;
     justify-content: flex-start;
-    align-content: flex-start;
-    height: 100vh;
+    align-items: flex-end;
     width: 220px;
     background-color: var(--color-light-blue);
     position: fixed;
-   
+    right: 0;
+    z-index: 1;
+}
+
+.visible {
+    display: inline-flex;
 }
 
 .sidebar__link {
     color: var(--color-dark);
     text-decoration: none;
-    padding: 20px 0 20px 10px;
+    padding: 20px;
+}
+
+@media (min-width: 900px) {
+    .sidebar {
+        display: inline-flex;
+        align-items: flex-start;
+        height: 100vh;
+        left: 0;
+    }
 }
