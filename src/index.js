@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Switch, Route} from'react-router-dom';
+import Header from './components/Header/Header';
+import Sidebar from './components/Sidebar/Sidebar';
 import Home from './pages/Home/Home';
 import AddNewPlace from './pages/AddNewPlace/AddNewPlace';
 import NewPlaceAdded from './pages/NewPlaceAdded/NewPlaceAdded';
@@ -9,9 +11,12 @@ import PlaceList from './pages/PlaceList/PlacesList';
 import Default from './pages/Default/Default';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
+import 'semantic-ui-css/semantic.min.css';
 
 ReactDOM.render(
     <BrowserRouter>
+        <Header />
+        <Sidebar />
         <Switch>       
             <Route exact path="/" component={Home} />
             <Route path="/addnewplace" component={AddNewPlace} />

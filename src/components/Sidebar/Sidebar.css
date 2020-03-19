@@ -1,0 +1,18 @@
+.sidebar {
+    padding-top: 60px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: flex-start;
+    height: 100vh;
+    width: 220px;
+    background-color: var(--color-light-blue);
+    position: fixed;
+   
+}
+
+.sidebar__link {
+    color: var(--color-dark);
+    text-decoration: none;
+    padding: 20px 0 20px 10px;
+}
