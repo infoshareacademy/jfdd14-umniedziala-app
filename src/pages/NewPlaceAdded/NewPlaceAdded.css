@@ -18,7 +18,6 @@
 
 }
 
-
 @media all and (min-width: 900px) {
     .newPlaceAdded__text{
     font-size: 40px;
@@ -28,8 +27,7 @@
     flex-direction: column;
     }
     .newPlaceAdded__buttons--placeDecription {
-        padding: 20px 10px 10px 230px;
-    
+        padding: 20px 10px 10px 230px;    
     }
     .newPlaceAdded__buttons--placeList {
         padding: 20px 10px 10px 230px;
