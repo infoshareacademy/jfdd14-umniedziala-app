@@ -1,10 +1,10 @@
 .newPlaceAdded {
     display: flex;
     height: 100vh;  
-    padding: 70px 10px 10px 230px;
+    padding: 10px;
+    padding-top: 50px;
     font-size: 25px;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
 }
 
@@ -13,26 +13,25 @@
     text-align: center;
     font-size: 40px;
 }
-
 .newPlaceAdded__buttons--placeDecription {
     padding-top: 20px;
 
 }
 
-.newPlaceAdded__buttons--placeList {
-    padding-top: 20px;
-}
 
-@media all and (max-width: 850px) {
+@media all and (min-width: 900px) {
     .newPlaceAdded__text{
-    color: red;
-    font-size: 24px;
+    font-size: 40px;
+    padding: 70px 10px 10px 230px;
+    display: flex;
+    font-size: 25px;
+    flex-direction: column;
     }
-}
-
-@media all and (max-width: 607px) {
-    .newPlaceAdded__text{
-    color: blue;
-    font-size: 24px;
+    .newPlaceAdded__buttons--placeDecription {
+        padding: 20px 10px 10px 230px;
+    
+    }
+    .newPlaceAdded__buttons--placeList {
+        padding: 20px 10px 10px 230px;
     }
 }
