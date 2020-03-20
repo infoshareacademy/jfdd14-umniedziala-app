@@ -2,10 +2,17 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    width: 50rem;
-    padding-right: 3rem;
+    flex-basis: 60%;
+    padding-right: 1.5rem;
 }
 
-p {
-    color: var(--color-dark)
+.toggle-button__text {
+    color: var(--color-dark);
+    margin: 0
+}
+
+div.toggle-button__wrapper > i{
+    font-size: 1.2rem;
+    color: var(--color-dark);
+    margin: 0 1rem;
 }

@@ -1,0 +1,16 @@
+*{
+    box-sizing: border-box;
+}
+
+.search-advanced__wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.search-advanced__fields {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-basis: 100%;
+}

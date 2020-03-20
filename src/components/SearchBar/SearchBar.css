@@ -1,11 +1,25 @@
 .search-bar__wrapper{
     background-color: var(--color-light-blue);
-    height: 5rem;
+    height: 15rem;
     display: flex;
+    flex-direction: column;
     padding-left: 3rem;
     border-left: 1px solid var(--color-white);
 }
 
+.search-bar__default {
+    margin: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+
+}
+
 .search-bar__input {
+    flex-basis: 40%;
+}
+
+.search-advance__button {
     align-self: center;
 }
+

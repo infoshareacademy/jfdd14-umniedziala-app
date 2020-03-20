@@ -1,0 +1,45 @@
+.range__wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10rem;
+}
+.slider {
+    width: 200px;
+    height: 10px;
+    border-radius: 5px;
+    background: #ffffff;
+    outline: none;
+}
+
+.slider__text {
+    display: flex;
+    flex-direction: row;
+    width: 2010px;
+}
+
+.slider__text>p {
+    margin-right: 52px !important;
+    margin-top: 15px !important;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+  }
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-grey);
+  cursor: pointer;
+}
+
+.slider:-moz-range-thumb {
+    width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
