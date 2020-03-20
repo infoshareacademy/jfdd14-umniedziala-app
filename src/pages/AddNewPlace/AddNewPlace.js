@@ -17,7 +17,6 @@ const type = [
   { key: 'Kul', text: 'Kultura', value: 'Kultura' },
 ];
 const atractionData = data;
-console.log(atractionData);
 
 class FormAddPlace extends Component {
   state = {
@@ -96,7 +95,6 @@ class FormAddPlace extends Component {
               placeholder='Wybierz kategorię'
             />
           </Form.Group>
-
           <Form.Group inline>
             <label>Cena:</label>
             <Form.Radio
