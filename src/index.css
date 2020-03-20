@@ -3,9 +3,11 @@
 :root {
   --color-dark: rgb(29, 29, 29);
   --color-white: #fff;
-  --color-light-blue: rgb(208, 226, 236);
+  --color-light-blue: rgb(192, 210, 219);
   --color-blue: #3A515F;
+  --color-blue2: rgb(108, 133, 150);
   --color-grey: rgb(163, 163, 163);
+  --color-yellow: rgb(209, 169, 57);
 }
 
 /*STYLES*/
