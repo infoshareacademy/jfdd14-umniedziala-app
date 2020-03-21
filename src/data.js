@@ -2,7 +2,7 @@
     "priceRange": 'expensive', 'medium', 'cheap', 'free'
     "type": 'nature', 'sport', 'culture', 'restaurant' */
 
-    const data = [
+   export const data = [
         {
             "name": 'Park Oliwski',
             "id": 1,
