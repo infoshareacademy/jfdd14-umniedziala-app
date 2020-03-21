@@ -16,7 +16,7 @@ const type = [
   { key: 'Spo', text: 'Sport', value: 'Sport' },
   { key: 'Kul', text: 'Kultura', value: 'Kultura' },
 ];
-const atractionData = data;
+const atractionData = JSON.parse(localStorage.getItem("atractionData")) || data;;
 
 class FormAddPlace extends Component {
   state = {
@@ -40,25 +40,30 @@ class FormAddPlace extends Component {
   handleChangeTextArea = (e, { value }) => this.setState({ descriptionLong: value });
   handleChangeTerms = (e, { checked }) => this.setState({ terms: checked });
   // add To Local Storage Function
-  addToLocalStorageaAtractionName = () => (localStorage.setItem('AtractionName', this.state.name));
-  addToLocalStoragePhoto = () => (localStorage.setItem('Photo', this.state.img));
-  addToLocalStorageLocation = () => (localStorage.setItem('Location', this.state.location));
-  addToLocalStorageType = () => (localStorage.setItem('type', this.state.type));
-  addToLocalStorage = () => (localStorage.setItem('Price', this.state.priceRange));
-  addToLocalStorageTextAreaValue = () => (localStorage.setItem('Description', this.state.descriptionLong));
-  addToLocalStorageTerms = () => (localStorage.setItem('Terms', this.state.terms));
-  // add to data
+  // addToLocalStorageaAtractionName = () => (localStorage.setItem('AtractionName', this.state.name));
+  // addToLocalStoragePhoto = () => (localStorage.setItem('Photo', this.state.img));
+  // addToLocalStorageLocation = () => (localStorage.setItem('Location', this.state.location));
+  // addToLocalStorageType = () => (localStorage.setItem('type', this.state.type));
+  // addToLocalStorage = () => (localStorage.setItem('Price', this.state.priceRange));
+  // addToLocalStorageTextAreaValue = () => (localStorage.setItem('Description', this.state.descriptionLong));
+  // addToLocalStorageTerms = () => (localStorage.setItem('Terms', this.state.terms));
+  // // add to data
   addToData = () =>
     atractionData.push(this.state);
+  jsonToLocalStorage = () => 
+    {localStorage.setItem("atractionData", JSON.stringify(atractionData));
+    return (console.log(atractionData))}
+
   // Wraped Function set on Add Atraction button
   wrapedFunction = () => {
-    this.addToLocalStorageaAtractionName();
-    this.addToLocalStoragePhoto();
-    this.addToLocalStorageLocation();
-    this.addToLocalStorage();
-    this.addToLocalStorageTextAreaValue();
-    this.addToLocalStorageTerms();
+    // this.addToLocalStorageaAtractionName();
+    // this.addToLocalStoragePhoto();
+    // this.addToLocalStorageLocation();
+    // this.addToLocalStorage();
+    // this.addToLocalStorageTextAreaValue();
+    // this.addToLocalStorageTerms();
     this.addToData();
+    this.jsonToLocalStorage();
   };
 
   render() {
