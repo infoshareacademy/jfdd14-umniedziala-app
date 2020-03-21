@@ -11,10 +11,10 @@ const options = [
 ];
 
 const type = [
-  { key: 'Res', text: 'Restauracja', value: 'Restauracja' },
-  { key: 'Nat', text: 'Natura', value: 'Natura' },
-  { key: 'Spo', text: 'Sport', value: 'Sport' },
-  { key: 'Kul', text: 'Kultura', value: 'Kultura' },
+  { key: 'Res', text: 'Restauracja', value: 'restauracja' },
+  { key: 'Nat', text: 'Natura', value: 'natura' },
+  { key: 'Spo', text: 'Sport', value: 'sport' },
+  { key: 'Kul', text: 'Kultura', value: 'kultura' },
 ];
 const atractionData = JSON.parse(localStorage.getItem("atractionData")) || data;;
 
@@ -52,7 +52,7 @@ class FormAddPlace extends Component {
     atractionData.push(this.state);
   jsonToLocalStorage = () => 
     {localStorage.setItem("atractionData", JSON.stringify(atractionData));
-    return (console.log(atractionData))}
+    return (console.log(atractionData))} // wywalić jak coś
 
   // Wraped Function set on Add Atraction button
   wrapedFunction = () => {
@@ -94,7 +94,7 @@ class FormAddPlace extends Component {
             />
             <Form.Select
               input={this.state.type}
-              onChange={this.handleChangeLocation}
+              onChange={this.handleChangeType}
               label='Kategoria'
               options={type}
               placeholder='Wybierz kategorię'
@@ -115,9 +115,9 @@ class FormAddPlace extends Component {
               onChange={this.handleChange}
             />
             <Form.Radio
-              label='Średnio ($$)'
-              value='średnio'
-              checked={this.state.priceRange === 'średnio'}
+              label='Umiarkowanie ($$)'
+              value='umiarkowanie'
+              checked={this.state.priceRange === 'umiarkowanie'}
               onChange={this.handleChange}
             />
             <Form.Radio

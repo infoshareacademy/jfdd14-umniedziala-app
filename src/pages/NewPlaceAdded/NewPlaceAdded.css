@@ -9,13 +9,17 @@
 }
 
 .newPlaceAdded__text {
-    padding-bottom: 40px;
+    padding-top: inherit;
+    padding-bottom: 10px;
     text-align: center;
-    font-size: 40px;
+    font-size: 20px;
 }
 .newPlaceAdded__buttons--placeDecription {
-    padding-top: 20px;
+    padding: 10px 10px 10px 0px;
+}
 
+.newPlaceAdded__buttons--placeList {
+    padding: 20px 10px 10px 0px;
 }
 
 @media all and (min-width: 900px) {
@@ -25,6 +29,7 @@
     display: flex;
     font-size: 25px;
     flex-direction: column;
+
     }
     .newPlaceAdded__buttons--placeDecription {
         padding: 20px 10px 10px 230px;    
@@ -32,4 +37,5 @@
     .newPlaceAdded__buttons--placeList {
         padding: 20px 10px 10px 230px;
     }
+    
 }
