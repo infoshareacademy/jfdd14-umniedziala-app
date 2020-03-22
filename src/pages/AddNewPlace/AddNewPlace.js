@@ -17,7 +17,7 @@ const type = [
   { key: 'Spo', text: 'Sport', value: 'sport' },
   { key: 'Kul', text: 'Kultura', value: 'kultura' },
 ];
-const atractionData = JSON.parse(localStorage.getItem("atractionData")) || data;
+const atractionData = JSON.parse(localStorage.getItem('atractionData')) || data;
 
 class FormAddPlace extends Component {
   state = {
@@ -46,9 +46,9 @@ class FormAddPlace extends Component {
   // // add to data
   addToData = () =>
     atractionData.push(this.state);
-  jsonToLocalStorage = () => {
+  jsonToLocalStorage = () => 
     localStorage.setItem("atractionData", JSON.stringify(atractionData));
-  } 
+  
 
   // Wraped Function set on Add Atraction button
   wrapedFunction = () => {
@@ -121,7 +121,7 @@ class FormAddPlace extends Component {
           <Form.Checkbox label='Zgadzam się z warunkami korzystania z usługi' name='terms' checked={this.state.terms} onChange={this.handleChangeTerms} />
           {buttonTrue}
           {buttonFalse}
-        </Form>r
+        </Form>
       </main>
     )
   }
