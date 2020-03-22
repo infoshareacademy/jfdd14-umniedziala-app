@@ -31,6 +31,7 @@ class FormAddPlace extends Component {
     descriptionLong: "",
     terms: false,
   };
+
   //handle Change Function
   handleChangeAtractionName = (e, { value }) => this.setState({ name: value });
   handleChangePhoto = (e, { value }) => this.setState({ img: value });
@@ -39,29 +40,13 @@ class FormAddPlace extends Component {
   handleChange = (e, { value }) => this.setState({ priceRange: value });
   handleChangeTextArea = (e, { value }) => this.setState({ descriptionLong: value });
   handleChangeTerms = (e, { checked }) => this.setState({ terms: checked });
-  // add To Local Storage Function
-  // addToLocalStorageaAtractionName = () => (localStorage.setItem('AtractionName', this.state.name));
-  // addToLocalStoragePhoto = () => (localStorage.setItem('Photo', this.state.img));
-  // addToLocalStorageLocation = () => (localStorage.setItem('Location', this.state.location));
-  // addToLocalStorageType = () => (localStorage.setItem('type', this.state.type));
-  // addToLocalStorage = () => (localStorage.setItem('Price', this.state.priceRange));
-  // addToLocalStorageTextAreaValue = () => (localStorage.setItem('Description', this.state.descriptionLong));
-  // addToLocalStorageTerms = () => (localStorage.setItem('Terms', this.state.terms));
-  // // add to data
-  addToData = () =>
-    atractionData.push(this.state);
-  jsonToLocalStorage = () => 
-    {localStorage.setItem("atractionData", JSON.stringify(atractionData));
-    return (console.log(atractionData))} // wywalić jak coś
+
+  // add to data
+  addToData = () => atractionData.push(this.state);
+  jsonToLocalStorage = () => localStorage.setItem("atractionData", JSON.stringify(atractionData));
 
   // Wraped Function set on Add Atraction button
   wrapedFunction = () => {
-    // this.addToLocalStorageaAtractionName();
-    // this.addToLocalStoragePhoto();
-    // this.addToLocalStorageLocation();
-    // this.addToLocalStorage();
-    // this.addToLocalStorageTextAreaValue();
-    // this.addToLocalStorageTerms();
     this.addToData();
     this.jsonToLocalStorage();
   };
