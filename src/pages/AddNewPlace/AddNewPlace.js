@@ -74,15 +74,17 @@ class FormAddPlace extends Component {
         <br></br>
         <Form>
           <Form.Group widths='equal'>
-            <Form.Input input={this.state.name} onChange={this.handleChangeAtractionName} label='Nazwa atrakcji' placeholder='Nazwa atrakcji' />
-            <Form.Input input={this.state.img} onChange={this.handleChangePhoto} label='Zdjęcie' placeholder='Zdjęcie' />
+            <Form.Input required input={this.state.name} onChange={this.handleChangeAtractionName} label='Nazwa atrakcji' placeholder='Nazwa atrakcji' />
+            <Form.Input required input={this.state.img} onChange={this.handleChangePhoto} label='Zdjęcie' placeholder='Zdjęcie' />
             <Form.Select
+              required
               input={this.state.location} onChange={this.handleChangeLocation}
               label='Lokalizacja'
               options={options}
               placeholder='Wybierz lokalizację'
             />
             <Form.Select
+              required
               input={this.state.type}
               onChange={this.handleChangeType}
               label='Kategoria'
@@ -117,8 +119,8 @@ class FormAddPlace extends Component {
               onChange={this.handleChange}
             />
           </Form.Group>
-          <Form.TextArea input={this.state.descriptionLong} onChange={this.handleChangeTextArea} label='Opis' placeholder='Opisz atrakcję' />
-          <Form.Checkbox label='Zgadzam się z warunkami korzystania z usługi' name='terms' checked={this.state.terms} onChange={this.handleChangeTerms} />
+          <Form.TextArea required input={this.state.descriptionLong} onChange={this.handleChangeTextArea} label='Opis' placeholder='Opisz atrakcję' />
+          <Form.Checkbox required label='Zgadzam się z warunkami korzystania z usługi' name='terms' checked={this.state.terms} onChange={this.handleChangeTerms} />
           {buttonTrue}
           {buttonFalse}
         </Form>
