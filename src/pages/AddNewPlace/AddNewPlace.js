@@ -4,6 +4,7 @@ import { Form, Popup, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import data from '../../data';
 
+
 const options = [
   { key: 'Gda', text: 'Gdańsk', value: 'Gdańsk' },
   { key: 'Sop', text: 'Sopot', value: 'Sopot' },
@@ -16,7 +17,7 @@ const type = [
   { key: 'Spo', text: 'Sport', value: 'sport' },
   { key: 'Kul', text: 'Kultura', value: 'kultura' },
 ];
-const atractionData = JSON.parse(localStorage.getItem("atractionData")) || data;;
+const atractionData = JSON.parse(localStorage.getItem("atractionData")) || data;
 
 class FormAddPlace extends Component {
   state = {
@@ -40,10 +41,14 @@ class FormAddPlace extends Component {
   handleChange = (e, { value }) => this.setState({ priceRange: value });
   handleChangeTextArea = (e, { value }) => this.setState({ descriptionLong: value });
   handleChangeTerms = (e, { checked }) => this.setState({ terms: checked });
+  Terms = () => (localStorage.setItem('Terms', this.state.terms));
 
-  // add to data
-  addToData = () => atractionData.push(this.state);
-  jsonToLocalStorage = () => localStorage.setItem("atractionData", JSON.stringify(atractionData));
+  // // add to data
+  addToData = () =>
+    atractionData.push(this.state);
+  jsonToLocalStorage = () => {
+    localStorage.setItem("atractionData", JSON.stringify(atractionData));
+  } 
 
   // Wraped Function set on Add Atraction button
   wrapedFunction = () => {
@@ -116,7 +121,7 @@ class FormAddPlace extends Component {
           <Form.Checkbox label='Zgadzam się z warunkami korzystania z usługi' name='terms' checked={this.state.terms} onChange={this.handleChangeTerms} />
           {buttonTrue}
           {buttonFalse}
-        </Form>
+        </Form>r
       </main>
     )
   }
