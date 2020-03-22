@@ -1,117 +1,133 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './AddNewPlace.css';
-import {Form} from 'semantic-ui-react'; // jezeli wprowadzanie zaawansowane to musi być form jezeli nie to wywalić
-import {Link} from 'react-router-dom'
+import { Form, Popup, Button } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
+import data from '../../data';
 
 
-// function AddNewPlace() {
-    
-//     return (
-//         <main className='dashboard'>
-//             <div className='addPlace'>
-//                 <h1 className='addPlace__h1'>Dodaj swoje miejsce</h1>
-//                 <div className='addPlace__name'><span>Nazwa miejsca:</span><Input></Input></div>
-//                 <div className='addPlace__price'><span>Cena:</span><Input></Input>(tanio, średnio, drogo)</div>
-//                 <div className='addPlace__category'><span>Kategoria:</span><Input></Input></div>
-//                 <div className='addPlace__img'><span>Zdjęcie:</span><Input></Input ></div>
-//                 <div className='addPlace__location'><span>Lokalizacja:</span><Input></Input></div>
-//                 <div className='addPlace__description'><span>Opis:</span><Input></Input></div>
-//                 <Button>Dodaj nowe miejsce</Button>
-//             </div>
-//         </main>
-       
-//     )
-//     }
-    
-//     export default AddNewPlace;
+const options = [
+  { key: 'Gda', text: 'Gdańsk', value: 'Gdańsk' },
+  { key: 'Sop', text: 'Sopot', value: 'Sopot' },
+  { key: 'Gdy', text: 'Gdynia', value: 'Gdynia' },
+];
 
-   
-    
-    const options = [
-      { key: 'Gda', text: 'Gdańsk', value: 'gdańsk' },
-      { key: 'Sop', text: 'Sopot', value: 'sopot' },
-      { key: 'Gdy', text: 'Gdynia', value: 'gdynia' },
-    ]
-    
-    class FormAddPlace extends Component {
-      state = {}
-    
-      handleChange = (e, { value }) => this.setState({ value })
-    
-      render() {
-        const { value } = this.state
-        return (
-            <main className='dashboard'>
-                <h1 className='dashboard__h1'>Dodaj swoją atrakcję</h1>
-                <br></br>
-          <Form>
-            <Form.Group widths='equal'>
-              <Form.Input fluid label='Nazwa atrakcji' placeholder='Nazwa atrakcji' />
-              <Form.Input fluid label='Zdjęcie' placeholder='Zdjęcie' />
-              <Form.Select
-                fluid
-                label='Lokalizacja'
-                options={options}
-                placeholder='Wybierz lokalizację'
-              />
-            </Form.Group>
-            <Form.Group inline>
-              <label>Kategoria:</label>
-              <Form.Radio
-                label='Gastronomia'
-                value='gastro'
-                checked={value === 'gastro'}
-                onChange={this.handleChange}
-              />
-              <Form.Radio
-                label='Natura'
-                value='natura'
-                checked={value === 'natura'}
-                onChange={this.handleChange}
-              />
-              <Form.Radio
-                label='Kultura'
-                value='kultura'
-                checked={value === 'kultura'}
-                onChange={this.handleChange}
-              />
-               <Form.Radio
-                label='Sport'
-                value='sport'
-                checked={value === 'sport'}
-                onChange={this.handleChange}
-              />
-            </Form.Group>
-            <Form.Group inline>
-              <label>Cena:</label>
-              <Form.Radio
-                label='Tanio ($)'
-                value='sm'
-                checked={value === 'sm'}
-                onChange={this.handleChange}
-              />
-              <Form.Radio
-                label='Średnio ($$)'
-                value='md'
-                checked={value === 'md'}
-                onChange={this.handleChange}
-              />
-              <Form.Radio
-                label='Drogo ($$$)'
-                value='lg'
-                checked={value === 'lg'}
-                onChange={this.handleChange}
-              />
-            </Form.Group>
-            <Form.TextArea label='Opis' placeholder='Opisz atrakcję' />
-            <Form.Checkbox label='Zgadzam się z warunkami korzystania z usługi' />
-            <Link to='/placeadded'>
-                <Form.Button>Dodaj atrakcję</Form.Button>
-            </Link>
-          </Form>
-          </main>
-        )
-      }
-    }
-    
-    export default FormAddPlace
+const type = [
+  { key: 'Res', text: 'Restauracja', value: 'restauracja' },
+  { key: 'Nat', text: 'Natura', value: 'natura' },
+  { key: 'Spo', text: 'Sport', value: 'sport' },
+  { key: 'Kul', text: 'Kultura', value: 'kultura' },
+];
+const atractionData = JSON.parse(localStorage.getItem('atractionData')) || data;
+
+class FormAddPlace extends Component {
+  state = {
+    name: "",
+    id: atractionData.length + 1,
+    favorite: false,
+    priceRange: "",
+    type: "",
+    img: "",
+    location: "",
+    descriptionShort: "",
+    descriptionLong: "",
+    terms: false,
+  };
+
+  //handle Change Function
+  handleChangeAtractionName = (e, { value }) => this.setState({ name: value });
+  handleChangePhoto = (e, { value }) => this.setState({ img: value });
+  handleChangeLocation = (e, { value }) => this.setState({ location: value });
+  handleChangeType = (e, { value }) => this.setState({ type: value });
+  handleChange = (e, { value }) => this.setState({ priceRange: value });
+  handleChangeTextArea = (e, { value }) => this.setState({ descriptionLong: value });
+  handleChangeTerms = (e, { checked }) => this.setState({ terms: checked });
+  Terms = () => (localStorage.setItem('Terms', this.state.terms));
+
+  // // add to data
+  addToData = () =>
+    atractionData.push(this.state);
+  jsonToLocalStorage = () => 
+    localStorage.setItem("atractionData", JSON.stringify(atractionData));
+  
+
+  // Wraped Function set on Add Atraction button
+  wrapedFunction = () => {
+    this.addToData();
+    this.jsonToLocalStorage();
+  };
+
+  render() {
+    const isTermTrue = this.state.terms;
+    let buttonTrue;
+    let buttonFalse;
+    if (isTermTrue) {
+      buttonTrue =
+        <Link to='/placeadded'>
+          <Form.Button onClick={this.wrapedFunction}>Dodaj atrakcję</Form.Button>
+        </Link>
+    } else {
+      buttonFalse = <Popup content='Zaznacz wymagane zgody' trigger={<Button>Dodaj atrakcję</Button>} />;
+    };
+    return (
+      <main className='addNewPlace__dashboard'>
+        <h1 className='addNewPlace__dashboard--h1'>Dodaj swoją atrakcję</h1>
+        <br></br>
+        <Form>
+          <Form.Group widths='equal'>
+            <Form.Input required input={this.state.name} onChange={this.handleChangeAtractionName} label='Nazwa atrakcji' placeholder='Nazwa atrakcji' />
+            <Form.Input required input={this.state.img} onChange={this.handleChangePhoto} label='Zdjęcie' placeholder='Zdjęcie' />
+            <Form.Select
+              required
+              input={this.state.location} onChange={this.handleChangeLocation}
+              label='Lokalizacja'
+              options={options}
+              placeholder='Wybierz lokalizację'
+            />
+            <Form.Select
+              required
+              input={this.state.type}
+              onChange={this.handleChangeType}
+              label='Kategoria'
+              options={type}
+              placeholder='Wybierz kategorię'
+            />
+          </Form.Group>
+          <Form.Group inline>
+            <label>Cena:</label>
+            <Form.Radio
+              label='Darmowe'
+              value='darmowe'
+              checked={this.state.priceRange === 'darmowe'}
+              onChange={this.handleChange}
+            />
+            <Form.Radio
+              label='Tanio ($)'
+              value='tanio'
+              checked={this.state.priceRange === 'tanio'}
+              onChange={this.handleChange}
+            />
+            <Form.Radio
+              label='Umiarkowanie ($$)'
+              value='umiarkowanie'
+              checked={this.state.priceRange === 'umiarkowanie'}
+              onChange={this.handleChange}
+            />
+            <Form.Radio
+              label='Drogo ($$$)'
+              value='drogo'
+              checked={this.state.priceRange === 'drogo'}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.TextArea required input={this.state.descriptionLong} onChange={this.handleChangeTextArea} label='Opis' placeholder='Opisz atrakcję' />
+          <Form.Checkbox required label='Zgadzam się z warunkami korzystania z usługi' name='terms' checked={this.state.terms} onChange={this.handleChangeTerms} />
+          {buttonTrue}
+          {buttonFalse}
+        </Form>
+      </main>
+    )
+  }
+}
+
+export default FormAddPlace;
+export { atractionData };

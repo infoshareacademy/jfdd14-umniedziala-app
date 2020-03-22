@@ -13,8 +13,6 @@ class NewPlaceAdded extends Component {
                 Gratulacje!
                     <br></br>
                     <br></br>
-                    <br></br>
-                    <br></br>
                 Twoje miejsce zostało dodane! 
             </div>
             <div className='newPlaceAdded__buttons--placeDecription'>
