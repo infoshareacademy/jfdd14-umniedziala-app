@@ -1,6 +1,5 @@
 .main {
     box-sizing: border-box;
-    margin-top: 60px;
-    margin-left: 220px;
+    padding: 60px 10px 10px 220px
 }
 
