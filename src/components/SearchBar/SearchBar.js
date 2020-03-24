@@ -35,6 +35,7 @@ function SearchBar() {
         return<div key={el.id}>
             <h3>{el.name}</h3>
             <p>{el.descriptionLong}</p>
+            <br></br>
         </div> 
     })
 
@@ -46,8 +47,8 @@ function SearchBar() {
                 <ToggleButton name={!isVisible ? "angle down" : "angle up"} fn={changeVisibility} text={!isVisible ? "Zmień kryteria wyszukiwania" : "Schowaj"}/>
             </div>
             {!isVisible ? null : <SearchAdvanced />}
-            <Button className="search-advance__button">Zastosuj</Button>
-            <div>
+            {/* <Button className="search-advance__button">Zastosuj</Button> */}
+            <div className="search-bar_results">
                 {inputValue === '' ? renderPlaces(data) : renderPlaces(results)}
             </div>
         </div>
