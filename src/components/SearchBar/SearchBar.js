@@ -43,7 +43,7 @@ function SearchBar() {
     return ( 
         <div className="search-bar__wrapper">
             <div className="search-bar__default">
-                <Input className="search-bar__input" placeholder='Wpisz nazwę atrakcji...' value={inputValue} onChange={handleChange}  />
+                <Input className="search-bar__input" placeholder='Wyszukaj po nazwie atrakcji' value={inputValue} onChange={handleChange}  />
                 <ToggleButton name={!isVisible ? "angle down" : "angle up"} fn={changeVisibility} text={!isVisible ? "Zmień kryteria wyszukiwania" : "Schowaj"}/>
             </div>
             {!isVisible ? null : <SearchAdvanced />}
