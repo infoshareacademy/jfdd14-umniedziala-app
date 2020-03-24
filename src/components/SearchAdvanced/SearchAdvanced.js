@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../SearchAdvanced/SearchAdvanced.css';
 import  ToggleButton from '../ToggleButton/ToggleButton.js';
 import DropDownInput from '../DropDown/DropDown';
@@ -18,10 +18,11 @@ const optionsCategory = [
   ]
 
 
+
+
 function SearchAdvanced() {
 
     return (<div className="search-advanced__wrapper">
-        {/* <ToggleButton text={"Schowaj"} name={"angle up"} fn={() => console.log(333)}/> */}
         <div className="search-advanced__fields">
             <DropDownInput type={'Kategoria'} options={optionsCategory} />
             <DropDownInput type={'Lokalizacja'} options={optionsLocation} />

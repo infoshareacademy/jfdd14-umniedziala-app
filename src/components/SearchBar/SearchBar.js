@@ -11,8 +11,10 @@ function SearchBar() {
 
     const [inputValue, setInputValue] = useState('');
     const [categoryValue, setCategoryValue] = useState('');
-    const [results, setResults] = useState([])
+    const [results, setResults] = useState([]);
+    const [isVisible, setIsVisible] = useState(false);
 
+    const changeVisibility = () => setIsVisible(!isVisible);
   
     const getResults = () => {
         return setResults(data.filter((el) => el.name.toLowerCase().includes(inputValue.toLowerCase())
@@ -36,13 +38,14 @@ function SearchBar() {
         </div> 
     })
 
+
     return ( 
         <div className="search-bar__wrapper">
             <div className="search-bar__default">
                 <Input className="search-bar__input" placeholder='Wpisz nazwę atrakcji...' value={inputValue} onChange={handleChange}  />
-                <ToggleButton text={"Zmień kryteria wyszukiwania"} name={"angle down"} fn={() => console.log(2112)}/>
+                <ToggleButton name={!isVisible ? "angle down" : "angle up"} fn={changeVisibility} text={!isVisible ? "Zmień kryteria wyszukiwania" : "Schowaj"}/>
             </div>
-            <SearchAdvanced />
+            {!isVisible ? null : <SearchAdvanced />}
             <Button className="search-advance__button">Zastosuj</Button>
             <div>
                 {inputValue === '' ? renderPlaces(data) : renderPlaces(results)}
