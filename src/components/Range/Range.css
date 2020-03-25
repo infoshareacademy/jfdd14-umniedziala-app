@@ -4,6 +4,11 @@
   margin-left: 8rem;
   flex-basis: 25%;
 }
+
+.range__label {
+  width: fit-content;
+}
+
 .slider {
   width: 200px;
   height: 10px;

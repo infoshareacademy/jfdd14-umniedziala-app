@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import '../Range/Range.css'
+import '../Range/Range.css';
+import { Label } from 'semantic-ui-react';
+
+
 
 function Range(props) {
     return (<div className="range__wrapper">
-         <p>Cena:</p>
+        <Label className='range__label' pointing='below'>Wybierze przedział cenowy</Label>
          <input className="slider" type="range" min='0' max="3" step="1"></input>
          <div className="slider__text">
             <p>0</p>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import '../SearchAdvanced/SearchAdvanced.css';
-import  ToggleButton from '../ToggleButton/ToggleButton.js';
 import DropDownInput from '../DropDown/DropDown';
 import Range from '../Range/Range'
 
@@ -24,8 +23,8 @@ function SearchAdvanced() {
 
     return (<div className="search-advanced__wrapper">
         <div className="search-advanced__fields">
-            <DropDownInput type={'Kategoria'} options={optionsCategory} />
-            <DropDownInput type={'Lokalizacja'} options={optionsLocation} />
+            <DropDownInput type={'Kategoria'} options={optionsCategory} label={'Wybierz kategorię'} />
+            <DropDownInput type={'Lokalizacja'} options={optionsLocation} label={'Wybierz lokalizację'}/>
             <Range />
         </div>
     </div>

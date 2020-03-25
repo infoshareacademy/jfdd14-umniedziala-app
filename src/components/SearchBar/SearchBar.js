@@ -1,6 +1,4 @@
 import React, {useEffect, useState } from 'react';
-import { Input } from 'semantic-ui-react';
-import { Button } from 'semantic-ui-react';
 import '../SearchBar/SearchBar.css';
 import  ToggleButton from '../ToggleButton/ToggleButton.js'
 import SearchAdvanced from '../SearchAdvanced/SearchAdvanced';
@@ -45,11 +43,13 @@ function SearchBar() {
     return ( 
         <div className="search-bar__wrapper">
             <div className="search-bar__default">
-                <Input className="search-bar__input" placeholder='Wyszukaj po nazwie atrakcji' value={inputValue} onChange={handleChange}  />
-                <ToggleButton name={!isVisible ? "angle down" : "angle up"} fn={changeVisibility} text={!isVisible ? "Zmień kryteria wyszukiwania" : "Schowaj"}/>
+            <div class="ui icon input">
+                <input className="search-bar__input" type="text" placeholder="Wyszukaj po nazwie atrakcji" value={inputValue} onChange={handleChange} />
+                <i aria-hidden="true" class="search icon"></i>
+            </div>
+                <ToggleButton name={!isVisible ? "angle down" : "angle up"} fn={changeVisibility} text={!isVisible ? "Fijtruj" : "Filtruj"}/>
             </div>
             {!isVisible ? null : <SearchAdvanced />}
-            {/* <Button className="search-advance__button">Zastosuj</Button> */}
             <div className="search-bar_results">
                 {inputValue === '' ? renderPlaces(data) : renderPlaces(results)}
             </div>

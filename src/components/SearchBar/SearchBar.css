@@ -9,14 +9,15 @@
 }
 
 .search-bar__default {
-    margin: 1rem;
+    margin: 1rem 0;
     display: flex;
     align-content: center;
     justify-content: space-evenly;
 }
 
 .search-bar__input {
-    flex-basis: 40%;
+    min-width: 400px;
+    max-width: 500px;
 }
 
 .search-advance__button {
