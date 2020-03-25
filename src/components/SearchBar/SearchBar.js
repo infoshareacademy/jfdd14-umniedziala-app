@@ -10,11 +10,13 @@ import {data} from '../../data.js'
 function SearchBar() {
 
     const [inputValue, setInputValue] = useState('');
-    const [categoryValue, setCategoryValue] = useState('');
     const [results, setResults] = useState([]);
     const [isVisible, setIsVisible] = useState(false);
+    const [categoryValue, setCategoryValue] = useState('');
+
 
     const changeVisibility = () => setIsVisible(!isVisible);
+    const changeVategory = (event) => setCategoryValue(event.target.value);
   
     const getResults = () => {
         return setResults(data.filter((el) => el.name.toLowerCase().includes(inputValue.toLowerCase())
