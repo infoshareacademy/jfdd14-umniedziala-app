@@ -33,7 +33,7 @@ class FormAddPlace extends Component {
     terms: false,
   };
 
-  //handle Change Function
+  // handle Change Function
   handleChangeAtractionName = (e, { value }) => this.setState({ name: value });
   handleChangePhoto = (e, { value }) => this.setState({ img: value });
   handleChangeLocation = (e, { value }) => this.setState({ location: value });
@@ -41,9 +41,11 @@ class FormAddPlace extends Component {
   handleChange = (e, { value }) => this.setState({ priceRange: value });
   handleChangeTextArea = (e, { value }) => this.setState({ descriptionLong: value });
   handleChangeTerms = (e, { checked }) => this.setState({ terms: checked });
-  Terms = () => (localStorage.setItem('Terms', this.state.terms));
 
-  // // add to data
+  handleTextChange = (e, { value, name }) => this.setState({ [name]: value });
+  handleCheckboxChange = (e, { checked, name }) => this.setState({ [name]: checked });
+
+  // add to data
   addToData = () =>
     atractionData.push(this.state);
   jsonToLocalStorage = () => 
@@ -51,31 +53,26 @@ class FormAddPlace extends Component {
   
 
   // Wraped Function set on Add Atraction button
-  wrapedFunction = () => {
+  handleSubmit = () => {
     this.addToData();
     this.jsonToLocalStorage();
   };
 
   render() {
-    const isTermTrue = this.state.terms;
-    let buttonTrue;
-    let buttonFalse;
-    if (isTermTrue) {
-      buttonTrue =
+    const button = this.state.terms ?
         <Link to='/placeadded'>
-          <Form.Button onClick={this.wrapedFunction}>Dodaj atrakcję</Form.Button>
-        </Link>
-    } else {
-      buttonFalse = <Popup content='Zaznacz wymagane zgody' trigger={<Button>Dodaj atrakcję</Button>} />;
-    };
+          <Form.Button>Dodaj atrakcję</Form.Button>
+        </Link> : 
+        <Popup content='Zaznacz wymagane zgody' trigger={<Button>Dodaj atrakcję</Button>} />
+        
     return (
       <main className='addNewPlace__dashboard'>
         <h1 className='addNewPlace__dashboard--h1'>Dodaj swoją atrakcję</h1>
         <br></br>
-        <Form>
+        <Form onSubmit={this.handleSubmit}>
           <Form.Group widths='equal'>
-            <Form.Input required input={this.state.name} onChange={this.handleChangeAtractionName} label='Nazwa atrakcji' placeholder='Nazwa atrakcji' />
-            <Form.Input required input={this.state.img} onChange={this.handleChangePhoto} label='Zdjęcie' placeholder='Zdjęcie' />
+            <Form.Input required input={this.state.name} name='name' onChange={this.handleTextChange} label='Nazwa atrakcji' placeholder='Nazwa atrakcji' />
+            <Form.Input required input={this.state.img} name='img' onChange={this.handleTextChange} label='Zdjęcie' placeholder='Zdjęcie' />
             <Form.Select
               required
               input={this.state.location} onChange={this.handleChangeLocation}
@@ -121,8 +118,7 @@ class FormAddPlace extends Component {
           </Form.Group>
           <Form.TextArea required input={this.state.descriptionLong} onChange={this.handleChangeTextArea} label='Opis' placeholder='Opisz atrakcję' />
           <Form.Checkbox required label='Zgadzam się z warunkami korzystania z usługi' name='terms' checked={this.state.terms} onChange={this.handleChangeTerms} />
-          {buttonTrue}
-          {buttonFalse}
+          {button}
         </Form>
       </main>
     )
