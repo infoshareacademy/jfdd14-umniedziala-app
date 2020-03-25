@@ -3,6 +3,7 @@ import './AddNewPlace.css';
 import { Form, Popup, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import data from '../../data';
+import CardComponent from '../../components/Card/Card';
 
 
 const options = [
@@ -114,7 +115,7 @@ class FormAddPlace extends Component {
             />
             <Form.Radio
               label='Drogo ($$$)'
-              value='drogo'
+              value='drogo' 
               checked={this.state.priceRange === 'drogo'}
               onChange={this.handleChange}
             />
