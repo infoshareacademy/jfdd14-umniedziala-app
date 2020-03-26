@@ -6,9 +6,14 @@ import './Header.css';
 
 class Header extends Component {
     state = { menuOpen: false };
+    
     changeMenuVisibility = () => {
         this.setState({menuOpen: !this.state.menuOpen});
     };
+
+    handleToggleClick = () => {
+        this.changeMenuVisibility();
+    }
 
     render() {
         return (
@@ -21,7 +26,7 @@ class Header extends Component {
                         <h1 className="header__title"><Link to="/" className="header__titleLink">tripcity</Link></h1>
                     </div>
                     <div className="header__rightBox">
-                        {this.state.menuOpen ? <i className="fas fa-times header__icon" onClick={() => this.changeMenuVisibility()}></i> : <i className="fas fa-bars header__icon" onClick={() => this.changeMenuVisibility()}></i> }
+                        {this.state.menuOpen ? <i className="fas fa-times header__icon" onClick={this.handleToggleClick}></i> : <i className="fas fa-bars header__icon" onClick={() => this.changeMenuVisibility()}></i> }
                     </div>
                 </header>
                 <Sidebar visibility={this.state.menuOpen ? "sidebar visible" : "sidebar"} />
