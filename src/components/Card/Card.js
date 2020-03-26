@@ -5,6 +5,7 @@ import './Card.css'
 
 
 const CardComponent = (props) => (
+    <div className="cardComponent">
     <Card
         href={props.link} // wstawić link do szczegółowego opisu. W ramach testów jest wrzucony link do placeadded (działa( przenosi) gdy się wciśnie na cały element)
         image={props.image}
@@ -13,6 +14,7 @@ const CardComponent = (props) => (
         description={props.description}
         extra={props.price}
     />
+    </div>
 )
 
 export default CardComponent;
