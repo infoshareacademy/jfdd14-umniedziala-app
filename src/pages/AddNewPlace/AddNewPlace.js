@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './AddNewPlace.css';
 import { Form, Popup, Button } from 'semantic-ui-react';
-import { atractionData } from '../../atractionData';
+import atractionData from '../../atractionData';
 
 
 
