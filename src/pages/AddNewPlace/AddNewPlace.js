@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import './AddNewPlace.css';
 import { Form, Popup, Button } from 'semantic-ui-react';
+import { SemanticToastContainer, toast } from 'react-semantic-toasts';
+import 'react-semantic-toasts/styles/react-semantic-alert.css';
+// import Toasts from '../../components/Toasts/Toasts';
 import atractionData from '../../atractionData';
-
-
+import './AddNewPlace.css';
 
 const options = [
   { key: 'Gda', text: 'Gdańsk', value: 'Gdańsk' },
@@ -44,10 +45,10 @@ class FormAddPlace extends Component {
     this.addToData();
     this.jsonToLocalStorage();
   };
-
+  
   render() {
     const button = this.state.terms ?
-      <Form.Button type='submit' >Dodaj atrakcję</Form.Button> :
+      <Form.Button type='submit'>Dodaj atrakcję</Form.Button> :
       <Popup content='Zaznacz wymagane zgody' trigger={<Button>Dodaj atrakcję</Button>} />
 
     return (
@@ -110,6 +111,7 @@ class FormAddPlace extends Component {
           <Form.TextArea required input={this.state.descriptionLong} onChange={this.handleChangeTextArea} name="descriptionLong" label='Opis' placeholder='Opisz atrakcję' />
           <Form.Checkbox required label='Zgadzam się z warunkami korzystania z usługi' name='terms' checked={this.state.terms} onChange={this.handleCheckboxChange} />
           {button}
+          <SemanticToastContainer/>
         </Form>
       </main>
     )
