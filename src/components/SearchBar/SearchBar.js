@@ -14,7 +14,7 @@ function SearchBar() {
 
 
     const changeVisibility = () => setIsVisible(!isVisible);
-    const changeVategory = (event) => setCategoryValue(event.target.value);
+    const changeCategory = (event) => setCategoryValue(event.target.value);
   
     const getResults = () => {
         return setResults(data.filter((el) => el.name.toLowerCase().includes(inputValue.toLowerCase())
@@ -23,6 +23,10 @@ function SearchBar() {
 
     const handleChange = (event) => {
         setInputValue(event.target.value);
+    }
+
+    const handleCategoryChange = (event) => {
+        setCategoryValue(event.target.value);
     }
 
     useEffect(() => {
@@ -47,7 +51,7 @@ function SearchBar() {
                 <input className="search-bar__input" type="text" placeholder="Wyszukaj po nazwie atrakcji" value={inputValue} onChange={handleChange} />
                 <i aria-hidden="true" class="search icon"></i>
             </div>
-                <ToggleButton name={!isVisible ? "angle down" : "angle up"} fn={changeVisibility} text={!isVisible ? "Fijtruj" : "Filtruj"}/>
+                <ToggleButton name={!isVisible ? "angle down" : "angle up"} fn={changeVisibility}/>
             </div>
             {!isVisible ? null : <SearchAdvanced />}
             <div className="search-bar_results">
