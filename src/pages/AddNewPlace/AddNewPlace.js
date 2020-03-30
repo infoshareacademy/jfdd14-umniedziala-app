@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Form, Popup, Button } from 'semantic-ui-react';
-import { SemanticToastContainer, toast } from 'react-semantic-toasts';
-import 'react-semantic-toasts/styles/react-semantic-alert.css';
-// import Toasts from '../../components/Toasts/Toasts';
+// import Toast from "../../components/Toasts/Toast";
 import atractionData from '../../atractionData';
 import './AddNewPlace.css';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { css } from 'glamor';
+
 
 const options = [
   { key: 'Gda', text: 'Gdańsk', value: 'Gdańsk' },
@@ -45,10 +47,25 @@ class FormAddPlace extends Component {
     this.addToData();
     this.jsonToLocalStorage();
   };
-  
+
+  notify = () => toast(
+    "Dodano nową atrakcję !!!", {
+      className: css({
+        background: 'white'
+      }),
+      bodyClassName: css({
+        fontSize: '20px',
+        color: 'var(--color-blue)'
+      }),
+      progressClassName: css({
+        background: "var(--color-blue)"
+      }),
+      position: toast.POSITION.BOTTOM_LEFT,
+    });
+
   render() {
     const button = this.state.terms ?
-      <Form.Button type='submit'>Dodaj atrakcję</Form.Button> :
+      <Form.Button type='submit' onClick={this.notify} >Dodaj atrakcję</Form.Button> :
       <Popup content='Zaznacz wymagane zgody' trigger={<Button>Dodaj atrakcję</Button>} />
 
     return (
@@ -111,7 +128,6 @@ class FormAddPlace extends Component {
           <Form.TextArea required input={this.state.descriptionLong} onChange={this.handleChangeTextArea} name="descriptionLong" label='Opis' placeholder='Opisz atrakcję' />
           <Form.Checkbox required label='Zgadzam się z warunkami korzystania z usługi' name='terms' checked={this.state.terms} onChange={this.handleCheckboxChange} />
           {button}
-          <SemanticToastContainer/>
         </Form>
       </main>
     )

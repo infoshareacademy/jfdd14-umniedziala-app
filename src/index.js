@@ -11,10 +11,12 @@ import Default from './pages/Default/Default';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import 'semantic-ui-css/semantic.min.css';
+import { ToastContainer } from 'react-toastify';
 
 ReactDOM.render(
     <BrowserRouter>
         <Header />
+        <ToastContainer />
         <Switch>       
             <Route exact path="/" component={Home} />
             <Route path="/addnewplace" component={AddNewPlace} />
