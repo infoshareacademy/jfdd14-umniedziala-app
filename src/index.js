@@ -7,6 +7,7 @@ import AddNewPlace from './pages/AddNewPlace/AddNewPlace';
 import NewPlaceAdded from './pages/NewPlaceAdded/NewPlaceAdded';
 import PlaceDetails from './pages/PlaceDetails/PlaceDetails';
 import PlaceList from './pages/PlaceList/PlacesList';
+import FavouriteList from './pages/FavouriteList/FavouriteList';
 import Default from './pages/Default/Default';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
@@ -21,6 +22,7 @@ ReactDOM.render(
             <Route path="/placeadded" component={NewPlaceAdded} />
             <Route path="/placedetails" component={PlaceDetails} />
             <Route path="/placelist" component={PlaceList} />
+            <Route path="/myfavourites" component={FavouriteList} />
             <Route component={Default} />
         </Switch>
     </BrowserRouter>, document.getElementById('root')
