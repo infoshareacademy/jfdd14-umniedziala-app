@@ -1,7 +1,38 @@
-.placeDetails__dasboard {
-    padding: 10px;
+
+.placeDetails{
+    padding: 70px 10px 10px 10px;
+    display: flex;
 }
 
-.placeDetails__dasboard--h1 {
-    text-align: center;
+.dashboard__placeDetails {
+    margin: 50px auto;
+    min-width: fit-content;
+}
+
+.dashboard__placeDetails--hero {
+    display: flex
+}
+
+.image-wrapper {
+    width: 50%;
+    position: relative;
+    display: inline-block;
+}
+
+ /* {
+    display: block;
+    width: 338.233px;
+    height: 318.566px;
+} */
+
+.dashboard__placeDetails--right {
+    width: 51%;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+@media (min-width: 900px) {
+    .placeDetails {
+        padding: 70px 10px 10px 230px;
+    }
 }

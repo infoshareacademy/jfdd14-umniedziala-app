@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './AddNewPlace.css';
 import { Form, Popup, Button } from 'semantic-ui-react';
-import atractionData from '../../atractionData';
+import attractionData from '../../attractionData';
 
 
 
@@ -36,9 +36,9 @@ class FormAddPlace extends Component {
   handleCheckboxChange = (e, { checked, name }) => this.setState({ [name]: checked });
 
   addToData = () =>
-    atractionData.push(this.state);
+    attractionData.push(this.state);
   jsonToLocalStorage = () =>
-    localStorage.setItem("atractionData", JSON.stringify(atractionData));
+    localStorage.setItem("atractionData", JSON.stringify(attractionData));
 
   handleSubmit = () => {
     this.addToData();
