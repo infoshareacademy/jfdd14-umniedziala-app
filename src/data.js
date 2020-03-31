@@ -5,7 +5,6 @@
     const data = [
         {
             "name": 'Park Oliwski',
-            "id": 1,
             "favorite": false,
             "priceRange": 'free',
             "type": 'nature',

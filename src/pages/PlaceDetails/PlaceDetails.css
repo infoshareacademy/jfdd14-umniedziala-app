@@ -19,16 +19,22 @@
     display: inline-block;
 }
 
- /* {
-    display: block;
-    width: 338.233px;
-    height: 318.566px;
-} */
+.test {
+    width: 600px;
+    height: 400px;
+}
 
 .dashboard__placeDetails--right {
     width: 51%;
     display: inline-block;
     box-sizing: border-box;
+    text-align: center;
+}
+
+.dashboard__placeDetails--description :first-child{
+    padding: 5px;
+    text-align: justify;
+    font-size: 18px;
 }
 
 @media (min-width: 900px) {

@@ -1,26 +1,23 @@
 import React, { Component } from "react";
-// import attractionData from '../../attractionData';
 import "./PlaceDetails.css";
 import attractionData from "../../attractionData";
 
 class PlaceDetails extends Component {
-    state = {
-        listOfAll: [...attractionData]
-    };
-
-    // getData = () => {
-    //     this.setState({
-    //         listOfAll: [...data]
-    //     })
-    // }
     render() {
-        const attraction = this.state.listOfAll[0];
+        const attraction = attractionData.find(
+            element => element.id === Number(this.props.match.params.id)
+        );
+
         return (
             <main className="placeDetails">
                 <div className="dashboard__placeDetails">
                     <div className="dashboard__placeDetails--hero">
                         <div className="image-wrapper">
-                            <img src={attraction.img} alt="attractionImage" />
+                            <img
+                                className="test"
+                                src={attraction.img}
+                                alt="attractionImage"
+                            />
                         </div>
                         <div className="dashboard__placeDetails--right">
                             <h2 className="dashboard__placeDetails--image">
@@ -33,6 +30,7 @@ class PlaceDetails extends Component {
                                 {attraction.type}
                             </p>
                             <p className="dashboard__placeDetails--priceRange">
+                                <i className="dollar sign icon"></i>
                                 {attraction.priceRange}
                             </p>
                             <p className="dashboard__placeDetails--favourite">
@@ -40,7 +38,7 @@ class PlaceDetails extends Component {
                             </p>
                         </div>
                     </div>
-                    <div className="ashboard__placeDetails--description">
+                    <div className="dashboard__placeDetails--description">
                         <p>{attraction.descriptionLong}</p>
                     </div>
                 </div>
@@ -50,13 +48,3 @@ class PlaceDetails extends Component {
 }
 
 export default PlaceDetails;
-
-/* 
-<CardComponent
-link={'/placeadded'}
-image={atractionData['0'].img}
-//header={atractionData['0'].name}
-meta={atractionData['0'].name}
-description={atractionData['0'].descriptionLong.slice(0, 100) + "..."}
-price={"Przedział cenowy: " + " " + " " + atractionData['0'].priceRange}
-/>  */
