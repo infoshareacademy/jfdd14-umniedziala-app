@@ -4,9 +4,9 @@ import './FavouriteList.css';
 class FavouriteList extends Component {
     render() {
         return( 
-        <main className="dashboardFavourite">
-            
-        </main>
+            <main className="dashboardFavourite">
+                
+            </main>
         )
     }
 }

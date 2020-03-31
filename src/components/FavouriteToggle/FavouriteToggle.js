@@ -12,6 +12,10 @@ class FavouriteToggle extends Component {
   heartFull = <i className="fas fa-heart dashboardFavourite__icon"></i>;
   heartEmpty = <i className="far fa-heart dashboardFavourite__icon"></i>;
 
+  componentDidMount() {
+    this.setState({ favStatus: this.state.object.favorite });
+  };
+
   toggleOnClick = () => {
     this.setState({ favStatus: !this.state.favStatus });
     const listModified = [...this.state.list];
@@ -23,18 +27,10 @@ class FavouriteToggle extends Component {
     localStorage.setItem("atractionData", JSON.stringify(listModified));
   }
 
-  componentDidMount() {
-    this.setState({ favStatus: this.state.object.favorite });
-  };
-
   render() {
     const heartIcon = this.state.favStatus ? this.heartFull : this.heartEmpty;
-
     return (
-      <div>
-        <p>{this.state.object.name}</p>
-        <span onClick={this.toggleOnClick}>{heartIcon}</span>
-      </div>
+      <span onClick={this.toggleOnClick}>{heartIcon}</span>
     )
   }
 }
