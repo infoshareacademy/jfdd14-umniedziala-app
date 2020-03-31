@@ -3,28 +3,13 @@ import '../SearchAdvanced/SearchAdvanced.css';
 import DropDownInput from '../DropDown/DropDown';
 import Range from '../Range/Range'
 
-const optionsCategory = [
-    { key: 'culture', text: 'Kultura', value: 'Kultura' },
-    { key: 'nature', text: 'Natura', value: 'Natura' },
-    { key: 'restaurant', text: 'Restauracja', value: 'Restauracja' },
-    { key: 'sport', text: 'Sport', value: 'Sport' },
-  ]
 
-  const optionsLocation = [
-    { key: 'Gdańsk', text: 'Gdańsk', value: 'Gdańsk' },
-    { key: 'Gdynia', text: 'Gdynia', value: 'Gdynia' },
-    { key: 'Sopot', text: 'Sopot', value: 'Sopot' },
-  ]
-
-
-
-
-function SearchAdvanced() {
+function SearchAdvanced(props) {
 
     return (<div className="search-advanced__wrapper">
         <div className="search-advanced__fields">
-            <DropDownInput type={'Kategoria'} options={optionsCategory} label={'Wybierz kategorię'} />
-            <DropDownInput type={'Lokalizacja'} options={optionsLocation} label={'Wybierz lokalizację'}/>
+            <DropDownInput type={'Kategoria'} value={props.categoryValue} options={props.optionsCategory} label={'Wybierz kategorię'} onChange={props.onOptionCategoryChange}/>
+            <DropDownInput type={'Lokalizacja'} value={props.locationValue} options={props.optionsLocation} label={'Wybierz lokalizację'} onChange={props.onOptionLocationChange}/>
             <Range />
         </div>
     </div>

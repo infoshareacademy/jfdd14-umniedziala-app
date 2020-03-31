@@ -5,7 +5,7 @@ import '../DropDown/DropDown.css'
 function DropDownInput(props) {
     return (<div className="drop-down__wrapper">
         <Label pointing="below">{props.label}</Label>
-        <Dropdown placeholder={props.type} fluid multiple selection options={props.options} />
+        <Dropdown placeholder={props.type} fluid multiple selection value={props.value} options={props.options} onChange={props.onChange}/>
     </div>)
 }
 
