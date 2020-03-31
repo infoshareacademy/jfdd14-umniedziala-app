@@ -40,9 +40,25 @@ class FormAddPlace extends Component {
   jsonToLocalStorage = () =>
     localStorage.setItem("atractionData", JSON.stringify(atractionData));
 
+  resetState = () => this.setState({
+    name: "",
+    id: Date.now(),
+    favorite: false,
+    priceRange: "",
+    type: "",
+    img: "",
+    location: "",
+    descriptionShort: "",
+    descriptionLong: "",
+    terms: false,
+  });
+
+
   handleSubmit = () => {
     this.addToData();
     this.jsonToLocalStorage();
+    this.resetState();
+    console.log(atractionData)
   };
 
   render() {
@@ -56,11 +72,12 @@ class FormAddPlace extends Component {
         <br></br>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group widths='equal'>
-            <Form.Input required input={this.state.name} name='name' onChange={this.handleTextChange} label='Nazwa atrakcji' placeholder='Nazwa atrakcji' />
-            <Form.Input required input={this.state.img} name='img' onChange={this.handleTextChange} label='Zdjęcie' placeholder='Zdjęcie' />
+            <Form.Input required value={this.state.name} name='name' onChange={this.handleTextChange} label='Nazwa atrakcji' placeholder='Nazwa atrakcji' />
+            <Form.Input required value={this.state.img} name='img' onChange={this.handleTextChange} label='Zdjęcie' placeholder='Zdjęcie' />
             <Form.Select
               required
-              input={this.state.location} onChange={this.handleTextChange}
+              value={this.state.location} 
+              onChange={this.handleTextChange}
               name='location'
               label='Lokalizacja'
               options={options}
@@ -68,7 +85,7 @@ class FormAddPlace extends Component {
             />
             <Form.Select
               required
-              input={this.state.type}
+              value={this.state.type}
               onChange={this.handleTextChange}
               name="type"
               label='Kategoria'
@@ -107,7 +124,7 @@ class FormAddPlace extends Component {
               onChange={this.handleTextChange}
             />
           </Form.Group>
-          <Form.TextArea required input={this.state.descriptionLong} onChange={this.handleChangeTextArea} name="descriptionLong" label='Opis' placeholder='Opisz atrakcję' />
+          <Form.TextArea required value={this.state.descriptionLong} onChange={this.handleTextChange} name="descriptionLong" label='Opis' placeholder='Opisz atrakcję' />
           <Form.Checkbox required label='Zgadzam się z warunkami korzystania z usługi' name='terms' checked={this.state.terms} onChange={this.handleCheckboxChange} />
           {button}
         </Form>
