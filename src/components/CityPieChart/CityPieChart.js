@@ -23,7 +23,7 @@ class CityPieChart extends Component {
             { data01.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />) }
         </Pie>
         <Tooltip />
-        <Legend iconType="circle" iconSize="18" />
+        <Legend iconType="circle" iconSize={18} />
         </PieChart>
     );
     }
