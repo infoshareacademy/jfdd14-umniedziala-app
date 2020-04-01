@@ -59,7 +59,8 @@ class FormAddPlace extends Component {
 
   render() {
     const button = this.state.terms ?
-      <Form.Button type='submit' >Dodaj atrakcję</Form.Button> :
+      <Form.Button type='submit' >Dodaj atrakcję</Form.Button> 
+      :
       <Popup content='Zaznacz wymagane zgody' trigger={<Button>Dodaj atrakcję</Button>} />
 
     return (
@@ -68,8 +69,22 @@ class FormAddPlace extends Component {
         <br></br>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group widths='equal'>
-            <Form.Input required value={this.state.name} name='name' onChange={this.handleTextChange} label='Nazwa atrakcji' placeholder='Nazwa atrakcji' />
-            <Form.Input required value={this.state.img} name='img' onChange={this.handleTextChange} label='Zdjęcie' placeholder='Zdjęcie' />
+            <Form.Input 
+            required 
+            value={this.state.name} 
+            name='name' 
+            onChange={this.handleTextChange} 
+            label='Nazwa atrakcji' 
+            placeholder='Nazwa atrakcji' 
+            />
+            <Form.Input 
+            required 
+            value={this.state.img} 
+            name='img' 
+            onChange={this.handleTextChange} 
+            label='Zdjęcie' 
+            placeholder='Zdjęcie' 
+            />
             <Form.Select
               required
               value={this.state.location}
