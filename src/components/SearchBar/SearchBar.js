@@ -11,6 +11,9 @@ function SearchBar() {
     const [isVisible, setIsVisible] = useState(false);
     const [categoryValue, setCategoryValue] = useState([]);
     const [locationValue, setLocationValue] = useState([]);
+    const [rangeValue, setRangeValue] = useState('')
+
+    console.log(rangeValue)
 
     const optionsCategory = [
         { key: 'kultura', text: 'Kultura', value: 'Kultura' },
@@ -40,6 +43,22 @@ function SearchBar() {
         console.log(data.value)
         setLocationValue(data.value)
     };
+
+    const onRangeValueChange = (event) => {
+        const evt = event.target.value
+        console.log(typeof event.target.value);
+        if (evt === 0) {
+            setRangeValue('darmowe')
+        } else if (evt === '1') {
+            setRangeValue('tanio')
+        } else if (evt === '2') {
+            setRangeValue('umiarkowanie')
+        } else if (evt === '3') {
+            setRangeValue('drogo')
+        } else if (evt === '4') {
+            setRangeValue('wszystkie')
+        }
+    } 
 
     const renderPlaces = (arr) => {
         return arr.map((el) => {
@@ -82,7 +101,13 @@ function SearchBar() {
                         })
                 )
             })
-
+            .filter((el) => {
+                if (!rangeValue || rangeValue === 'wszystkie') {
+                    return el
+                } else {
+                   return el.priceRange.toLowerCase().includes(rangeValue.toLowerCase())
+                }
+            })
     )
 
     return (
@@ -113,6 +138,9 @@ function SearchBar() {
                         onOptionLocationChange={onOptionLocationChange}
                         categoryValue={categoryValue}
                         locationValue={locationValue}
+                        rangeValue={rangeValue}
+                        onRangeValueChange={onRangeValueChange}
+
                     />
             }
             <div className="search-bar_results">
