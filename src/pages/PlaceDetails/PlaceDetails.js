@@ -20,7 +20,9 @@ class PlaceDetails extends Component {
                             />
                         </div>
                         <div className="dashboard__placeDetails--right">
-                            <h2 className="dashboard__placeDetails--image">
+                            {/* <div className="dashboard__placeDetails--favourite">
+                            </div> miejsce na dodanie komponentu favourite */}
+                            <h2 className="dashboard__placeDetails--name">
                                 {attraction.name}
                             </h2>
                             <h3 className="dashboard__placeDetails--location">
@@ -32,9 +34,6 @@ class PlaceDetails extends Component {
                             <p className="dashboard__placeDetails--priceRange">
                                 <i className="dollar sign icon"></i>
                                 {attraction.priceRange}
-                            </p>
-                            <p className="dashboard__placeDetails--favourite">
-                                {attraction.favourite}
                             </p>
                         </div>
                     </div>

@@ -12,7 +12,7 @@ class PlaceList extends Component {
             header={attractionData['0'].name}
             meta={attractionData['0'].name}
             description={attractionData['0'].descriptionLong.slice(0, 100) + "..."}
-            price={"Przedział cenowy: " + " " + " " + attractionData['0'].priceRange}
+            price={'Przedział cenowy: ' + attractionData['0'].priceRange}
             />
             </div>
         )
