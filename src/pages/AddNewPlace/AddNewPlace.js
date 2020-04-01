@@ -58,7 +58,6 @@ class FormAddPlace extends Component {
     this.addToData();
     this.jsonToLocalStorage();
     this.resetState();
-    console.log(atractionData)
   };
 
   render() {
