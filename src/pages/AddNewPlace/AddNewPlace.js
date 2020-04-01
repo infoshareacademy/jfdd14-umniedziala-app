@@ -3,8 +3,6 @@ import './AddNewPlace.css';
 import { Form, Popup, Button } from 'semantic-ui-react';
 import attractionData from '../../attractionData';
 
-
-
 const options = [
   { key: 'Gda', text: 'Gdańsk', value: 'Gdańsk' },
   { key: 'Sop', text: 'Sopot', value: 'Sopot' },
@@ -53,7 +51,6 @@ class FormAddPlace extends Component {
     terms: false,
   });
 
-
   handleSubmit = () => {
     this.addToData();
     this.jsonToLocalStorage();
@@ -75,7 +72,7 @@ class FormAddPlace extends Component {
             <Form.Input required value={this.state.img} name='img' onChange={this.handleTextChange} label='Zdjęcie' placeholder='Zdjęcie' />
             <Form.Select
               required
-              value={this.state.location} 
+              value={this.state.location}
               onChange={this.handleTextChange}
               name='location'
               label='Lokalizacja'
@@ -123,8 +120,21 @@ class FormAddPlace extends Component {
               onChange={this.handleTextChange}
             />
           </Form.Group>
-          <Form.TextArea required value={this.state.descriptionLong} onChange={this.handleTextChange} name="descriptionLong" label='Opis' placeholder='Opisz atrakcję' />
-          <Form.Checkbox required label='Zgadzam się z warunkami korzystania z usługi' name='terms' checked={this.state.terms} onChange={this.handleCheckboxChange} />
+          <Form.TextArea
+            required
+            value={this.state.descriptionLong}
+            onChange={this.handleTextChange}
+            name="descriptionLong"
+            label='Opis'
+            placeholder='Opisz atrakcję' 
+            />
+          <Form.Checkbox
+            required
+            label='Zgadzam się z warunkami korzystania z usługi'
+            name='terms'
+            checked={this.state.terms}
+            onChange={this.handleCheckboxChange} 
+            />
           {button}
         </Form>
       </main>
