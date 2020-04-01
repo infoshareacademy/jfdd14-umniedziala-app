@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { Form, Popup, Button } from 'semantic-ui-react';
-// import Toast from "../../components/Toasts/Toast";
 import atractionData from '../../atractionData';
 import './AddNewPlace.css';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { css } from 'glamor';
-
 
 const options = [
   { key: 'Gda', text: 'Gdańsk', value: 'Gdańsk' },
@@ -50,22 +48,23 @@ class FormAddPlace extends Component {
 
   notify = () => toast(
     "Dodano nową atrakcję !!!", {
-      className: css({
-        background: 'white'
-      }),
-      bodyClassName: css({
-        fontSize: '20px',
-        color: 'var(--color-blue)'
-      }),
-      progressClassName: css({
-        background: "var(--color-blue)"
-      }),
-      position: toast.POSITION.BOTTOM_LEFT,
-    });
+    className: css({
+      background: 'white'
+    }),
+    bodyClassName: css({
+      fontSize: '20px',
+      color: 'var(--color-blue)'
+    }),
+    progressClassName: css({
+      background: "var(--color-blue)"
+    }),
+    position: toast.POSITION.BOTTOM_LEFT,
+  });
 
   render() {
     const button = this.state.terms ?
-      <Form.Button type='submit' onClick={this.notify} >Dodaj atrakcję</Form.Button> :
+      <Form.Button type='submit' onClick={this.notify} >Dodaj atrakcję</Form.Button>
+        :
       <Popup content='Zaznacz wymagane zgody' trigger={<Button>Dodaj atrakcję</Button>} />
 
     return (
@@ -74,11 +73,26 @@ class FormAddPlace extends Component {
         <br></br>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group widths='equal'>
-            <Form.Input required input={this.state.name} name='name' onChange={this.handleTextChange} label='Nazwa atrakcji' placeholder='Nazwa atrakcji' />
-            <Form.Input required input={this.state.img} name='img' onChange={this.handleTextChange} label='Zdjęcie' placeholder='Zdjęcie' />
+            <Form.Input
+              required
+              input={this.state.name}
+              name='name'
+              onChange={this.handleTextChange}
+              label='Nazwa atrakcji'
+              placeholder='Nazwa atrakcji'
+            />
+            <Form.Input
+              required
+              input={this.state.img}
+              name='img'
+              onChange={this.handleTextChange}
+              label='Zdjęcie'
+              placeholder='Zdjęcie'
+            />
             <Form.Select
               required
-              input={this.state.location} onChange={this.handleTextChange}
+              input={this.state.location} 
+              onChange={this.handleTextChange}
               name='location'
               label='Lokalizacja'
               options={options}
@@ -125,8 +139,21 @@ class FormAddPlace extends Component {
               onChange={this.handleTextChange}
             />
           </Form.Group>
-          <Form.TextArea required input={this.state.descriptionLong} onChange={this.handleChangeTextArea} name="descriptionLong" label='Opis' placeholder='Opisz atrakcję' />
-          <Form.Checkbox required label='Zgadzam się z warunkami korzystania z usługi' name='terms' checked={this.state.terms} onChange={this.handleCheckboxChange} />
+          <Form.TextArea
+            required
+            input={this.state.descriptionLong}
+            onChange={this.handleChangeTextArea}
+            name="descriptionLong"
+            label='Opis'
+            placeholder='Opisz atrakcję'
+          />
+          <Form.Checkbox
+            required
+            label='Zgadzam się z warunkami korzystania z usługi'
+            name='terms'
+            checked={this.state.terms}
+            onChange={this.handleCheckboxChange}
+          />
           {button}
         </Form>
       </main>
