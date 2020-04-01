@@ -68,6 +68,20 @@ function SearchBar() {
                         })
                 )
             })
+            .filter((el) => {
+                const typeLowerCase = el && el.location && el.location.toLowerCase && el.location.toLowerCase()
+
+                return (
+                    locationValue.length === 0 ?
+                        true
+                        :
+                        locationValue.find((locationName) => {
+                            const locationNameLowerCase = locationName && locationName.toLowerCase && locationName.toLowerCase()
+
+                            return locationNameLowerCase === typeLowerCase
+                        })
+                )
+            })
 
     )
 
