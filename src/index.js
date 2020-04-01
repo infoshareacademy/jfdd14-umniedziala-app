@@ -20,7 +20,7 @@ ReactDOM.render(
             <Route exact path="/" component={Home} />
             <Route path="/addnewplace" component={AddNewPlace} />
             <Route path="/placeadded" component={NewPlaceAdded} />
-            <Route path="/placedetails" component={PlaceDetails} />
+            <Route path="/placedetails/:id" component={PlaceDetails} />
             <Route path="/placelist" component={PlaceList} />
             <Route path="/myfavourites" component={FavouriteList} />
             <Route component={Default} />
