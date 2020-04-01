@@ -54,15 +54,21 @@ function SearchBar() {
     const filteredResults = (
         results
             .filter((el) => el.name.toLowerCase().includes(inputValue.toLowerCase()))
-            // .filter((el) => (
-            //     categoryValue &&
-            //     categoryValue.toLowerCase &&
-            //     el &&
-            //     el.type &&
-            //     el.type.toLowerCase &&
-            //     el.type.toLowerCase()
-            //         .includes(categoryValue.toLowerCase())
-            // ))
+            .filter((el) => {
+                const typeLowerCase = el && el.type && el.type.toLowerCase && el.type.toLowerCase()
+
+                return (
+                    categoryValue.length === 0 ?
+                        true
+                        :
+                        categoryValue.find((categoryName) => {
+                            const categoryNameLowerCase = categoryName && categoryName.toLowerCase && categoryName.toLowerCase()
+
+                            return categoryNameLowerCase === typeLowerCase
+                        })
+                )
+            })
+
     )
 
     return (
