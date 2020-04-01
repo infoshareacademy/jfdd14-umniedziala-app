@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { Form, Popup, Button } from 'semantic-ui-react';
+<<<<<<< HEAD
 import atractionData from '../../atractionData';
 import './AddNewPlace.css';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { css } from 'glamor';
+=======
+import attractionData from '../../attractionData';
+>>>>>>> develop
 
 const options = [
   { key: 'Gda', text: 'Gdańsk', value: 'Gdańsk' },
@@ -37,13 +41,27 @@ class FormAddPlace extends Component {
   handleCheckboxChange = (e, { checked, name }) => this.setState({ [name]: checked });
 
   addToData = () =>
-    atractionData.push(this.state);
+    attractionData.push(this.state);
   jsonToLocalStorage = () =>
-    localStorage.setItem("atractionData", JSON.stringify(atractionData));
+    localStorage.setItem("atractionData", JSON.stringify(attractionData));
+
+  resetState = () => this.setState({
+    name: "",
+    id: Date.now(),
+    favorite: false,
+    priceRange: "",
+    type: "",
+    img: "",
+    location: "",
+    descriptionShort: "",
+    descriptionLong: "",
+    terms: false,
+  });
 
   handleSubmit = () => {
     this.addToData();
     this.jsonToLocalStorage();
+    this.resetState();
   };
 
   notify = () => toast(
@@ -63,8 +81,13 @@ class FormAddPlace extends Component {
 
   render() {
     const button = this.state.terms ?
+<<<<<<< HEAD
       <Form.Button type='submit' onClick={this.notify} >Dodaj atrakcję</Form.Button>
         :
+=======
+      <Form.Button type='submit' >Dodaj atrakcję</Form.Button> 
+      :
+>>>>>>> develop
       <Popup content='Zaznacz wymagane zgody' trigger={<Button>Dodaj atrakcję</Button>} />
 
     return (
@@ -73,6 +96,7 @@ class FormAddPlace extends Component {
         <br></br>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group widths='equal'>
+<<<<<<< HEAD
             <Form.Input
               required
               input={this.state.name}
@@ -92,6 +116,27 @@ class FormAddPlace extends Component {
             <Form.Select
               required
               input={this.state.location} 
+=======
+            <Form.Input 
+            required 
+            value={this.state.name} 
+            name='name' 
+            onChange={this.handleTextChange} 
+            label='Nazwa atrakcji' 
+            placeholder='Nazwa atrakcji' 
+            />
+            <Form.Input 
+            required 
+            value={this.state.img} 
+            name='img' 
+            onChange={this.handleTextChange} 
+            label='Zdjęcie' 
+            placeholder='Zdjęcie' 
+            />
+            <Form.Select
+              required
+              value={this.state.location}
+>>>>>>> develop
               onChange={this.handleTextChange}
               name='location'
               label='Lokalizacja'
@@ -100,7 +145,7 @@ class FormAddPlace extends Component {
             />
             <Form.Select
               required
-              input={this.state.type}
+              value={this.state.type}
               onChange={this.handleTextChange}
               name="type"
               label='Kategoria'
@@ -141,19 +186,33 @@ class FormAddPlace extends Component {
           </Form.Group>
           <Form.TextArea
             required
+<<<<<<< HEAD
             input={this.state.descriptionLong}
             onChange={this.handleChangeTextArea}
             name="descriptionLong"
             label='Opis'
             placeholder='Opisz atrakcję'
           />
+=======
+            value={this.state.descriptionLong}
+            onChange={this.handleTextChange}
+            name="descriptionLong"
+            label='Opis'
+            placeholder='Opisz atrakcję' 
+            />
+>>>>>>> develop
           <Form.Checkbox
             required
             label='Zgadzam się z warunkami korzystania z usługi'
             name='terms'
             checked={this.state.terms}
+<<<<<<< HEAD
             onChange={this.handleCheckboxChange}
           />
+=======
+            onChange={this.handleCheckboxChange} 
+            />
+>>>>>>> develop
           {button}
         </Form>
       </main>
