@@ -142,7 +142,7 @@ const data = [
             "priceRange": 'darmowe',
             "type": 'kultura',
             "img": 'https://infogdansk.pl/wp-content/uploads/2018/02/krzywy_domek2-870x500.jpg',
-            "location":'Gdańsk',
+            "location":'Sopot',
             "descriptionShort": '',
             "descriptionLong": 'Krzywy Domek – został zbudowany w Sopocie przy ul. Bohaterów Monte Cassino 53 według projektu architektów Szotyńskich i Zaleskiego, którego inspiracją były rysunki Jana Marcina Szancera i Pera Dahlberga.Obiekt stanowi część Centrum Handlowego „Rezydent". Na parterze mieszczą się pomieszczenia handlowe, lokal gastronomiczny, bary, sushi, kawiarnia Costa, salon urody i modelowania sylwetki Body Shape Garden oraz salon gier. Budynek jest też siedzibą m.in. oddziału regionalnego Radia RMF FM oraz RMF Maxxx. Krzywy Domek zajął pierwsze miejsce na liście 50 najdziwniejszych budynków świata, opublikowanej przez Portal Village of Joy.'
         },
@@ -165,7 +165,7 @@ const data = [
             "priceRange": 'drogo',
             "type": 'sport',
             "img": 'https://kartcenter.pl/wp-content/uploads/2018/07/8.jpg',
-            "location":'Gdańsk',
+            "location":'Sopot',
             "descriptionShort": '',
             "descriptionLong": `Na naszym zewnętrznym torze możemy Wam zapewnić niezapomniane, pełne skoków adrenaliny i pozytywnych emocji wyścigi niczym w Formule 1. Nasz sopocki obiekt, wnosi zupełnie nowe standardy do polskiego, amatorskiego kartingu. 
             Asfaltowy tor gokartowy o długości 500 metrów ma szerokość od 5 do 7 metrów. Umożliwia to jednoczesną jazdę nawet 10 gokartów. Specjalnie umocnione bandy z tworzywa polietylenowego, nowoczesny komputerowy pomiar czasu oraz zsynchronizowana z nim sygnalizacja świetlną zapewniają bezpieczeństwo naszym kierowcom. 
