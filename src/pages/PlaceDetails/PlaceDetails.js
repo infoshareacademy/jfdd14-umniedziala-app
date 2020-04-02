@@ -14,7 +14,7 @@ class PlaceDetails extends Component {
                     <div className="dashboard__placeDetails--hero">
                         <div className="image-wrapper">
                             <img
-                                className="test"
+                                className="dashboard__placeDetails--image"
                                 src={attraction.img}
                                 alt="attractionImage"
                             />
