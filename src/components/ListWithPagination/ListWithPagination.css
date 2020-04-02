@@ -1,0 +1,26 @@
+.dashboard__liasAll {
+  padding: 70px 10px 10px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.dashboard__chart {
+  margin: 50px auto;
+  min-width: fit-content;
+}
+
+.dashboard__chartTitle {
+  font-family: Comfortaa;
+  text-align: center;
+}
+
+.ui.card>.image>img {
+  height: 200px !important;
+}
+
+@media (min-width: 900px) {
+  .dashboard__liasAll {
+      padding: 70px 10px 10px 230px;
+  }
+}

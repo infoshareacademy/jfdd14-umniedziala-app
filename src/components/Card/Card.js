@@ -12,6 +12,7 @@ const CardComponent = (props) => (
         meta={props.meta}
         description={props.description}
         extra={props.price}
+        className="cardView"
     />
     </div>
 )
