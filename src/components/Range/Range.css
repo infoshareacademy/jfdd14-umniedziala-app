@@ -9,7 +9,7 @@
   width: fit-content;
 }
 
-.slider {
+.range {
   width: 200px;
   height: 10px;
   border-radius: 5px;
@@ -17,12 +17,12 @@
   outline: none;
 }
 
-.slider__text {
+.range__text {
   display: flex;
   flex-direction: row;
 }
 
-.slider__text>p {
+.range__text>p {
   margin-right: 52px !important;
   margin-top: 15px !important;
   max-width: 30% !important

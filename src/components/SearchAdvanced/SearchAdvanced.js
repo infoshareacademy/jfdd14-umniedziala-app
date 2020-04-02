@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import '../SearchAdvanced/SearchAdvanced.css';
 import DropDownInput from '../DropDown/DropDown';
 import Range from '../Range/Range';
@@ -24,7 +24,7 @@ function SearchAdvanced(props) {
                 onChange={props.onOptionLocationChange}
             />
             <Range 
-                className={"slider"} 
+                className={"range"} 
                 type={"range"}
                 min={0}
                 max={4}

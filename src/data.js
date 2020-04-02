@@ -2,7 +2,7 @@
     "priceRange": 'expensive', 'medium', 'cheap', 'free'
     "type": 'natura', 'sport', 'kultura', 'restauracja' */
 
-export const data = [
+const data = [
         {
             "name": 'Park Oliwski',
             "id": 1,

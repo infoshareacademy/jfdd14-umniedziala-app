@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import '../SearchBar/SearchBar.css';
 import ToggleButton from '../ToggleButton/ToggleButton.js'
 import SearchAdvanced from '../SearchAdvanced/SearchAdvanced';
-import { data } from '../../data.js'
+import data from '../../data.js'
 
 function SearchBar() {
 
@@ -12,8 +12,6 @@ function SearchBar() {
     const [categoryValue, setCategoryValue] = useState([]);
     const [locationValue, setLocationValue] = useState([]);
     const [rangeValue, setRangeValue] = useState('')
-
-    console.log(rangeValue)
 
     const optionsCategory = [
         { key: 'kultura', text: 'Kultura', value: 'Kultura' },
@@ -28,36 +26,33 @@ function SearchBar() {
         { key: 'Sopot', text: 'Sopot', value: 'Sopot' },
     ]
 
-    const changeVisibility = () => setIsVisible(!isVisible);
+    const showAdvancedSearch = () => setIsVisible(!isVisible);
 
-    const handleChange = (event) => {
+    const handleInputChange = (event) => {
         setInputValue(event.target.value);
     }
 
-    const onOptionCategoryChange = (event, data1) => {
-        console.log(data1.value)
-        setCategoryValue(data1.value);
+    const onOptionCategoryChange = (event, data) => {
+        setCategoryValue(data.value);
     }
 
     const onOptionLocationChange = (event, data) => {
-        console.log(data.value)
         setLocationValue(data.value)
     };
 
+    const rangeOptions = {
+        "darmowe": 0,
+        "tanio": 1,
+        "umiarkowanie": 2,
+        "drogo": 3,
+        "wszystkie": 4
+    };
+
+    const getKeyByValue = (value) => Object.keys(rangeOptions).find(key => rangeOptions[key] === value);
+
     const onRangeValueChange = (event) => {
         const evt = event.target.value
-        console.log(typeof event.target.value);
-        if (evt === 0) {
-            setRangeValue('darmowe')
-        } else if (evt === '1') {
-            setRangeValue('tanio')
-        } else if (evt === '2') {
-            setRangeValue('umiarkowanie')
-        } else if (evt === '3') {
-            setRangeValue('drogo')
-        } else if (evt === '4') {
-            setRangeValue('wszystkie')
-        }
+        setRangeValue(getKeyByValue(Number(evt)));
     } 
 
     const renderPlaces = (arr) => {
@@ -71,6 +66,7 @@ function SearchBar() {
     }
 
     const filteredResults = (
+        
         results
             .filter((el) => el.name.toLowerCase().includes(inputValue.toLowerCase()))
             .filter((el) => {
@@ -118,13 +114,17 @@ function SearchBar() {
                         className="search-bar__input"
                         type="text"
                         placeholder="Wyszukaj po nazwie atrakcji"
-                        value={inputValue} onChange={handleChange}
+                        value={inputValue} onChange={handleInputChange}
                     />
-                    <i aria-hidden="true" className="search icon"></i>
+                    <i 
+                        aria-hidden="true" 
+                        className="search icon">
+
+                    </i>
                 </div>
                 <ToggleButton
                     name={!isVisible ? "angle down" : "angle up"}
-                    fn={changeVisibility}
+                    fn={showAdvancedSearch}
                 />
             </div>
             {
@@ -138,13 +138,19 @@ function SearchBar() {
                         onOptionLocationChange={onOptionLocationChange}
                         categoryValue={categoryValue}
                         locationValue={locationValue}
-                        rangeValue={rangeValue}
+                        rangeValue={rangeOptions[rangeValue]}
                         onRangeValueChange={onRangeValueChange}
 
                     />
             }
             <div className="search-bar_results">
-                {renderPlaces(filteredResults)}
+                {
+                    filteredResults.length === 0 ? 
+                    <h3>Brak wyników</h3> 
+                    : 
+                    renderPlaces(filteredResults)
+                }
+
             </div>
         </div>
     )

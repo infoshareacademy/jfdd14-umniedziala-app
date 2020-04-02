@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../PlaceList/PlaceList.css';
 import SearchBar from '../../components/SearchBar/SearchBar.js';
-import {data} from '../../data.js'
+import data from '../../data.js'
 
 class PlaceList extends Component {
     
