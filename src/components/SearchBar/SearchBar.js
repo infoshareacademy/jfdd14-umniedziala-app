@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import '../SearchBar/SearchBar.css';
 import ToggleButton from '../ToggleButton/ToggleButton.js'
 import SearchAdvanced from '../SearchAdvanced/SearchAdvanced';
-import data from '../../data.js'
+import atractionData from '../../atractionData'
 
 function SearchBar() {
 
     const [inputValue, setInputValue] = useState('');
-    const [results, setResults] = useState(data);
+    const [results, setResults] = useState(atractionData);
     const [isVisible, setIsVisible] = useState(false);
     const [categoryValue, setCategoryValue] = useState([]);
     const [locationValue, setLocationValue] = useState([]);

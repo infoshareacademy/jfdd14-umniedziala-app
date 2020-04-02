@@ -1,11 +1,11 @@
 import React from 'react';
 import '../Range/Range.css';
 
-
 function Range(props) {
   
     return (
         <div className="range__wrapper">
+            <p className="range__text">Zakres cenowy:</p>
             <input 
                 className={props.className}
                 type={props.type}
@@ -16,12 +16,13 @@ function Range(props) {
                 onChange={props.onChange}
                 
             />
+          
             <div className="range__text">
                 <p>Darmowe</p>
                 <p>Tanio</p>
                 <p>Umiarkowanie</p>
                 <p>Drogo</p>
-                <p>Wszystkie</p>
+                <p>Obojętnie</p>
 
             </div>
 

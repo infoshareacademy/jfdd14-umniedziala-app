@@ -1,16 +1,15 @@
 .range__wrapper {
   display: flex;
   flex-direction: column;
-  margin-left: 8rem;
-  flex-basis: 25%;
-}
+  margin-left: 6rem;
+  margin-top: 2rem;
+  width: 560px;
 
-.range__label {
-  width: fit-content;
+  
 }
 
 .range {
-  width: 200px;
+  width: 480px;
   height: 10px;
   border-radius: 5px;
   background: #ffffff;
@@ -20,12 +19,21 @@
 .range__text {
   display: flex;
   flex-direction: row;
+  color: var(--color-yellow);
+  width: 480px;
+  font-weight: bold;
 }
 
 .range__text>p {
-  margin-right: 52px !important;
-  margin-top: 15px !important;
-  max-width: 30% !important
+  margin-right: 48px !important;
+  margin-top: 1.3rem !important;
+  max-width: 30% !important;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--color-white);
+  font-weight: normal;
+
+
 }
 
 input[type=range] {
@@ -38,7 +46,7 @@ input[type=range]::-webkit-slider-thumb {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: var(--color-grey);
+  background: var(--color-yellow);
   cursor: pointer;
 }
 
@@ -46,6 +54,6 @@ input[type=range]::-webkit-slider-thumb {
     width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #4CAF50;
+  background: var(--color-yellow);
   cursor: pointer;
 }

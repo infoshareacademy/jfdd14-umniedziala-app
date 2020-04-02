@@ -9,7 +9,8 @@ function SearchAdvanced(props) {
     return (<div className="search-advanced__wrapper">
         <div className="search-advanced__fields">
             <DropDownInput 
-                type={'Kategoria'} 
+                text={'Kategoria:'}
+                type={'-wybierz'} 
                 value={props.categoryValue} 
                 options={props.optionsCategory} 
                 label={'Wybierz kategorię'} 
@@ -17,7 +18,8 @@ function SearchAdvanced(props) {
 
             />
             <DropDownInput 
-                type={'Lokalizacja'} 
+                text={'Lokalizacja:'}
+                type={'-wybierz'} 
                 value={props.locationValue} 
                 options={props.optionsLocation} 
                 label={'Wybierz lokalizację'} 
@@ -28,7 +30,7 @@ function SearchAdvanced(props) {
                 type={"range"}
                 min={0}
                 max={4}
-                step={1} 
+                step={1}
                 value={props.rangeValue}
                 onChange={props.onRangeValueChange}
 

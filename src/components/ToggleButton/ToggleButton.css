@@ -5,15 +5,22 @@
     flex-basis: 40%;
     padding-right: 1.5rem;
     cursor: pointer;
+    outline: none;
+
 }
 
 .toggle-button__text {
     color: var(--color-dark);
-    margin: 0
+    font-size: 1.1rem;
+    margin: 0;
+    outline: none;
+
 }
 
 div.toggle-button__wrapper > i{
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: var(--color-dark);
     margin: 0 1rem;
+    outline: none;
+
 }

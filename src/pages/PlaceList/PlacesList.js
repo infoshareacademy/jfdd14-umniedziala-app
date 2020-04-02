@@ -8,7 +8,7 @@ class PlaceList extends Component {
 
     render() {
         return <main className="main">
-            <SearchBar data={data} />
+            <SearchBar />
         </main>
     }
 }

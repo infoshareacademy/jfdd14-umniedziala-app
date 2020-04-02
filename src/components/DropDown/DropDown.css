@@ -1,4 +1,6 @@
 .drop-down__wrapper {
-    margin: 2rem;
-    flex-basis: 25%;
+    margin: 1rem;
+    width: 480px;
+    font-weight: bold;
+    color: var(--color-yellow);
 }
