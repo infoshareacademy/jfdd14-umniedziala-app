@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./PlaceDetails.css";
 import attractionData from "../../attractionData";
+import FavouriteToggle from "../../components/FavouriteToggle/FavouriteToggle";
 
 class PlaceDetails extends Component {
     render() {
@@ -20,10 +21,9 @@ class PlaceDetails extends Component {
                             />
                         </div>
                         <div className="dashboard__placeDetails--right">
-                            {/* <div className="dashboard__placeDetails--favourite">
-                            </div> miejsce na dodanie komponentu favourite */}
                             <h2 className="dashboard__placeDetails--name">
-                                {attraction.name}
+                                {attraction.name + " "}
+                                <FavouriteToggle id={Number(this.props.match.params.id)} />
                             </h2>
                             <h3 className="dashboard__placeDetails--location">
                                 {attraction.location}
