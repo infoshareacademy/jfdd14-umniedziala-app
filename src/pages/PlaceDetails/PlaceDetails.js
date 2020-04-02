@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./PlaceDetails.css";
 import attractionData from "../../attractionData";
+import FacebookButton from "../../components/FacebookButton/FacebookButton";
 
 class PlaceDetails extends Component {
     render() {
@@ -40,6 +41,7 @@ class PlaceDetails extends Component {
                     <div className="dashboard__placeDetails--description">
                         <p>{attraction.descriptionLong}</p>
                     </div>
+                    <FacebookButton />
                 </div>
             </main>
         );
