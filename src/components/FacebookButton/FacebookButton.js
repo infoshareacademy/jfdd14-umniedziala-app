@@ -28,7 +28,7 @@ class SocialShare extends Component {
 
     render() {
         //URL from current page
-        const url = "www.google.pl";
+        const url = "window.location.href";
         //URL patterns for Social media sites share functionalities
         const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
 
