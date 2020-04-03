@@ -45,7 +45,7 @@ class SocialShare extends Component {
                     href={facebookUrl} target="_blank"
                     > 
                     <i class="facebook icon"></i>
-                    Facebook
+                    Share on Facebook
                     </button>
                     </a>
                 </div>
