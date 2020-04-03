@@ -1,0 +1,48 @@
+
+.placeDetails{
+    padding: 70px 10px 10px 10px;
+    display: flex;
+}
+
+.dashboard__placeDetails {
+    margin: 50px auto;
+    min-width: fit-content;
+}
+
+.dashboard__placeDetails--hero {
+    display: flex
+}
+
+.image-wrapper {
+    width: 50%;
+    position: relative;
+    display: inline-block;
+}
+
+.test {
+    width: 600px;
+    height: 400px;
+}
+
+.dashboard__placeDetails--right {
+    width: 51%;
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.dashboard__placeDetails--description :first-child{
+    padding: 5px;
+    text-align: justify;
+    font-size: 18px;
+}
+
+.dashboardFavourite__icon {
+    color: var(--color-blue);
+}
+
+@media (min-width: 900px) {
+    .placeDetails {
+        padding: 70px 10px 10px 230px;
+    }
+}

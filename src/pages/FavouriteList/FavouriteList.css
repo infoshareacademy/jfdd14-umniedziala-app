@@ -1,0 +1,10 @@
+.dashboardFavourite {
+  padding: 70px 10px 10px 10px;
+  font-size: 30px;
+}
+
+@media (min-width: 900px) {
+  .dashboardFavourite {
+      padding: 70px 10px 10px 230px;
+  }
+}
