@@ -2,11 +2,10 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    flex-basis: 40%;
-    padding-right: 1.5rem;
+    flex-basis: 20%;
     cursor: pointer;
     outline: none;
-
+    margin-right: 1rem;
 }
 
 .toggle-button__text {
@@ -14,13 +13,19 @@
     font-size: 1.1rem;
     margin: 0;
     outline: none;
-
 }
 
 div.toggle-button__wrapper > i{
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: var(--color-dark);
-    margin: 0 1rem;
     outline: none;
-
 }
+
+.toggle-button__wrapper:hover .toggle-button__text {
+    color: rgb(24, 124, 206);
+ }
+
+ .toggle-button__wrapper:hover .toggle-button__icon {
+    color: rgb(24, 124, 206);
+
+ }

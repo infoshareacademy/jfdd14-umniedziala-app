@@ -1,8 +1,6 @@
 import React from 'react';
-import { Dropdown, Label } from 'semantic-ui-react';
+import { Dropdown } from 'semantic-ui-react';
 import '../DropDown/DropDown.css'
-
-
 
 function DropDownInput(props) {
     return (

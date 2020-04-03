@@ -109,11 +109,11 @@ function SearchBar() {
     return (
         <div className="search-bar__wrapper">
             <div className="search-bar__default">
-                <div className="ui icon input">
+                <div className="ui icon input search-default__wrapper">
                     <input
                         className="search-bar__input"
                         type="text"
-                        placeholder="Wyszukaj po nazwie atrakcji"
+                        placeholder="Wpisz nazwę atrakcji"
                         value={inputValue} onChange={handleInputChange}
                     />
                     <i 

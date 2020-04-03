@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import '../PlaceList/PlaceList.css';
 import SearchBar from '../../components/SearchBar/SearchBar.js';
-import data from '../../data.js'
 import attractionData from "../../attractionData";
 import CardComponent from '../../components/Card/Card'
 
