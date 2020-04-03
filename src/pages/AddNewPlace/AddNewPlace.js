@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
-import './AddNewPlace.css';
 import { Form, Popup, Button } from 'semantic-ui-react';
 import attractionData from '../../attractionData';
+import './AddNewPlace.css';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { css } from 'glamor';
+
 
 const options = [
   { key: 'Gda', text: 'Gdańsk', value: 'Gdańsk' },
@@ -36,7 +40,7 @@ class FormAddPlace extends Component {
   addToData = () =>
     attractionData.push(this.state);
   jsonToLocalStorage = () =>
-    localStorage.setItem("atractionData", JSON.stringify(attractionData));
+    localStorage.setItem("attractionData", JSON.stringify(attractionData));
 
   resetState = () => this.setState({
     name: "",
@@ -57,9 +61,26 @@ class FormAddPlace extends Component {
     this.resetState();
   };
 
+  notify = () => toast(
+    "Dodano nową atrakcję !!!", {
+    className: css({
+      background: 'white'
+    }),
+    bodyClassName: css({
+      fontSize: '20px',
+      color: 'var(--color-blue)'
+    }),
+    progressClassName: css({
+      background: "var(--color-blue)"
+    }),
+    position: toast.POSITION.BOTTOM_LEFT,
+  });
+
   render() {
-    const button = this.state.terms ?
-      <Form.Button type='submit' >Dodaj atrakcję</Form.Button> 
+    const button = this.state.name && this.state.priceRange &&
+      this.state.type && this.state.location &&
+      this.state.descriptionLong && this.state.terms ?
+      <Form.Button type='submit' onClick={this.notify} >Dodaj atrakcję</Form.Button>
       :
       <Popup content='Zaznacz wymagane zgody' trigger={<Button>Dodaj atrakcję</Button>} />
 
@@ -69,25 +90,25 @@ class FormAddPlace extends Component {
         <br></br>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group widths='equal'>
-            <Form.Input 
-            required 
-            value={this.state.name} 
-            name='name' 
-            onChange={this.handleTextChange} 
-            label='Nazwa atrakcji' 
-            placeholder='Nazwa atrakcji' 
+            <Form.Input
+              required
+              input={this.state.name}
+              name='name'
+              onChange={this.handleTextChange}
+              label='Nazwa atrakcji'
+              placeholder='Nazwa atrakcji'
             />
-            <Form.Input 
-            required 
-            value={this.state.img} 
-            name='img' 
-            onChange={this.handleTextChange} 
-            label='Zdjęcie' 
-            placeholder='Zdjęcie' 
+            <Form.Input
+              required
+              input={this.state.img}
+              name='img'
+              onChange={this.handleTextChange}
+              label='Zdjęcie'
+              placeholder='Zdjęcie'
             />
             <Form.Select
               required
-              value={this.state.location}
+              input={this.state.location}
               onChange={this.handleTextChange}
               name='location'
               label='Lokalizacja'
@@ -141,15 +162,15 @@ class FormAddPlace extends Component {
             onChange={this.handleTextChange}
             name="descriptionLong"
             label='Opis'
-            placeholder='Opisz atrakcję' 
-            />
+            placeholder='Opisz atrakcję'
+          />
           <Form.Checkbox
             required
             label='Zgadzam się z warunkami korzystania z usługi'
             name='terms'
             checked={this.state.terms}
-            onChange={this.handleCheckboxChange} 
-            />
+            onChange={this.handleCheckboxChange}
+          />
           {button}
         </Form>
       </main>
