@@ -9,4 +9,5 @@
 
 .ui.card>.image>img {
     height: 200px !important;
+    object-fit: cover;
   }

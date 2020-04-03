@@ -38,7 +38,7 @@ class FormAddPlace extends Component {
   addToData = () =>
     attractionData.push(this.state);
   jsonToLocalStorage = () =>
-    localStorage.setItem("atractionData", JSON.stringify(attractionData));
+    localStorage.setItem("attractionData", JSON.stringify(attractionData));
 
   handleSubmit = () => {
     this.addToData();

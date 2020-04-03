@@ -39,3 +39,5 @@ class FavouriteToggle extends Component {
 }
 
 export default FavouriteToggle;
+
+// props: id

@@ -7,6 +7,7 @@ class PlaceList extends Component {
     return (
       <ListWithPagination
         list={attractionData}
+        itemNameForStorage = "tripcity-lastViewedPage"
         defaultPage={localStorage.getItem("tripcity-lastViewedPage") || 1}
       />
     );

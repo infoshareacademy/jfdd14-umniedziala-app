@@ -1,16 +1,30 @@
-.dashboard__liasAll {
-  padding: 70px 10px 10px 10px;
+.dashboard__listAll {
+  padding: 70px 10px 80px 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.dashboard__listAllPagination {
+.dashboard__listAllPaginationBox {
   margin: 30px auto 20px;
+  display: block;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  z-index: 9;
+}
+
+.ui.menu {
+  background: var(--color-light-blue) !important;
+}
+
+.ui.pagination.menu .active.item {
+  background-color: var(--color-yellow) !important;
 }
 
 @media (min-width: 900px) {
-  .dashboard__liasAll {
-      padding: 70px 10px 10px 230px;
+  .dashboard__listAll {
+      padding: 70px 10px 80px 230px;
   }
 }

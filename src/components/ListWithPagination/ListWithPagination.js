@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./ListWithPagination.css";
 import { Card, Pagination } from "semantic-ui-react";
 import CardComponent from "../Card/Card";
+import FavouriteToggle from "../FavouriteToggle/FavouriteToggle";
 
 const cardsPerPage = 12;
 
@@ -18,7 +19,7 @@ class ListWithPagination extends Component {
       activePage,
       activePageList: this.props.list.slice(activePage * cardsPerPage - cardsPerPage, activePage * cardsPerPage) });
       window.scrollTo(0, 0);
-      localStorage.setItem("tripcity-lastViewedPage", activePage);
+      localStorage.setItem(this.props.itemNameForStorage, activePage);
   }
 
   render() {
@@ -28,7 +29,7 @@ class ListWithPagination extends Component {
     } = this.state;
 
     return (
-      <main className="dashboard__liasAll">
+      <main className="dashboard__listAll">
         <Card.Group centered itemsPerRow={2}>
           {this.state.activePageList.map(attraction => {
             return <CardComponent
@@ -38,11 +39,12 @@ class ListWithPagination extends Component {
               meta={`${attraction.name}, ${attraction.location}`}
               description={attraction.descriptionLong.slice(0, 100) + "..."}
               price={"Przedział cenowy: " + attraction.priceRange}
+              // {<FavouriteToggle id={attraction.id} />} gdzieś to wcisnąć
             />
           })}
         </Card.Group>
 
-        <div className="dashboard__listAllPagination">
+        <div className="dashboard__listAllPaginationBox">
           <Pagination
             activePage={activePage}
             boundaryRange={1}
@@ -62,8 +64,9 @@ class ListWithPagination extends Component {
 
 export default ListWithPagination;
 
-/* PROPS:
-list - array of objects to display
-defaultPage - localStorage.getItem("tripcity-lastViewedPage") || 1
+/* PROPS - example use:
+  list={attractionData}
+  itemNameForStorage = "tripcity-lastViewedPage"   ---> for saving to localStorage, the same as string below:
+  defaultPage={localStorage.getItem("tripcity-lastViewedPage") || 1}
 
 */
