@@ -5,5 +5,8 @@
 
 .cardView {
     margin: 10px !important;
-    
 }
+
+.ui.card>.image>img {
+    height: 200px !important;
+  }

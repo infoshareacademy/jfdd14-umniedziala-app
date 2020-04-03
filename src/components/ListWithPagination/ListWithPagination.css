@@ -5,18 +5,8 @@
   justify-content: center;
 }
 
-.dashboard__chart {
-  margin: 50px auto;
-  min-width: fit-content;
-}
-
-.dashboard__chartTitle {
-  font-family: Comfortaa;
-  text-align: center;
-}
-
-.ui.card>.image>img {
-  height: 200px !important;
+.dashboard__listAllPagination {
+  margin: 30px auto 20px;
 }
 
 @media (min-width: 900px) {

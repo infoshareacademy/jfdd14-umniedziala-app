@@ -4,7 +4,12 @@ import ListWithPagination from "../../components/ListWithPagination/ListWithPagi
 
 class PlaceList extends Component {
   render() {
-    return <ListWithPagination list={attractionData} />;
+    return (
+      <ListWithPagination
+        list={attractionData}
+        defaultPage={localStorage.getItem("tripcity-lastViewedPage") || 1}
+      />
+    );
   }
 }
 
