@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import FacebookButton from '../../components/FacebookButton/FacebookButton'
 import './Sidebar.css';
 
 class Sidebar extends Component {
@@ -10,6 +11,7 @@ class Sidebar extends Component {
             <Link to="/placelist" className="sidebar__link" onClick={this.props.changeVisibility}>Wszystkie atrakcje</Link>
             <Link to="/myfavourites" className="sidebar__link" onClick={this.props.changeVisibility}>Moje ulubione</Link>
             <Link to="/addnewplace" className="sidebar__link" onClick={this.props.changeVisibility}>Dodaj własną atrakcję</Link>
+            <FacebookButton />
         </nav>
         )
     }
