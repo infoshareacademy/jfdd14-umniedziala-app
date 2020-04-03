@@ -14,7 +14,8 @@
 
 .image-wrapper {
     display: flex;
-    margin-left: 14px;
+    justify-content: center;
+    margin-top: 70px;
 }
 
 .dashboard__placeDetails--image {
@@ -32,14 +33,22 @@
     margin-top: 5px;
 }
 
-.dashboard__placeDetails--description :first-child {
-    margin-top: 20px;
-    margin-left: 10px;
+.dashboard__placeDetails--type {
+    margin-top: 0;
+}
+
+
+.dashboard__placeDetails--description {
     display: flex;
-    padding: 5px;
-    text-align: justify;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.dashboard__placeDetails--description :first-child {
     font-size: 13px;
     font-family: Comfortaa;
+    text-align: justify;
 }
 
 @media (min-width: 900px) {
@@ -54,6 +63,7 @@
     .image-wrapper {
         position: relative;
         display: flex;
+        margin-top: 0;
     }
 
     .dashboard__placeDetails--right {

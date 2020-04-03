@@ -29,9 +29,10 @@ class PlaceDetails extends Component {
                             <i class="location arrow icon">:</i>
                                 {attraction.location}
                             </h3>
-                            <p className="dashboard__placeDetails--type">
+                            <h4 className="dashboard__placeDetails--type">
+                                <span>typ: </span> 
                                 {attraction.type}
-                            </p>
+                            </h4>
                             <p className="dashboard__placeDetails--priceRange">
                                 <i className="dollar sign icon">:</i>
                                 {attraction.priceRange}
