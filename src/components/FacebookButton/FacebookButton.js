@@ -7,11 +7,12 @@ const FacebookButton = () => {
 
     return (
         <div className="socialShareContainer">
-            <a href={facebookUrl} target="_blank">
+            <a href={facebookUrl} target="_blank" rel="noreferrer noopener">
                 <button
                     class="ui facebook button"
                     href={facebookUrl}
                     target="_blank"
+                    rel="noreferrer noopener"
                 >
                     <i class="facebook icon"></i>
                     Share
