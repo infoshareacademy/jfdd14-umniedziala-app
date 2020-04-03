@@ -5,7 +5,6 @@ import data from '../../data.js'
 
 class PlaceList extends Component {
     
-
     render() {
         return <main className="main">
             <SearchBar />
