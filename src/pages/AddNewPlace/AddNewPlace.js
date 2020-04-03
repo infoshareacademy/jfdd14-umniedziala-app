@@ -40,7 +40,7 @@ class FormAddPlace extends Component {
   addToData = () =>
     attractionData.push(this.state);
   jsonToLocalStorage = () =>
-    localStorage.setItem("atractionData", JSON.stringify(attractionData));
+    localStorage.setItem("attractionData", JSON.stringify(attractionData));
 
   resetState = () => this.setState({
     name: "",
@@ -77,9 +77,11 @@ class FormAddPlace extends Component {
   });
 
   render() {
-    const button = this.state.terms ?
+    const button = this.state.name && this.state.priceRange &&
+      this.state.type && this.state.location &&
+      this.state.descriptionLong && this.state.terms ?
       <Form.Button type='submit' onClick={this.notify} >Dodaj atrakcję</Form.Button>
-        :
+      :
       <Popup content='Zaznacz wymagane zgody' trigger={<Button>Dodaj atrakcję</Button>} />
 
     return (
@@ -106,7 +108,7 @@ class FormAddPlace extends Component {
             />
             <Form.Select
               required
-              input={this.state.location} 
+              input={this.state.location}
               onChange={this.handleTextChange}
               name='location'
               label='Lokalizacja'
@@ -160,8 +162,8 @@ class FormAddPlace extends Component {
             onChange={this.handleTextChange}
             name="descriptionLong"
             label='Opis'
-            placeholder='Opisz atrakcję' 
-            />
+            placeholder='Opisz atrakcję'
+          />
           <Form.Checkbox
             required
             label='Zgadzam się z warunkami korzystania z usługi'
