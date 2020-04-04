@@ -1,12 +1,19 @@
 import React, { Component } from "react";
 import "./FavouriteList.css";
 import attractionData from "../../attractionData";
-import ListWithPagination from "../../components/ListWithPagination/ListWithPagination";
+import FavListWithPagination from "../../components/FavListWithPagination/FavListWithPagination";
+
 
 class FavouriteList extends Component {
+  state = {
+    refreshToggle: false
+  }
+
+  refresh = () => this.setState({ refreshToggle: !this.state.refreshToggle });
+
   render() {
     return (
-      <ListWithPagination
+      <FavListWithPagination
         list={attractionData.filter(attraction => {
             return attraction.favorite === true;
         })}

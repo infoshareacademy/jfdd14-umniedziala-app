@@ -1,22 +1,22 @@
 import React, { Component } from "react";
-import "./ListWithPagination.css";
-import { Card, Pagination } from "semantic-ui-react";
-import CardComponent from "../Card/Card";
+import { Pagination } from "semantic-ui-react";
+import FavouriteCard from "../FavouriteCard/FavouriteCard";
+import "./FavListWithPagination.css";
 
-const cardsPerPage = 12;
+const favsPerPage = 6;
 
-class ListWithPagination extends Component {
+class FavListWithPagination extends Component {
 
   state = {
     activePage: this.props.defaultPage,
-    totalPages: Math.ceil(this.props.list.length / cardsPerPage),
-    activePageList: this.props.list.slice(this.props.defaultPage * cardsPerPage - cardsPerPage, this.props.defaultPage * cardsPerPage)
+    totalPages: Math.ceil(this.props.list.length / favsPerPage),
+    activePageList: this.props.list.slice(this.props.defaultPage * favsPerPage - favsPerPage, this.props.defaultPage * favsPerPage)
   };
 
   handlePaginationChange = (e, { activePage }) => {
     this.setState({
       activePage,
-      activePageList: this.props.list.slice(activePage * cardsPerPage - cardsPerPage, activePage * cardsPerPage) });
+      activePageList: this.props.list.slice(activePage * favsPerPage - favsPerPage, activePage * favsPerPage) });
       window.scrollTo(0, 0);
       localStorage.setItem(this.props.itemNameForStorage, activePage);
   }
@@ -28,19 +28,21 @@ class ListWithPagination extends Component {
     } = this.state;
 
     return (
-      <main className="dashboard__listAll">
-        <Card.Group centered itemsPerRow={2}>
+      <main className="favList__list">
+        <div className="favList__cardsBox">
           {this.state.activePageList.map(attraction => {
-            return <CardComponent
+            return <FavouriteCard
               key={attraction.id}
               link={`/placedetails/${attraction.id}`}
               image={attraction.img}
-              meta={`${attraction.name}, ${attraction.location}`}
-              description={attraction.descriptionLong.slice(0, 100) + "..."}
+              id={attraction.id}
+              name={attraction.name}
+              location={attraction.location}
+              description={attraction.descriptionLong.slice(0, 200) + "..."}
               price={"Przedział cenowy: " + attraction.priceRange}
             />
           })}
-        </Card.Group>
+        </div>
 
         <div className="dashboard__listAllPaginationBox">
           <Pagination
@@ -60,7 +62,7 @@ class ListWithPagination extends Component {
   }
 }
 
-export default ListWithPagination;
+export default FavListWithPagination;
 
 /* PROPS - example use:
   list={attractionData}

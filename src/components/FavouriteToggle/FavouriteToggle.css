@@ -21,8 +21,8 @@
   /* Position the tooltip */
   position: absolute;
   z-index: 1;
-  bottom: 100%;
-  left: 50%;
+  top: -5px;
+  right: 105%;
   margin-left: -60px;
 }
 
