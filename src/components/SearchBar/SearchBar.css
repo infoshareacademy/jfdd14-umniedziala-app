@@ -1,0 +1,32 @@
+.search-bar__wrapper {
+  background-color: var(--color-light-blue);
+  height: 5rem;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--color-white);
+  width: 100%;
+  margin: 0 0 5rem 0;
+}
+
+.search-bar__default {
+  margin: 1rem 0;
+  padding: 0 1rem;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  user-select: none;
+}
+
+.search-default__wrapper {
+  flex-basis: 60%;
+  margin: 0 2%;
+}
+
+.search-bar__input {
+  width: 100%;
+  align-self: center;
+}
+
+.search-bar_results {
+  padding: 3rem;
+}

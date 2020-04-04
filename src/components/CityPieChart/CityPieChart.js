@@ -6,7 +6,7 @@ const data01 = [
     { name: 'Sopot', value: 300 },
     { name: 'Gdynia', value: 260 }
 ];
-const COLORS = ['var(--color-blue)', 'var(--color-blue2)', 'var(--color-yellow'];
+const COLORS = ['var(--color-blue)', 'var(--color-blue2)', 'var(--color-yellow)'];
 
 class CityPieChart extends Component {
     render() {
