@@ -1,20 +1,22 @@
 import React, { Component } from "react";
 import "./FavouriteList.css";
-import attractionData from "../../attractionData";
+import data from "../../data";
 import FavListWithPagination from "../../components/FavListWithPagination/FavListWithPagination";
 
 
 class FavouriteList extends Component {
   state = {
-    refreshToggle: false
+    attractionList: []
   }
 
-  refresh = () => this.setState({ refreshToggle: !this.state.refreshToggle });
+  componentDidMount() {
+    this.setState({attractionList: JSON.parse(localStorage.getItem("attractionData")) || data});
+  }
 
   render() {
     return (
       <FavListWithPagination
-        list={attractionData.filter(attraction => {
+        list={this.state.attractionList.filter(attraction => {
             return attraction.favorite === true;
         })}
         itemNameForStorage="tripcity-lastViewedFavPage"

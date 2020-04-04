@@ -13,6 +13,10 @@ class FavListWithPagination extends Component {
     activePageList: this.props.list.slice(this.props.defaultPage * favsPerPage - favsPerPage, this.props.defaultPage * favsPerPage)
   };
 
+  componentDidMount() {
+    this.setState({activePageList: this.props.list.slice(this.props.defaultPage * favsPerPage - favsPerPage, this.props.defaultPage * favsPerPage)})
+  }
+
   handlePaginationChange = (e, { activePage }) => {
     this.setState({
       activePage,
