@@ -6,7 +6,7 @@ import FavouriteToggle from '../FavouriteToggle/FavouriteToggle';
 class FavouriteCard extends Component {
 
   render() {
-    const { link, image, name, location, description, price, id } = this.props;
+    const { link, image, name, location, description, price } = this.props;
 
     return (
       <div className="favList__card">
@@ -21,7 +21,8 @@ class FavouriteCard extends Component {
               <h3 className="favList__cardTitle">{`${name}, ${location}`}</h3>
             </Link>
             <FavouriteToggle
-              id={id}
+              toggleFavorite={this.props.toggleFavorite}
+              isFavorite={true}
             />
           </div>
           <div>

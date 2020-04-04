@@ -6,39 +6,45 @@ import CardComponent from "../Card/Card";
 const cardsPerPage = 12;
 
 class ListWithPagination extends Component {
-
   state = {
     activePage: this.props.defaultPage,
     totalPages: Math.ceil(this.props.list.length / cardsPerPage),
-    activePageList: this.props.list.slice(this.props.defaultPage * cardsPerPage - cardsPerPage, this.props.defaultPage * cardsPerPage)
   };
 
   handlePaginationChange = (e, { activePage }) => {
     this.setState({
       activePage,
-      activePageList: this.props.list.slice(activePage * cardsPerPage - cardsPerPage, activePage * cardsPerPage) });
-      window.scrollTo(0, 0);
-      localStorage.setItem(this.props.itemNameForStorage, activePage);
-  }
+      activePageList: this.props.list.slice(
+        activePage * cardsPerPage - cardsPerPage,
+        activePage * cardsPerPage
+      ),
+    });
+    window.scrollTo(0, 0);
+    localStorage.setItem(this.props.itemNameForStorage, activePage);
+  };
 
   render() {
-    const {
-      activePage,
-      totalPages,
-    } = this.state;
+    const { activePage, totalPages } = this.state;
+
+    const activePageList = this.props.list.slice(
+      this.props.defaultPage * cardsPerPage - cardsPerPage,
+      this.props.defaultPage * cardsPerPage
+    );
 
     return (
       <main className="dashboard__listAll">
         <Card.Group centered itemsPerRow={2}>
-          {this.state.activePageList.map(attraction => {
-            return <CardComponent
-              key={attraction.id}
-              link={`/placedetails/${attraction.id}`}
-              image={attraction.img}
-              meta={`${attraction.name}, ${attraction.location}`}
-              description={attraction.descriptionLong.slice(0, 100) + "..."}
-              price={"Przedział cenowy: " + attraction.priceRange}
-            />
+          {activePageList.map((attraction) => {
+            return (
+              <CardComponent
+                key={attraction.id}
+                link={`/placedetails/${attraction.id}`}
+                image={attraction.img}
+                meta={`${attraction.name}, ${attraction.location}`}
+                description={attraction.descriptionLong.slice(0, 100) + "..."}
+                price={"Przedział cenowy: " + attraction.priceRange}
+              />
+            );
           })}
         </Card.Group>
 
@@ -47,7 +53,7 @@ class ListWithPagination extends Component {
             activePage={activePage}
             boundaryRange={1}
             onPageChange={this.handlePaginationChange}
-            size='small'
+            size="small"
             siblingRange={1}
             totalPages={totalPages}
             ellipsisItem={false}

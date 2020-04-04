@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './AddNewPlace.css';
 import { Form, Popup, Button } from 'semantic-ui-react';
-import attractionData from '../../attractionData';
+import { addAttraction } from '../../services';
 
 
 
@@ -21,7 +21,6 @@ const type = [
 class FormAddPlace extends Component {
   state = {
     name: "",
-    id: Date.now(),
     favorite: false,
     priceRange: "",
     type: "",
@@ -36,13 +35,10 @@ class FormAddPlace extends Component {
   handleCheckboxChange = (e, { checked, name }) => this.setState({ [name]: checked });
 
   addToData = () =>
-    attractionData.push(this.state);
-  jsonToLocalStorage = () =>
-    localStorage.setItem("attractionData", JSON.stringify(attractionData));
+    addAttraction(this.state);
 
   handleSubmit = () => {
     this.addToData();
-    this.jsonToLocalStorage();
   };
 
   render() {

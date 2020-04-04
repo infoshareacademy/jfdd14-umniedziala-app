@@ -1,50 +1,72 @@
 import React, { Component } from "react";
 import { Pagination } from "semantic-ui-react";
 import FavouriteCard from "../FavouriteCard/FavouriteCard";
+import { toggleFavorite, getFavoriteAttractionsAsArray } from "../../services";
 import "./FavListWithPagination.css";
 
 const favsPerPage = 6;
 
 class FavListWithPagination extends Component {
-
   state = {
     activePage: this.props.defaultPage,
-    totalPages: Math.ceil(this.props.list.length / favsPerPage),
-    activePageList: this.props.list.slice(this.props.defaultPage * favsPerPage - favsPerPage, this.props.defaultPage * favsPerPage)
+    totalPages: 0,
+    attractions: [],
   };
 
   componentDidMount() {
-    this.setState({activePageList: this.props.list.slice(this.props.defaultPage * favsPerPage - favsPerPage, this.props.defaultPage * favsPerPage)})
+    this.refreshAttractions();
   }
+
+  refreshAttractions = () => {
+    getFavoriteAttractionsAsArray().then((attractions) =>
+      this.setState({
+        attractions,
+        totalPages: Math.ceil(attractions.length / favsPerPage),
+      })
+    );
+  };
 
   handlePaginationChange = (e, { activePage }) => {
     this.setState({
       activePage,
-      activePageList: this.props.list.slice(activePage * favsPerPage - favsPerPage, activePage * favsPerPage) });
-      window.scrollTo(0, 0);
-      localStorage.setItem(this.props.itemNameForStorage, activePage);
-  }
+      activePageList: this.props.list.slice(
+        activePage * favsPerPage - favsPerPage,
+        activePage * favsPerPage
+      ),
+    });
+    window.scrollTo(0, 0);
+    localStorage.setItem(this.props.itemNameForStorage, activePage);
+  };
+
+  toggleFavoriteById = (attractionId) => {
+    toggleFavorite(attractionId).then(this.refreshAttractions);
+  };
 
   render() {
-    const {
-      activePage,
-      totalPages,
-    } = this.state;
+    const { activePage, totalPages, attractions } = this.state;
+
+    const activePageList = attractions.slice(
+      this.props.defaultPage * favsPerPage - favsPerPage,
+      this.props.defaultPage * favsPerPage
+    );
 
     return (
       <main className="favList__list">
         <div className="favList__cardsBox">
-          {this.state.activePageList.map(attraction => {
-            return <FavouriteCard
-              key={attraction.id}
-              link={`/placedetails/${attraction.id}`}
-              image={attraction.img}
-              id={attraction.id}
-              name={attraction.name}
-              location={attraction.location}
-              description={attraction.descriptionLong.slice(0, 200) + "..."}
-              price={"Przedział cenowy: " + attraction.priceRange}
-            />
+          {activePageList.map((attraction) => {
+            return (
+              <FavouriteCard
+                key={attraction.id}
+                link={`/placedetails/${attraction.id}`}
+                image={attraction.img}
+                id={attraction.id}
+                name={attraction.name}
+                location={attraction.location}
+                description={attraction.descriptionLong.slice(0, 200) + "..."}
+                price={"Przedział cenowy: " + attraction.priceRange}
+                toggleFavorite={() => this.toggleFavoriteById(attraction.id)}
+              />
+            );
           })}
         </div>
 
@@ -53,7 +75,7 @@ class FavListWithPagination extends Component {
             activePage={activePage}
             boundaryRange={1}
             onPageChange={this.handlePaginationChange}
-            size='small'
+            size="small"
             siblingRange={1}
             totalPages={totalPages}
             ellipsisItem={false}

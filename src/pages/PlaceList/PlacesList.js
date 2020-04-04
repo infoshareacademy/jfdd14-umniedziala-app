@@ -1,13 +1,26 @@
 import React, { Component } from "react";
-import attractionData from "../../attractionData";
+import { getAttractionsAsArray } from "../../services";
 import ListWithPagination from "../../components/ListWithPagination/ListWithPagination";
 
 class PlaceList extends Component {
+  state = {
+    attractions: [],
+  };
+
+  componentDidMount() {
+    getAttractionsAsArray().then((attractions) => {
+      this.setState({
+        attractions,
+      });
+    });
+  }
+
   render() {
+    const { attractions } = this.state
     return (
       <ListWithPagination
-        list={attractionData}
-        itemNameForStorage = "tripcity-lastViewedPage"
+        list={attractions}
+        itemNameForStorage="tripcity-lastViewedPage"
         defaultPage={localStorage.getItem("tripcity-lastViewedPage") || 1}
       />
     );
