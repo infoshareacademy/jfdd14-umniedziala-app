@@ -1,31 +1,30 @@
 .toggle-button__wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex-basis: 20%;
-    cursor: pointer;
-    outline: none;
-    margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-basis: 20%;
+  cursor: pointer;
+  outline: none;
+  margin-right: 1rem;
 }
 
 .toggle-button__text {
-    color: var(--color-dark);
-    font-size: 1.1rem;
-    margin: 0;
-    outline: none;
+  color: var(--color-dark);
+  font-size: 1.1rem;
+  margin: 0;
+  outline: none;
 }
 
-div.toggle-button__wrapper > i{
-    font-size: 1.2rem;
-    color: var(--color-dark);
-    outline: none;
+div.toggle-button__wrapper > i {
+  font-size: 1.2rem;
+  color: var(--color-dark);
+  outline: none;
 }
 
 .toggle-button__wrapper:hover .toggle-button__text {
-    color: rgb(24, 124, 206);
- }
+  color: rgb(24, 124, 206);
+}
 
- .toggle-button__wrapper:hover .toggle-button__icon {
-    color: rgb(24, 124, 206);
-
- }
+.toggle-button__wrapper:hover .toggle-button__icon {
+  color: rgb(24, 124, 206);
+}
