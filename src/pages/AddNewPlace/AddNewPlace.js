@@ -85,15 +85,12 @@ class FormAddPlace extends Component {
 
   render() {
     const button =
-      // this.state.name && this.state.priceRange &&
-      // this.state.type && this.state.location &&
-      // this.state.descriptionLong && 
       this.state.terms ?
         <Form.Button type='submit'>Dodaj atrakcję</Form.Button>
         :
         <Popup content='Wypełnij wszystkie pola oraz zaznacz wymagane zgody.' 
         trigger={<Button>Dodaj atrakcję</Button>} />
-        
+
 
     return (
       <main className='addNewPlace__dashboard'>
@@ -107,6 +104,7 @@ class FormAddPlace extends Component {
               onChange={this.handleTextChange}
               label='Nazwa atrakcji'
               placeholder='Nazwa atrakcji'
+              value={this.state.name}
             />
             <Form.Input
               input={this.state.img}
@@ -114,6 +112,7 @@ class FormAddPlace extends Component {
               onChange={this.handleTextChange}
               label='Zdjęcie'
               placeholder='Zdjęcie'
+              value={this.state.img}
             />
             <Form.Select
               input={this.state.location}
@@ -122,6 +121,7 @@ class FormAddPlace extends Component {
               label='Lokalizacja'
               options={options}
               placeholder='Wybierz lokalizację'
+              value={this.state.location}
             />
             <Form.Select
               value={this.state.type}
