@@ -2,7 +2,7 @@
   "1e5354f6j": {
     "name": "Park Oliwski",
     "favorite": false,
-    "priceRange": "free",
+    "priceRange": "darmowe",
     "type": "natura",
     "img": "https://www.zatokapiekna.pl/slir/w730/images/uploads/articles/584/24-park_oliwski.jpg",
     "location": "Gdańsk",
@@ -12,7 +12,7 @@
   "1e5354f6k": {
     "name": "Rezerwat Mewia Łacha",
     "favorite": false,
-    "priceRange": "free",
+    "priceRange": "darmowe",
     "type": "natura",
     "img": "https://pomorskie.travel/image/journal/article?\"img\"_id=242660&t=1542202897474",
     "location": "Gdańsk",
@@ -22,7 +22,7 @@
   "1e5354f6l": {
     "name": "Stare Miasto",
     "favorite": false,
-    "priceRange": "free",
+    "priceRange": "darmowe",
     "type": "kultura",
     "img": "https://meteor-turystyka.pl/images/places/0/54.jpg",
     "location": "Gdańsk",
@@ -32,7 +32,7 @@
   "1e5354f6m": {
     "name": "Europejskie Centrum Solidarności",
     "favorite": false,
-    "priceRange": "cheap",
+    "priceRange": "tanio",
     "type": "kultura",
     "img": "https://ocdn.eu/pulscms-transforms/1/kJRk9kpTURBXy8yNjUyOTVhMGI4ODI2Y2ZkMTc2NWYyN2QyNjczZWFkZS5qcGeTlQMADs0D580CMZMFzQMUzQG8kwmmM2Q2MWJmBoGhMAE/europejskie-centrum-solidarnosci-ecs-w-gdansku.jpg",
     "location": "Gdańsk",
@@ -42,7 +42,7 @@
   "1e5354f6n": {
     "name": "Plaża w Brzeźnie",
     "favorite": false,
-    "priceRange": "free",
+    "priceRange": "darmowe",
     "type": "natura",
     "img": "https://visit360.pl/wp-content/uploads/2019/05/Visit360_pl_Gdansk_2019-05-01_zdjecia_z_drona_DJI_0225.jpg",
     "location": "Gdańsk",
@@ -52,7 +52,7 @@
   "1e5354f6o": {
     "name": "Muzeum II Wojny Światowej",
     "favorite": false,
-    "priceRange": "cheap",
+    "priceRange": "tanio",
     "type": "kultura",
     "img": "https://bi.im-g.pl/im/87/f3/14/z21968007V,Gdansk--Muzeum-II-Wojny-Swiatowej.jpg",
     "location": "Gdańsk",
@@ -62,7 +62,7 @@
   "1e5354f6p": {
     "name": "Stadion Energa Gdansk",
     "favorite": false,
-    "priceRange": "medium",
+    "priceRange": "umiarkowanie",
     "type": "sport",
     "img": "https://lh3.googleusercontent.com/proxy/-8sssvDAS5jSy71UQlDOqmbSZT18fOVYa4K7N0w_yfdpWhxgyTOzNF51sOh9XZAIKe3w4m-dk-wUUv7oLejLiYuVL6bhN3-LwEs9yvsry2QQfUXMCXbxsLLzVT-PSrqQwA",
     "location": "Gdańsk",
@@ -72,7 +72,7 @@
   "1e5354f6q": {
     "name": "PitStop Gdańsk Tor Gokartowy",
     "favorite": false,
-    "priceRange": "medium",
+    "priceRange": "umiarkowanie",
     "type": "sport",
     "img": "url",
     "location": "Gdańsk",
@@ -82,7 +82,7 @@
   "1e5354f6r": {
     "name": "Restauracja Filharmonia",
     "favorite": false,
-    "priceRange": "expensive",
+    "priceRange": "drogo",
     "type": "restauracja",
     "img": "https://\"img\".grouponcdn.com/deal/3Dk2udTDMxXnzeoRMB9WYJ8LTKeK/3D-2048x1229/v1/c700x420.jpg",
     "location": "Gdańsk",
@@ -92,7 +92,7 @@
   "1e5354f6s": {
     "name": "Eliksir",
     "favorite": false,
-    "priceRange": "medium",
+    "priceRange": "umiarkowanie",
     "type": "restauracja",
     "img": "https://magazif.com/wp-content/uploads/wnetrze-gdanskiego-eliksiru-restauracja-ikona.jpg",
     "location": "Gdańsk",
@@ -102,7 +102,7 @@
   "1e5354f6t": {
     "name": "Molo Sopot",
     "favorite": false,
-    "priceRange": "cheap",
+    "priceRange": "tanio",
     "type": "natura",
     "img": "https://polskazachwyca.pl/wp-content/uploads/2017/09/sopot-shutterstock_547070851-900x600.jpg",
     "location": "Sopot",
@@ -112,7 +112,7 @@
   "1e5354f6u": {
     "name": "Aqua Park",
     "favorite": false,
-    "priceRange": "medium",
+    "priceRange": "umiarkowanie",
     "type": "sport",
     "img": "https://static1.s-trojmiasto.pl/zdj/c/n/1/2510/1200x800/2510696.jpg",
     "location": "Sopot",
@@ -122,7 +122,7 @@
   "1e5354f6v": {
     "name": "Krzywy Domek",
     "favorite": false,
-    "priceRange": "free",
+    "priceRange": "darmowe",
     "type": "kultura",
     "img": "https://infogdansk.pl/wp-content/uploads/2018/02/krzywy_domek2-870x500.jpg",
     "location": "Gdańsk",
@@ -132,7 +132,7 @@
   "1e5354f70": {
     "name": "Latarnia Morska",
     "favorite": false,
-    "priceRange": "cheap",
+    "priceRange": "tanio",
     "type": "kultura",
     "img": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Latarnia_morska_w_Sopocie_2012_11_07.jpg",
     "location": "Sopot",
@@ -142,7 +142,7 @@
   "1e5354f71": {
     "name": "Kart Center Sopot",
     "favorite": false,
-    "priceRange": "expensive",
+    "priceRange": "drogo",
     "type": "sport",
     "img": "https://kartcenter.pl/wp-content/uploads/2018/07/8.jpg",
     "location": "Gdańsk",
@@ -152,7 +152,7 @@
   "1e5354f72": {
     "name": "Muzeum Sopotu",
     "favorite": false,
-    "priceRange": "cheap",
+    "priceRange": "tanio",
     "type": "kultura",
     "img": "https://www.sopot.pl/images/800x533/1982-1-7427-muzeum-sopotu-zaprasza-nie-tylko-na-wystawy-thumb.jpg",
     "location": "Sopot",
@@ -162,7 +162,7 @@
   "1e5354f73": {
     "name": "Plaża Sopot",
     "favorite": false,
-    "priceRange": "free",
+    "priceRange": "darmowe",
     "type": "natura",
     "img": "http://mywaytrip.pl/wp-content/uploads/2019/03/co-zobaczyc-w-sopocie-9.jpg",
     "location": "Sopot",
@@ -172,7 +172,7 @@
   "1e5354f74": {
     "name": "Galeria Sztuki",
     "favorite": false,
-    "priceRange": "cheap",
+    "priceRange": "tanio",
     "type": "kultura",
     "img": "https://news.niezlasztuka.net/wp-content/uploads/2016/03/sopot.jpg",
     "location": "Sopot",
@@ -182,7 +182,7 @@
   "1e5354f75": {
     "name": "Windsurfing",
     "favorite": false,
-    "priceRange": "expensive",
+    "priceRange": "drogo",
     "type": "sport",
     "img": "https://prezentmarzen.com/\"img\"/pmcategorygallery/116/large_default-534-poznaj-windsurfing-lekcja-indywidualna-f362.jpg",
     "location": "Sopot",
@@ -192,7 +192,7 @@
   "1e5354f76": {
     "name": "Skutery Wodne",
     "favorite": false,
-    "priceRange": "expensive",
+    "priceRange": "drogo",
     "type": "sport",
     "img": "http://www.extreme.sopot.pl/images/banners/firma/skutery-1.jpg",
     "location": "Sopot",
@@ -202,7 +202,7 @@
   "1e5354f77": {
     "name": "Molo w Orłowie",
     "favorite": false,
-    "priceRange": "free",
+    "priceRange": "darmowe",
     "type": "natura",
     "img": "https://s-trojmiasto.pl/zdj/c/n/13/1812/1440x810/1812621__kr.jpg",
     "location": "Gdynia",
@@ -212,7 +212,7 @@
   "1e5354f78": {
     "name": "Kępa Redłowska i Klif Orłowski",
     "favorite": false,
-    "priceRange": "free",
+    "priceRange": "darmowe",
     "type": "natura",
     "img": "https://www.naszbaltyk.com/images/Jesien_Kepa_Redlowska_NB_2013/DSC04343zm.jpg",
     "location": "Gdynia",
@@ -222,7 +222,7 @@
   "1e5354f79": {
     "name": "Muzeum Emigracji w Gdyni",
     "favorite": false,
-    "priceRange": "cheap",
+    "priceRange": "tanio",
     "type": "kultura",
     "img": "https://i.wp\"img\".pl/635x400/i.wp.pl/a/f/jpeg/35063/wp_muzeum_emigracji_635.jpeg",
     "location": "Gdynia",
@@ -232,7 +232,7 @@
   "1e5354f7a": {
     "name": "Centrum Nauki Experyment",
     "favorite": false,
-    "priceRange": "medium",
+    "priceRange": "umiarkowanie",
     "type": "kultura",
     "img": "https://naukawpolsce.pap.pl/sites/default/files/styles/strona_glowna_slider_750x420/public/201710/27357106_27357102.jpg?itok=qg0V4zqh",
     "location": "Gdynia",
@@ -242,7 +242,7 @@
   "1e5354f7b": {
     "name": "Dar Pomorza",
     "favorite": false,
-    "priceRange": "cheap",
+    "priceRange": "tanio",
     "type": "kultura",
     "img": "https://dzieje.pl/sites/default/files/styles/open_article_750x0_/public/201911/dar_pomorza.jpg?itok=OQg4QAmy",
     "location": "Gdynia",
@@ -252,7 +252,7 @@
   "1e5354f7c": {
     "name": "Kolibki Adventure Park",
     "favorite": false,
-    "priceRange": "expensive",
+    "priceRange": "drogo",
     "type": "sport",
     "img": "https://agatomdom.pl/wp-content/uploads/2016/04/koolibki-1024x680.jpg",
     "location": "Gdynia",
@@ -262,7 +262,7 @@
   "1e5354f7d": {
     "name": "JUMPCITY Park Trampolin",
     "favorite": false,
-    "priceRange": "medium",
+    "priceRange": "umiarkowanie",
     "type": "sport",
     "img": "https://gdynia.jumpcity.pl/wp-content/themes/jumpcity/\"img\"/galeria/gabki-1.jpg",
     "location": "Gdynia",
@@ -272,7 +272,7 @@
   "1e5354f7e": {
     "name": "Pizzeria Czerwony Piec",
     "favorite": false,
-    "priceRange": "cheap",
+    "priceRange": "tanio",
     "type": "restauracja",
     "img": "https://media-cdn.tripadvisor.com/media/photo-s/0a/8e/c3/9f/20160214-195755-largejpg.jpg",
     "location": "Gdynia",
@@ -282,7 +282,7 @@
   "1e5354f7f": {
     "name": "Multitap Morze Piwa",
     "favorite": false,
-    "priceRange": "medium",
+    "priceRange": "umiarkowanie",
     "type": "restauracja",
     "img": "https://minibrowary.files.wordpress.com/2018/02/morzepiwa_head.jpg",
     "location": "Gdynia",
@@ -292,7 +292,7 @@
   "1e5354f7g": {
     "name": "Falla",
     "favorite": false,
-    "priceRange": "medium",
+    "priceRange": "umiarkowanie",
     "type": "restauracja",
     "img": "https://images.happycow.net/venues/1024/17/14/hcmp171426_655272.jpeg",
     "location": "Gdynia",

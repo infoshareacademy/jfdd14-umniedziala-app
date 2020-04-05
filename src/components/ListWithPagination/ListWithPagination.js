@@ -33,7 +33,7 @@ class ListWithPagination extends Component {
     );
 
     return (
-      <main className="dashboard__listAll">
+      <div className="dashboard__listAll">
         <Card.Group centered itemsPerRow={2}>
           {activePageList.map((attraction) => {
             return (
@@ -68,7 +68,7 @@ class ListWithPagination extends Component {
           </div>
         }
         
-      </main>
+      </div>
     );
   }
 }

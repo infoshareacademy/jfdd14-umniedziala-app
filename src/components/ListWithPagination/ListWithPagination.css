@@ -1,5 +1,4 @@
 .dashboard__listAll {
-  padding: 70px 10px 80px 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -21,10 +20,4 @@
 
 .ui.pagination.menu .active.item {
   background-color: var(--color-yellow) !important;
-}
-
-@media (min-width: 900px) {
-  .dashboard__listAll {
-      padding: 70px 10px 80px 230px;
-  }
 }
