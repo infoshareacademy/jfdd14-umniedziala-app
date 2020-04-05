@@ -29,12 +29,26 @@
     text-align: center;
 }
 
+.dashboard__placeDetails--right > * {
+    font-family: Comfortaa;
+}
+
+.dashboard__placeDetails--name {
+    font-size: 2.714rem;
+}
 .dashboard__placeDetails--location {
     margin-top: 5px;
+    font-size: 2.286rem;
 }
 
 .dashboard__placeDetails--type {
     margin-top: 0;
+    font-size: 1.4rem;
+}
+
+.dashboard__placeDetails--priceRange {
+    margin-right: 14px;
+    font-size: 1.1rem;
 }
 
 
@@ -46,11 +60,14 @@
 }
 
 .dashboard__placeDetails--description :first-child {
-    font-size: 13px;
+    font-size: 15px;
     font-family: Comfortaa;
     text-align: justify;
 }
 
+.dashboard__placeDetails--description p::first-letter {
+    font-size: 200%;
+}
 .dashboardFavourite__icon {
     color: var(--color-blue);
 }
