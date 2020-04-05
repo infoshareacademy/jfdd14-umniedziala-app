@@ -46,8 +46,8 @@ class FavListWithPagination extends Component {
     const { activePage, totalPages, attractions } = this.state;
 
     const activePageList = attractions.slice(
-      this.props.defaultPage * favsPerPage - favsPerPage,
-      this.props.defaultPage * favsPerPage
+      activePage * favsPerPage - favsPerPage,
+      activePage * favsPerPage
     );
 
     return (
@@ -70,19 +70,24 @@ class FavListWithPagination extends Component {
           })}
         </div>
 
-        <div className="dashboard__listAllPaginationBox">
-          <Pagination
-            activePage={activePage}
-            boundaryRange={1}
-            onPageChange={this.handlePaginationChange}
-            size="small"
-            siblingRange={1}
-            totalPages={totalPages}
-            ellipsisItem={false}
-            firstItem={false}
-            lastItem={false}
-          />
-        </div>
+        {totalPages < 2
+          ?
+          null
+          :
+          <div className="dashboard__listAllPaginationBox">
+            <Pagination
+              activePage={activePage}
+              boundaryRange={1}
+              onPageChange={this.handlePaginationChange}
+              size="small"
+              siblingRange={1}
+              totalPages={totalPages}
+              ellipsisItem={false}
+              firstItem={false}
+              lastItem={false}
+            />
+          </div>
+        }
       </main>
     );
   }

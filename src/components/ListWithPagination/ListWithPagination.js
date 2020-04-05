@@ -27,8 +27,8 @@ class ListWithPagination extends Component {
     const { activePage, totalPages } = this.state;
 
     const activePageList = this.props.list.slice(
-      this.props.defaultPage * cardsPerPage - cardsPerPage,
-      this.props.defaultPage * cardsPerPage
+      activePage * cardsPerPage - cardsPerPage,
+      activePage * cardsPerPage
     );
 
     return (
@@ -48,19 +48,25 @@ class ListWithPagination extends Component {
           })}
         </Card.Group>
 
-        <div className="dashboard__listAllPaginationBox">
-          <Pagination
-            activePage={activePage}
-            boundaryRange={1}
-            onPageChange={this.handlePaginationChange}
-            size="small"
-            siblingRange={1}
-            totalPages={totalPages}
-            ellipsisItem={false}
-            firstItem={false}
-            lastItem={false}
-          />
-        </div>
+        {totalPages < 2
+          ?
+          null
+          :
+          <div className="dashboard__listAllPaginationBox">
+            <Pagination
+              activePage={activePage}
+              boundaryRange={1}
+              onPageChange={this.handlePaginationChange}
+              size="small"
+              siblingRange={1}
+              totalPages={totalPages}
+              ellipsisItem={false}
+              firstItem={false}
+              lastItem={false}
+            />
+          </div>
+        }
+        
       </main>
     );
   }
