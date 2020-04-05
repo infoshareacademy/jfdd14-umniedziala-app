@@ -103,7 +103,7 @@ class FormAddPlace extends Component {
               onChange={this.handleTextChange}
             />
           </Form.Group>
-          <Form.TextArea required input={this.state.descriptionLong} onChange={this.handleChangeTextArea} name="descriptionLong" label='Opis' placeholder='Opisz atrakcję' />
+          <Form.TextArea required input={this.state.descriptionLong} onChange={this.handleTextChange} name="descriptionLong" label='Opis' placeholder='Opisz atrakcję' />
           <Form.Checkbox required label='Zgadzam się z warunkami korzystania z usługi' name='terms' checked={this.state.terms} onChange={this.handleCheckboxChange} />
           {button}
         </Form>

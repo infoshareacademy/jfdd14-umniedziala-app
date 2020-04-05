@@ -15,6 +15,14 @@ class PlaceList extends Component {
     });
   }
 
+  // componentDidUpdate() {
+  //   getAttractionsAsArray().then((attractions) => {
+  //     this.setState({
+  //       attractions,
+  //     });
+  //   });
+  // }
+
   render() {
     const { attractions } = this.state
     return (

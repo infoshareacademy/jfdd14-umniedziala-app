@@ -8,7 +8,6 @@ const cardsPerPage = 12;
 class ListWithPagination extends Component {
   state = {
     activePage: this.props.defaultPage,
-    totalPages: Math.ceil(this.props.list.length / cardsPerPage),
   };
 
   handlePaginationChange = (e, { activePage }) => {
@@ -24,7 +23,9 @@ class ListWithPagination extends Component {
   };
 
   render() {
-    const { activePage, totalPages } = this.state;
+    const { activePage } = this.state;
+
+    const totalPages = Math.ceil(this.props.list.length / cardsPerPage);
 
     const activePageList = this.props.list.slice(
       activePage * cardsPerPage - cardsPerPage,
