@@ -1,99 +1,98 @@
 .placeDetails {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .dashboard__placeDetails {
-    min-width: fit-content;
+  min-width: fit-content;
 }
 
 .dashboard__placeDetails--hero {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .image-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-top: 70px;
+  display: flex;
+  justify-content: center;
+  margin-top: 70px;
 }
 
 .dashboard__placeDetails--image {
-    width: 90%;
+  width: 90%;
 }
 
 .dashboard__placeDetails--right {
-    display: flex;
-    flex-direction: column;
-    margin-top: 25px;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+  text-align: center;
 }
 
 .dashboard__placeDetails--right > * {
-    font-family: Comfortaa;
+  font-family: Comfortaa;
 }
 
 .dashboard__placeDetails--name {
-    font-size: 2.714rem;
+  font-size: 2.714rem;
 }
 .dashboard__placeDetails--location {
-    margin-top: 5px;
-    font-size: 2.286rem;
+  margin-top: 5px;
+  font-size: 2.286rem;
 }
 
 .dashboard__placeDetails--type {
-    margin-top: 0;
-    font-size: 1.4rem;
+  margin-top: 0;
+  font-size: 1.4rem;
 }
 
 .dashboard__placeDetails--priceRange {
-    margin-right: 14px;
-    font-size: 1.1rem;
+  margin-right: 14px;
+  font-size: 1.1rem;
 }
 
-
 .dashboard__placeDetails--description {
-    display: flex;
-    width: 90%;
-    margin: 0 auto;
-    margin-top: 20px;
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 20px;
 }
 
 .dashboard__placeDetails--description :first-child {
-    font-size: 15px;
-    font-family: Comfortaa;
-    text-align: justify;
+  font-size: 15px;
+  font-family: Comfortaa;
+  text-align: justify;
 }
 
 .dashboard__placeDetails--description p::first-letter {
-    font-size: 200%;
+  font-size: 200%;
 }
 .dashboardFavourite__icon {
-    color: var(--color-blue);
+  color: var(--color-blue);
 }
 
 @media (min-width: 900px) {
-    .placeDetails {
-        padding: 70px 10px 10px 230px;
-    }
+  .placeDetails {
+    padding: 70px 10px 10px 230px;
+  }
 
-    .dashboard__placeDetails--hero {
-        flex-direction: row;
-    }
+  .dashboard__placeDetails--hero {
+    flex-direction: row;
+  }
 
-    .image-wrapper {
-        position: relative;
-        display: flex;
-        margin-top: 0;
-    }
+  .image-wrapper {
+    position: relative;
+    display: flex;
+    margin-top: 0;
+  }
 
-    .dashboard__placeDetails--right {
-        margin: 50px auto;
-        width: 60%;
-        display: inline-block;
-    }
+  .dashboard__placeDetails--right {
+    margin: 50px auto;
+    width: 60%;
+    display: inline-block;
+  }
 
-    .dashboard__placeDetails--description :first-child {
-        font-size: 18px;
-    }
+  .dashboard__placeDetails--description :first-child {
+    font-size: 18px;
+  }
 }
