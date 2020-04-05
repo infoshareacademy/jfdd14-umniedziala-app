@@ -20,7 +20,7 @@ const data = [
     "favorite": false,
     "priceRange": 'darmowe',
     "type": 'natura',
-    "img": 'https://pomorskie.travel/image/journal/article?"img"_id=242660&t=1542202897474',
+    "img": 'https://parkmierzeja.pl/files/site-pkmw/gallery/161/2.jpg',
     "location": 'Gdańsk',
     "descriptionShort": 'Rezerwat Mewia Łacha na Wyspie Sobieszewskiej to naturalne siedlisko fok i ptaków chronione przez ornitologów z Grupy KULING.',
     "descriptionLong": 'Rezerwat chroni miejsca lęgowe różnych gatunków rybitw i siedliska żerowania i odpoczynku ptaków siewkowych. Od roku 2007 jest to ponownie jedyne w Polsce miejsce gnieżdżenia się rybitw czubatych - ok. 570 par (2009). Gniazdują tu również rybitwy białoczelne, rybitwy rzeczne, sieweczki obrożne, ostrygojady, w przeszłości na łachach (piaszczystych wyspach) gniazdowały także kolonie mew srebrzystych i śmieszek, w rezerwacie notowano również lęgi rybitw popielatych oraz jedyny w Polsce przypadek lęgu sieweczki morskiej.'
