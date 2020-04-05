@@ -1,16 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../SearchBar/SearchBar.css";
 import ToggleButton from "../ToggleButton/ToggleButton.js";
 import SearchAdvanced from "../SearchAdvanced/SearchAdvanced";
-import attractionData from "../../attractionData";
+import { getAttractionsAsArray } from "../../services";
+import ListWithPagination from "../../components/ListWithPagination/ListWithPagination";
 
 function SearchBar() {
   const [inputValue, setInputValue] = useState("");
-  const [results] = useState(attractionData);
+  const [attractions, setAttractions] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
   const [categoryValue, setCategoryValue] = useState([]);
   const [locationValue, setLocationValue] = useState([]);
   const [rangeValue, setRangeValue] = useState("");
+
+  useEffect(() => {
+    getAttractionsAsArray().then(attractions => setAttractions(attractions))
+  }, []);
 
   const optionsCategory = [
     { key: "kultura", text: "Kultura", value: "Kultura" },
@@ -55,19 +60,7 @@ function SearchBar() {
     setRangeValue(getKeyByValue(Number(evt)));
   };
 
-  const renderPlaces = (arr) => {
-    return arr.map((el) => {
-      return (
-        <div key={el.id}>
-          <h3>{el.name}</h3>
-          <p>{el.descriptionLong}</p>
-          <br></br>
-        </div>
-      );
-    });
-  };
-
-  const filteredResults = results
+  const filteredResults = attractions
     .filter((el) => el.name.toLowerCase().includes(inputValue.toLowerCase()))
     .filter((el) => {
       const typeLowerCase =
@@ -141,11 +134,16 @@ function SearchBar() {
         />
       )}
       <div className="search-bar_results">
-        {filteredResults.length === 0 ? (
+        {filteredResults.length === 0
+          ?
           <h3>Brak wyników</h3>
-        ) : (
-          renderPlaces(filteredResults)
-        )}
+          :
+          <ListWithPagination
+            list={filteredResults}
+            itemNameForStorage="tripcity-lastViewedPage"
+            defaultPage={localStorage.getItem("tripcity-lastViewedPage") || 1}
+          />
+        }
       </div>
     </div>
   );

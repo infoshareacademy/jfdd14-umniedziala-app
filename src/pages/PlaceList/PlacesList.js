@@ -8,14 +8,6 @@ class PlaceList extends Component {
       <main className="main">
         <div>
           <SearchBar />
-          {/*   <CardComponent
-                    link={'/placeadded'}
-                    image={attractionData['0'].img}
-                    header={attractionData['0'].name}
-                    meta={attractionData['0'].name}
-                    description={attractionData['0'].descriptionLong.slice(0, 100) + "..."}
-                    price={'Przedział cenowy: ' + attractionData['0'].priceRange}
-                /> */}
         </div>
       </main>
     );

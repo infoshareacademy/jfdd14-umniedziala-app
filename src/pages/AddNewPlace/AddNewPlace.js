@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Popup, Button } from 'semantic-ui-react';
-import attractionData from '../../attractionData';
+import { addAttraction } from '../../services';
 import './AddNewPlace.css';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -23,7 +23,6 @@ const type = [
 class FormAddPlace extends Component {
   state = {
     name: "",
-    id: Date.now(),
     favorite: false,
     priceRange: "",
     type: "",
@@ -37,10 +36,7 @@ class FormAddPlace extends Component {
   handleTextChange = (e, { value, name }) => this.setState({ [name]: value });
   handleCheckboxChange = (e, { checked, name }) => this.setState({ [name]: checked });
 
-  addToData = () =>
-    attractionData.push(this.state);
-  jsonToLocalStorage = () =>
-    localStorage.setItem("attractionData", JSON.stringify(attractionData));
+  addToData = () => addAttraction(this.state);
 
   resetState = () => this.setState({
     name: "",
@@ -60,7 +56,6 @@ class FormAddPlace extends Component {
       this.state.type && this.state.location &&
       this.state.descriptionLong && this.state.terms) {
       this.addToData();
-      this.jsonToLocalStorage();
       this.notify();
       this.resetState();
     } else {
@@ -163,6 +158,7 @@ class FormAddPlace extends Component {
               onChange={this.handleTextChange}
             />
           </Form.Group>
+          
           <Form.TextArea
             value={this.state.descriptionLong}
             onChange={this.handleTextChange}

@@ -18,7 +18,7 @@ function Range(props) {
       <div className="range__text">
         <p>Darmowe</p>
         <p>Tanio</p>
-        <p>Średnio</p>
+        <p>Umiarkowanie</p>
         <p>Drogo</p>
         <p>Obojętnie</p>
       </div>

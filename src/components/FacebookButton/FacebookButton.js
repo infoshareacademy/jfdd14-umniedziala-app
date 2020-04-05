@@ -9,12 +9,12 @@ const FacebookButton = () => {
         <div className="socialShareContainer">
             <a href={facebookUrl} target="_blank" rel="noreferrer noopener">
                 <button
-                    class="ui facebook button"
+                    className="ui facebook button"
                     href={facebookUrl}
                     target="_blank"
                     rel="noreferrer noopener"
                 >
-                    <i class="facebook icon"></i>
+                    <i className="facebook icon"></i>
                     Share
                 </button>
             </a>

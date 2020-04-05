@@ -28,5 +28,6 @@
 }
 
 .search-bar_results {
-  padding: 3rem;
+  padding: 2rem;
+  padding-bottom: 80px;
 }
