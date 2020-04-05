@@ -8,27 +8,24 @@ const cardsPerPage = 12;
 class ListWithPagination extends Component {
   state = {
     activePage: this.props.defaultPage,
-    totalPages: Math.ceil(this.props.list.length / cardsPerPage),
   };
 
   handlePaginationChange = (e, { activePage }) => {
     this.setState({
       activePage,
-      activePageList: this.props.list.slice(
-        activePage * cardsPerPage - cardsPerPage,
-        activePage * cardsPerPage
-      ),
     });
     window.scrollTo(0, 0);
     localStorage.setItem(this.props.itemNameForStorage, activePage);
   };
 
   render() {
-    const { activePage, totalPages } = this.state;
+    const { activePage } = this.state;
+
+    const totalPages = Math.ceil(this.props.list.length / cardsPerPage);
 
     const activePageList = this.props.list.slice(
-      this.props.defaultPage * cardsPerPage - cardsPerPage,
-      this.props.defaultPage * cardsPerPage
+      activePage * cardsPerPage - cardsPerPage,
+      activePage * cardsPerPage
     );
 
     return (

@@ -9,7 +9,6 @@ const favsPerPage = 6;
 class FavListWithPagination extends Component {
   state = {
     activePage: this.props.defaultPage,
-    totalPages: 0,
     attractions: [],
   };
 
@@ -21,7 +20,6 @@ class FavListWithPagination extends Component {
     getFavoriteAttractionsAsArray().then((attractions) =>
       this.setState({
         attractions,
-        totalPages: Math.ceil(attractions.length / favsPerPage),
       })
     );
   };
@@ -29,10 +27,6 @@ class FavListWithPagination extends Component {
   handlePaginationChange = (e, { activePage }) => {
     this.setState({
       activePage,
-      activePageList: this.props.list.slice(
-        activePage * favsPerPage - favsPerPage,
-        activePage * favsPerPage
-      ),
     });
     window.scrollTo(0, 0);
     localStorage.setItem(this.props.itemNameForStorage, activePage);
@@ -43,11 +37,13 @@ class FavListWithPagination extends Component {
   };
 
   render() {
-    const { activePage, totalPages, attractions } = this.state;
+    const { activePage, attractions } = this.state;
+
+    const totalPages = Math.ceil(attractions.length / favsPerPage);
 
     const activePageList = attractions.slice(
-      this.props.defaultPage * favsPerPage - favsPerPage,
-      this.props.defaultPage * favsPerPage
+      activePage * favsPerPage - favsPerPage,
+      activePage * favsPerPage
     );
 
     return (
