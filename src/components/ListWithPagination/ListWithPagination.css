@@ -1,0 +1,23 @@
+.dashboard__listAll {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.dashboard__listAllPaginationBox {
+  margin: 30px auto 20px;
+  display: block;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  z-index: 9;
+}
+
+.ui.menu {
+  background: var(--color-light-blue) !important;
+}
+
+.ui.pagination.menu .active.item {
+  background-color: var(--color-yellow) !important;
+}

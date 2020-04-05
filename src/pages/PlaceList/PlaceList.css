@@ -1,0 +1,11 @@
+.main {
+  box-sizing: border-box;
+  padding: 60px 0px 10px 0px;
+  width: 100vw;
+}
+
+@media (min-width: 900px) {
+  .main {
+    padding: 60px 0px 10px 220px;
+  }
+}

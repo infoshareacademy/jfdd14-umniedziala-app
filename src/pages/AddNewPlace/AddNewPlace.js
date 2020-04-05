@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import './AddNewPlace.css';
 import { Form, Popup, Button } from 'semantic-ui-react';
-import attractionData from '../../attractionData';
-
+import { addAttraction } from '../../services';
+import './AddNewPlace.css';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { css } from 'glamor';
 
 
 const options = [
@@ -21,7 +23,6 @@ const type = [
 class FormAddPlace extends Component {
   state = {
     name: "",
-    id: Date.now(),
     favorite: false,
     priceRange: "",
     type: "",
@@ -35,20 +36,56 @@ class FormAddPlace extends Component {
   handleTextChange = (e, { value, name }) => this.setState({ [name]: value });
   handleCheckboxChange = (e, { checked, name }) => this.setState({ [name]: checked });
 
-  addToData = () =>
-    attractionData.push(this.state);
-  jsonToLocalStorage = () =>
-    localStorage.setItem("atractionData", JSON.stringify(attractionData));
+  addToData = () => addAttraction(this.state);
+
+  resetState = () => this.setState({
+    name: "",
+    id: Date.now(),
+    favorite: false,
+    priceRange: "",
+    type: "",
+    img: "",
+    location: "",
+    descriptionShort: "",
+    descriptionLong: "",
+    terms: false,
+  });
 
   handleSubmit = () => {
-    this.addToData();
-    this.jsonToLocalStorage();
-  };
+    if (this.state.name && this.state.priceRange &&
+      this.state.type && this.state.location &&
+      this.state.descriptionLong && this.state.terms) {
+      this.addToData();
+      this.notify();
+      this.resetState();
+    } else {
+      return
+    };
+  }
+
+  notify = () => toast(
+    "Dodano nową atrakcję !!!", {
+    className: css({
+      background: 'white'
+    }),
+    bodyClassName: css({
+      fontSize: '20px',
+      color: 'var(--color-blue)'
+    }),
+    progressClassName: css({
+      background: "var(--color-blue)"
+    }),
+    position: toast.POSITION.BOTTOM_LEFT,
+  });
 
   render() {
-    const button = this.state.terms ?
-      <Form.Button type='submit' >Dodaj atrakcję</Form.Button> :
-      <Popup content='Zaznacz wymagane zgody' trigger={<Button>Dodaj atrakcję</Button>} />
+    const button =
+      this.state.terms ?
+        <Form.Button type='submit'>Dodaj atrakcję</Form.Button>
+        :
+        <Popup content='Wypełnij wszystkie pola oraz zaznacz wymagane zgody.' 
+        trigger={<Button>Dodaj atrakcję</Button>} />
+
 
     return (
       <main className='addNewPlace__dashboard'>
@@ -56,19 +93,33 @@ class FormAddPlace extends Component {
         <br></br>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group widths='equal'>
-            <Form.Input required input={this.state.name} name='name' onChange={this.handleTextChange} label='Nazwa atrakcji' placeholder='Nazwa atrakcji' />
-            <Form.Input required input={this.state.img} name='img' onChange={this.handleTextChange} label='Zdjęcie' placeholder='Zdjęcie' />
+            <Form.Input
+              input={this.state.name}
+              name='name'
+              onChange={this.handleTextChange}
+              label='Nazwa atrakcji'
+              placeholder='Nazwa atrakcji'
+              value={this.state.name}
+            />
+            <Form.Input
+              input={this.state.img}
+              name='img'
+              onChange={this.handleTextChange}
+              label='Zdjęcie'
+              placeholder='Zdjęcie'
+              value={this.state.img}
+            />
             <Form.Select
-              required
-              input={this.state.location} onChange={this.handleTextChange}
+              input={this.state.location}
+              onChange={this.handleTextChange}
               name='location'
               label='Lokalizacja'
               options={options}
               placeholder='Wybierz lokalizację'
+              value={this.state.location}
             />
             <Form.Select
-              required
-              input={this.state.type}
+              value={this.state.type}
               onChange={this.handleTextChange}
               name="type"
               label='Kategoria'
@@ -107,8 +158,20 @@ class FormAddPlace extends Component {
               onChange={this.handleTextChange}
             />
           </Form.Group>
-          <Form.TextArea required input={this.state.descriptionLong} onChange={this.handleChangeTextArea} name="descriptionLong" label='Opis' placeholder='Opisz atrakcję' />
-          <Form.Checkbox required label='Zgadzam się z warunkami korzystania z usługi' name='terms' checked={this.state.terms} onChange={this.handleCheckboxChange} />
+          
+          <Form.TextArea
+            value={this.state.descriptionLong}
+            onChange={this.handleTextChange}
+            name="descriptionLong"
+            label='Opis'
+            placeholder='Opisz atrakcję'
+          />
+          <Form.Checkbox
+            label='Zgadzam się z warunkami korzystania z usługi'
+            name='terms'
+            checked={this.state.terms}
+            onChange={this.handleCheckboxChange}
+          />
           {button}
         </Form>
       </main>

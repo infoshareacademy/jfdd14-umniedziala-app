@@ -51,6 +51,10 @@
     text-align: justify;
 }
 
+.dashboardFavourite__icon {
+    color: var(--color-blue);
+}
+
 @media (min-width: 900px) {
     .placeDetails {
         padding: 70px 10px 10px 230px;

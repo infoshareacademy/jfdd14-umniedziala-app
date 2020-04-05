@@ -1,0 +1,65 @@
+.favList__card {
+  width: 100%;
+  border-radius: .28571429rem;
+  box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+  transition: box-shadow .1s ease,transform .1s ease;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.favList__card:hover {
+  box-shadow: 0 1px 3px 0 #bcbdbd, 0 0 0 1px #d4d4d5;
+  transform: translateY(-3px);
+}
+
+.favList__cardLink {
+  color: var(--color-dark);
+}
+
+.favList__cardImgWrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.favList__cardImg {
+  border-radius: .28571429rem .28571429rem 0 0;
+  object-fit: cover;
+  width: 100%;
+  max-height: 300px;
+}
+
+.favList__cardInfo {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.favList__cardTitleBox {
+  display: flex;
+  justify-content: space-between;
+  font-size: 2rem;
+}
+
+@media (min-width: 900px) {
+  .favList__card {
+    width: 100%;
+    max-height: 300px;
+    flex-direction: row;
+  }
+
+  .favList__cardImgWrapper {
+    width: 300px;
+  }
+  
+  .favList__cardImg {
+    width: 300px;
+    height: 100%;
+    border-radius: .28571429rem 0 0 .28571429rem;
+  }
+
+  .favList__cardInfo {
+    width: 100%;
+  }
+}
