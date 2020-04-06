@@ -56,7 +56,7 @@ class PlaceDetails extends Component {
           <div className="dashboard__placeDetails--hero">
             <div className="image-wrapper">
               <img
-                className="test"
+                className="dashboard__placeDetails--image"
                 src={attraction.img}
                 alt="attractionImage"
               />
@@ -72,7 +72,7 @@ class PlaceDetails extends Component {
               <h3 className="dashboard__placeDetails--location">
                 {attraction.location}
               </h3>
-              <p className="dashboard__placeDetails--type">{attraction.type}</p>
+              <h4 className="dashboard__placeDetails--type">{attraction.type}</h4>
               <p className="dashboard__placeDetails--priceRange">
                 <i className="dollar sign icon"></i>
                 {attraction.priceRange}
