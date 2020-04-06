@@ -106,7 +106,7 @@ class FormAddPlace extends Component {
               name='img'
               onChange={this.handleTextChange}
               label='Zdjęcie'
-              placeholder='Zdjęcie'
+              placeholder='Proszę podać URL'
               value={this.state.img}
             />
             <Form.Select
