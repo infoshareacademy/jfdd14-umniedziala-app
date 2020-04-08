@@ -1,0 +1,16 @@
+.loginModal {
+display: none;
+
+}
+
+.visible {
+    display: flex;
+}
+
+.loginModal__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    }
