@@ -1,14 +1,14 @@
-// TODO this file should be remade once we move to firebase
-import attractions from "./fixtures/attractions.json";
+const ATTRACTIONS_URL = "https://tripcity-app.firebaseio.com/attractions/";
 
-const attractionsKey = "attractions";
+// TODO this file should be remade once we move to firebase
+// import attractions from "./fixtures/attractions.json";
+
+// const attractionsKey = "attractions";
 // Initially just to have some attractions in localStorage we prefill it
 // with the data we have prepared for testing purpose.
-if (localStorage.getItem(attractionsKey) === null) {
-  localStorage.setItem(attractionsKey, JSON.stringify(attractions));
-}
-const getAttractionsFromLocalStorage = () =>
-  JSON.parse(localStorage.getItem(attractionsKey));
+// if (localStorage.getItem(attractionsKey) === null) {
+//   localStorage.setItem(attractionsKey, JSON.stringify(attractions));
+// }
 
 const favoriteAttractionIdsKey = "favoriteAttractionIds";
 const getFavoriteAttractionIdsFromLocalStorage = () =>
@@ -17,9 +17,12 @@ const getFavoriteAttractionIdsFromLocalStorage = () =>
 // The exported function bodies should be remade once we move to firebase
 // Every single one of them returns a promise because in the end we are
 // going to get the data asynchronously from server
-export const getAttractions = () =>
-  Promise.resolve(getAttractionsFromLocalStorage() || null);
 
+// GET ATTRACTIONS
+export const getAttractions = () =>
+  fetch(ATTRACTIONS_URL + ".json").then((response) => response.json());
+
+// CONVERT ATTRACTIONS OBJECT TO ARRAY
 export const getAttractionsAsArray = () =>
   getAttractions().then((attractions) =>
     Object.entries(attractions || {})
@@ -36,12 +39,11 @@ export const getAttractionById = (id) =>
 export const getFavoriteAttractionIds = () =>
   Promise.resolve(getFavoriteAttractionIdsFromLocalStorage() || null);
 
+// ADD NEW ATTRACTION
 export const addAttraction = (attraction) =>
-  getAttractions().then((attractions) => {
-    const id = Date.now();
-    attractions[id] = attraction;
-    const data = JSON.stringify(attractions);
-    localStorage.setItem(attractionsKey, data);
+  fetch(ATTRACTIONS_URL + ".json", {
+    method: "POST",
+    body: JSON.stringify(attraction),
   });
 
 export const toggleFavorite = (attractionId) =>
@@ -69,5 +71,8 @@ export const getFavoriteAttractionsAsArray = () =>
     getAttractionsAsArray(),
     getFavoriteAttractionIds(),
   ]).then(([attractions, favoriteIds]) =>
-    attractions.filter((attraction) => favoriteIds !== null && favoriteIds[attraction.id] === true)
+    attractions.filter(
+      (attraction) =>
+        favoriteIds !== null && favoriteIds[attraction.id] === true
+    )
   );
