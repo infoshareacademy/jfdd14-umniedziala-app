@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BarChart, Bar, XAxis, YAxis, LabelList } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, LabelList, ResponsiveContainer } from "recharts";
 import { getAttractionsAsArray } from "../../services";
 
 class FavBarChart extends Component {
@@ -24,19 +24,22 @@ class FavBarChart extends Component {
       return null;
     }
     return (
-      <BarChart
-        width={460}
-        height={400}
-        data={topData}
-        layout="vertical"
-        margin={{ top: 20, right: 20, bottom: 0, left: 20 }}
-      >
-        <XAxis type="number" hide={true} />
-        <YAxis type="category" dataKey="name" width={200} />
-        <Bar dataKey="rating" fill="var(--color-blue)" barSize={50}>
-          <LabelList dataKey="rating" position="right" />
-        </Bar>
-      </BarChart>
+      <ResponsiveContainer aspect={460/400} width="100%">
+        <BarChart
+          // width={460}
+          // height={400}
+          data={topData}
+          layout="vertical"
+          margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
+        >
+          <XAxis type="number" hide={true} />
+          <YAxis type="category" dataKey="name" width={120} />
+          <Bar dataKey="rating" fill="var(--color-blue)" barSize={50}>
+            <LabelList dataKey="rating" position="right" />
+          </Bar>
+        </BarChart>
+      </ResponsiveContainer>
+      
     );
   }
 }
