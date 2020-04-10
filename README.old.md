@@ -1,1 +1,0 @@
-# jfdd14-umniedziala-app
