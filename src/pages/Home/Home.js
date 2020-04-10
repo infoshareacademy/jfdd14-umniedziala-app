@@ -4,6 +4,7 @@ import CityPieChart from '../../components/CityPieChart/CityPieChart';
 import './Home.css';
 
 class Home extends Component {
+
     render() {
         return( 
         <main className="dashboard">
