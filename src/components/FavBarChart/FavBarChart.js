@@ -26,8 +26,6 @@ class FavBarChart extends Component {
     return (
       <ResponsiveContainer aspect={460/400} width="100%">
         <BarChart
-          // width={460}
-          // height={400}
           data={topData}
           layout="vertical"
           margin={{ top: 20, right: 20, bottom: 20, left: 20 }}

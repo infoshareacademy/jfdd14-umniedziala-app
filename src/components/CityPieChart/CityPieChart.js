@@ -24,14 +24,11 @@ class CityPieChart extends Component {
     return (
       <ResponsiveContainer aspect={1} width="100%">
         <PieChart
-            // width={460}
-            // height={400}
         >
           <Pie
             data={data01}
             dataKey="value"
             nameKey="name"
-            // outerRadius={100}
             fill="var(--color-blue)"
             label
           >
