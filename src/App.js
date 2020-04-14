@@ -7,6 +7,8 @@ import PlaceDetails from './pages/PlaceDetails/PlaceDetails';
 import PlaceList from './pages/PlaceList/PlacesList';
 import FavouriteList from './pages/FavouriteList/FavouriteList';
 import Default from './pages/Default/Default';
+import SignIn from './pages/SignIn/SignIn';
+import Login from './pages/Login/Login';
 import 'semantic-ui-css/semantic.min.css';
 import { ToastContainer } from 'react-toastify';
 
@@ -22,6 +24,8 @@ class App extends Component {
             <Route path="/placedetails/:id" component={PlaceDetails} />
             <Route path="/placelist" component={PlaceList} />
             <Route path="/myfavourites" component={FavouriteList} />
+            <Route path="/signin" component={SignIn} />
+            <Route path="/login" component={Login} />
             <Route component={Default} />
         </Switch>
       </BrowserRouter>

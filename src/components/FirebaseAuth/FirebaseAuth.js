@@ -1,8 +1,12 @@
+import React from 'react';
+import { useContext } from 'react';
+
+
 const API_KEY = 'AIzaSyD2TGrCzks3qlgYeCkAIrqAxdXgM4xJxOo';
 
 const SIG_IN_URL = `https://tripcity-app.firebaseio.com/v1/accounts:signInWithPassword?key=${API_KEY}`
 
-
+signIn
 export const SigIn = (email, password) => {
 
     const credentials = {

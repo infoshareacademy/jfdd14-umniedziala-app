@@ -22,14 +22,13 @@ class Header extends Component {
     handleToggleMenuVisibility = () => {
         this.setState({ menuOpen: !this.state.menuOpen });
     }
-    handleToggleLogInVisibility = () => {
-        this.setState({ LogInModal: !this.state.LogInModal });
-    }
-    handleToggleSigInVisibility = () => {
-        this.setState({ SigInModal: !this.state.SigInModal });
-    }
+    // handleToggleLogInVisibility = () => {
+    //     this.setState({ LogInModal: !this.state.LogInModal });
+    // }
+    // handleToggleSigInVisibility = () => {
+    //     this.setState({ SigInModal: !this.state.SigInModal });
+    // }
     handleTextChange = (e) => {
-        console.log(e.target.value, e.target.name);
         return this.setState({ [e.target.name]: e.target.value })
     };
 
@@ -45,14 +44,13 @@ class Header extends Component {
                     </div>
                     <div className="header__rightBox">
                         {this.state.menuOpen ? <i className="fas fa-times header__icon" onClick={this.handleToggleMenuVisibility}></i> : <i className="fas fa-bars header__icon" onClick={this.handleToggleMenuVisibility}></i>}
-                        <LoginButton
-                            changeLogInVisibility={this.handleToggleLogInVisibility}
-                            changeSignInVisibility={this.handleToggleSigInVisibility}
-                        />
+                      
                     </div>
-                    <div className="modal">
+                    <LoginButton
+                        />
+                    {/* <div className="modal">
                     <div className="modal_container">
-                        <LoginModal
+                        {/* <LoginModal
                             visibility={this.state.LogInModal ? "loginModal visible" : "loginModal"}
                             headerH4={'Podaj login'}
                             passwordH4={'Podaj hasło'}
@@ -67,9 +65,9 @@ class Header extends Component {
                             onChange={this.handleTextChange}
                             loginValue={this.state.SigInLogin}
                             passwordValue={this.state.SigInPassword}
-                        />
+                        /> 
                     </div>
-                </div>
+                </div> */}
                 </header>
                 <Sidebar
                     visibility={this.state.menuOpen ? "sidebar visible" : "sidebar"}
