@@ -1,21 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "../SearchBar/SearchBar.css";
 import ToggleButton from "../ToggleButton/ToggleButton.js";
 import SearchAdvanced from "../SearchAdvanced/SearchAdvanced";
-import { getAttractionsAsArray } from "../../services";
 import ListWithPagination from "../../components/ListWithPagination/ListWithPagination";
+import { AttractionsContext } from "../../contexts/AttractionsContext";
 
 function SearchBar() {
   const [inputValue, setInputValue] = useState("");
-  const [attractions, setAttractions] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
   const [categoryValue, setCategoryValue] = useState([]);
   const [locationValue, setLocationValue] = useState([]);
   const [rangeValue, setRangeValue] = useState("");
 
-  useEffect(() => {
-    getAttractionsAsArray().then(attractions => setAttractions(attractions))
-  }, []);
+  const attractionData = useContext(AttractionsContext);
+  const { attractionList } = attractionData;
 
   const optionsCategory = [
     { key: "kultura", text: "Kultura", value: "Kultura" },
@@ -60,7 +58,7 @@ function SearchBar() {
     setRangeValue(getKeyByValue(Number(evt)));
   };
 
-  const filteredResults = attractions
+  const filteredResults = attractionList
     .filter((el) => el.name.toLowerCase().includes(inputValue.toLowerCase()))
     .filter((el) => {
       const typeLowerCase =
