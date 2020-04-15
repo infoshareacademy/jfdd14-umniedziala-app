@@ -1,16 +1,17 @@
 import React from 'react';
 import { Input, Button, Form } from 'semantic-ui-react';
 import { useState, useContext} from 'react';
+import { SignInToFirebase } from '../../contexts/SignInToFirebase';
 
 function SignIn() {
 
     const [signInEmail, setSignInEmail] = useState('');
     const [signInPassword, setSignInPassword] = useState('');
 
+    const FetchSignInToFirebase = useContext(SignInToFirebase);  //dane z use context
+
     const handleEmailChanged = (e) => setSignInEmail(e.target.value);
     const handlePasswordChanged = (e) => setSignInPassword(e.target.value);
-    const signInToFirebase = () => (    //do poprawy
-        console.log('zarejstrowano'));
 
     return (
         <div className="dashboard">
@@ -32,7 +33,7 @@ function SignIn() {
                         icon='search'
                         placeholder='Podaj hasło'
                     />
-                    <Button onClick={signInToFirebase}>Zaloguj</Button>
+                    <Button onClick={() => FetchSignInToFirebase(signInEmail, signInPassword)}>Zaloguj</Button>
                 </Form.Group>
             </Form>
             <div>
