@@ -5,12 +5,21 @@ import FavListWithPagination from "../../components/FavListWithPagination/FavLis
 import "./FavouriteList.css";
 
 class FavouriteList extends Component {
+  state = {
+    userId: "jYGN6TYDxWR0FgqrVTYdjvJoA9M2",
+  };
+
   render() {
-    return (
+    return this.state.userId ? (
       <FavListWithPagination
+        userId={this.state.userId}
         itemNameForStorage="tripcity-lastViewedFavPage"
         defaultPage={localStorage.getItem("tripcity-lastViewedFavPage") || 1}
       />
+    ) : (
+      <p className="notLoggedText">
+        Zaloguj się aby wyświetlić Twoje ulubione aktrakcje
+      </p>
     );
   }
 }

@@ -9,17 +9,32 @@ const favsPerPage = 6;
 class FavListWithPagination extends Component {
   state = {
     activePage: this.props.defaultPage,
-    attractions: []
+    attractions: [],
   };
 
   componentDidMount() {
     this.refreshAttractions();
   }
 
+  componentDidUpdate() {
+    this.sendFavouritesToFirebase(this.state.attractions);
+  }
+
+  //adding favourites to firebase for user ID
+  sendFavouritesToFirebase = (attraction) =>
+    fetch(
+      `https://tripcity-app.firebaseio.com/users/${this.props.userId}/favourites` +
+        ".json",
+      {
+        method: "PUT",
+        body: JSON.stringify(attraction),
+      }
+    );
+
   refreshAttractions = () => {
     getFavoriteAttractionsAsArray().then((attractions) =>
       this.setState({
-        attractions
+        attractions,
       })
     );
   };
@@ -45,7 +60,7 @@ class FavListWithPagination extends Component {
       activePage * favsPerPage - favsPerPage,
       activePage * favsPerPage
     );
-
+    console.log(attractions);
     return (
       <main className="favList__list">
         <div className="favList__cardsBox">
@@ -66,10 +81,7 @@ class FavListWithPagination extends Component {
           })}
         </div>
 
-        {totalPages < 2
-          ?
-          null
-          :
+        {totalPages < 2 ? null : (
           <div className="dashboard__listAllPaginationBox">
             <Pagination
               activePage={activePage}
@@ -83,7 +95,7 @@ class FavListWithPagination extends Component {
               lastItem={false}
             />
           </div>
-        }
+        )}
       </main>
     );
   }
