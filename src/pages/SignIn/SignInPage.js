@@ -36,10 +36,6 @@ function SignIn() {
                     <Button onClick={() => FetchSignInToFirebase(signInEmail, signInPassword)}>Zaloguj</Button>
                 </Form.Group>
             </Form>
-            <div>
-                email: {signInEmail}
-                password:{signInPassword}
-            </div>
         </div>
     )
 }
