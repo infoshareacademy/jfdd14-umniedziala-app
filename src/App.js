@@ -15,9 +15,19 @@ import { getAttractionsAsArray } from './services';
 import { AttractionsContext } from './contexts/AttractionsContext';
 import { SignInToFirebase } from './contexts/SignInToFirebase';
 import { LoginToFirebase } from './contexts/LoginToFirebase';
+// import { UserSignInData } from './contexts/UserSignInData';
+
 
 function App() {
   const [attractionList, setAttractionList] = useState([]);
+
+
+  // const UserIdandRefreshToken = {
+  //   localId,
+  //   email,
+  // },
+  // UserIdAndRefreshToken = useContext(UserSignInData);
+
 
   const attractionData = {
     attractionList,
@@ -29,7 +39,7 @@ function App() {
   const SIG_IN_URL = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${API_KEY}`
 
   const SignIn = (email, password) => {
-    console.log( 'email podawany do funkcji SignIn',email, 'pass podawany do funkcji signIn' ,password)
+
     const credentials = {
       email,
       password,
@@ -51,18 +61,17 @@ function App() {
       })
       .then((response) => response.json())
       .then((data) => {
-        const { localId, idToken, email } = data
-console.log('dane przychodzące z funkcji SignIn', localId, idToken, email);
+        const { localId, idToken, email, refreshToken } = data
 
-
-        localStorage.setItem('localId', localId)
-        localStorage.setItem('idToken', idToken)
-        localStorage.setItem('email', email)
-
+        localStorage.setItem('appData', JSON.stringify({  idToken, refreshToken }));
+        
+      
         return data
       })
 
   }
+
+  
 
   useEffect(() => {
     getAttractionsAsArray().then(attractions => setAttractionList(attractions))
@@ -72,18 +81,20 @@ console.log('dane przychodzące z funkcji SignIn', localId, idToken, email);
     <BrowserRouter>
       <SignInToFirebase.Provider value={SignIn}>
         <AttractionsContext.Provider value={attractionData}>
-          <Header />
-          <ToastContainer />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/addnewplace" component={AddNewPlace} />
-            <Route path="/placedetails/:id" component={PlaceDetails} />
-            <Route path="/placelist" component={PlaceList} />
-            <Route path="/myfavourites" component={FavouriteList} />
-            <Route path="/signin" component={SignInPage} />
-            <Route path="/login" component={Login} />
-            <Route component={Default} />
-          </Switch>
+          {/* <UserSignInData.Provider > */}
+            <Header />
+            <ToastContainer />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/addnewplace" component={AddNewPlace} />
+              <Route path="/placedetails/:id" component={PlaceDetails} />
+              <Route path="/placelist" component={PlaceList} />
+              <Route path="/myfavourites" component={FavouriteList} />
+              <Route path="/signin" component={SignInPage} />
+              <Route path="/login" component={Login} />
+              <Route component={Default} />
+            </Switch>
+          {/* </UserSignInData.Provider> */}
         </AttractionsContext.Provider>
       </SignInToFirebase.Provider>
 

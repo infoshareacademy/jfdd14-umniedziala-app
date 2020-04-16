@@ -3,7 +3,7 @@ import { Input, Button, Form } from 'semantic-ui-react';
 import { useState, useContext} from 'react';
 import { SignInToFirebase } from '../../contexts/SignInToFirebase';
 
-function SignIn() {
+function SignInPage() {
 
     const [signInEmail, setSignInEmail] = useState('');
     const [signInPassword, setSignInPassword] = useState('');
@@ -33,11 +33,11 @@ function SignIn() {
                         icon='search'
                         placeholder='Podaj hasło'
                     />
-                    <Button onClick={() => FetchSignInToFirebase(signInEmail, signInPassword)}>Zaloguj</Button>
+                    <Button onClick={() => FetchSignInToFirebase(signInEmail, signInPassword)}>Zarejstruj</Button>
                 </Form.Group>
             </Form>
         </div>
     )
 }
 
-export default SignIn;
+export default SignInPage;

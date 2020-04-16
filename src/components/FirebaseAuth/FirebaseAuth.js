@@ -5,7 +5,7 @@ import { useContext } from 'react';
 const API_KEY = 'AIzaSyD2TGrCzks3qlgYeCkAIrqAxdXgM4xJxOo';
 
 const SIG_IN_URL = `https://tripcity-app.firebaseio.com/v1/accounts:signInWithPassword?key=${API_KEY}`
-
+const SAVE_USERS_URL = `https://tripcity-app.firebaseio.com/users`
 
 export const SignIn = (email, password) => {
 
@@ -30,15 +30,18 @@ export const SignIn = (email, password) => {
         })
         .then((reponse) => response.json())
         .then((data) => {
-            const { localId, idToken, email } = data
+            // const { idToken, email, refreshToken, localId } = data
+            JSON.stringify(data)
+            localStorage.setItem('dataSrata',data)
 
-            localStorage.setItem('localId', localId)
-            localStorage.setItem('idToken', idToken)
-            localStorage.setItem('email', email)
+            // localStorage.setItem('idToken', data.idToken)
+            // localStorage.setItem('email', data.email)
+            // localStorage.setItem('refreshToken', data.refreshToken)
+            // localStorage.setItem('localId', data.localId)
 
             return data
         })
-
+       
 }
 
 export const fetchWithToken = (url, options) => {

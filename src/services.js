@@ -1,5 +1,10 @@
 const ATTRACTIONS_URL = "https://tripcity-app.firebaseio.com/attractions/";
 
+const API_KEY = 'AIzaSyD2TGrCzks3qlgYeCkAIrqAxdXgM4xJxOo';
+
+const SIG_IN_URL = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${API_KEY}`
+
+
 const favoriteAttractionIdsKey = "favoriteAttractionIds";
 const getFavoriteAttractionIdsFromLocalStorage = () =>
   JSON.parse(localStorage.getItem(favoriteAttractionIdsKey));
@@ -59,3 +64,36 @@ export const getFavoriteAttractionsAsArray = () =>
         favoriteIds !== null && favoriteIds[attraction.id] === true
     )
   );
+
+export const SignIn = (email, password) => {
+
+    const credentials = {
+      email,
+      password,
+      returnSecureToken: true,
+    };
+
+    return fetch(
+      SIG_IN_URL,
+      {
+        method: 'POST',
+        body: JSON.stringify(credentials)
+      }
+    )
+      .then((response) => {
+        if (response.ok) {
+          return response
+        }
+        return Promise.reject(response)
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        const { localId, idToken, email, refreshToken } = data
+
+        localStorage.setItem('appData', JSON.stringify({  idToken, refreshToken }));
+        
+      
+        return data
+      })
+
+  }
