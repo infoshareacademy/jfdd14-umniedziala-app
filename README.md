@@ -1,6 +1,8 @@
 # Tripcity app
 ### An app which helps you plan your trip to Tricity, Poland
-The app is built in React and uses Firebase to manage data.<br /><br />
+The app is built in React and uses Firebase to manage data.<br />
+![tripcity-attraction-view](https://user-images.githubusercontent.com/60198567/79464831-e2180d00-7ffa-11ea-8d8f-987f0bd3a0f4.gif)
+<br />
 You can find the app here: [http://app.umniedziala.jfdd14.is-academy.pl/](http://app.umniedziala.jfdd14.is-academy.pl/ "To the app")<br />
 Here is the landing page about the Tripcity app: [http://www.umniedziala.jfdd14.is-academy.pl/](http://www.umniedziala.jfdd14.is-academy.pl/ "To the landing page")<br />
 And here is the mini-game: [http://www.umniedziala.jfdd14.is-academy.pl/game.html](http://www.umniedziala.jfdd14.is-academy.pl/game.html "To the game")
