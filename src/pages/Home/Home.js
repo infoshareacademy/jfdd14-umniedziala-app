@@ -14,11 +14,14 @@ class Home extends Component {
             <p>
                 Jeżeli planujesz <span className="dashboard__special">wizytę w Trójmieście</span>, nasza aplikacja pomoże Ci <span className="dashboard__special">znaleźć miejsca</span>, które mogą Cię zainteresować.
                 <br />
-                <i className="fas fa-long-arrow-alt-right dashboard__icon"/> skorzystaj z <span className="dashboard__special">bazy atrakcji i miejsc</span>, którą tworzą twórcy i użytkownicy tripcity
+                <i className="fas fa-long-arrow-alt-right dashboard__icon"/>
+                skorzystaj z <span className="dashboard__special">bazy atrakcji i miejsc</span>, którą tworzą twórcy i użytkownicy tripcity
                 <br />
-                <i className="fas fa-long-arrow-alt-right dashboard__icon"/> użyj wyszukiwarki do <span className="dashboard__special">filtrowania</span> po nazwie, lokalizacji, zakresie cenowym i kategorii
+                <i className="fas fa-long-arrow-alt-right dashboard__icon"/>
+                użyj wyszukiwarki do <span className="dashboard__special">filtrowania</span> po nazwie, lokalizacji, zakresie cenowym i kategorii
                 <br />
-                <i className="fas fa-long-arrow-alt-right dashboard__icon"/> stwórz konto, aby móc <span className="dashboard__special">zapisywać atrakcje</span> jako ulubione oraz <span className="dashboard__special">dodawać własne miejsca</span> do naszej bazy
+                <i className="fas fa-long-arrow-alt-right dashboard__icon"/>
+                stwórz konto, aby móc <span className="dashboard__special">zapisywać atrakcje</span> jako ulubione oraz <span className="dashboard__special">dodawać własne miejsca</span> do naszej bazy
                 <br />
             </p>
         </section>
