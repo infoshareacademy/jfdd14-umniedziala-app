@@ -5,9 +5,12 @@
   - create an account to be able to save your favourite places and add your own to the main collection
 
 ### You can find, test and use **tripcity app** here: [Tripcity App](http://app.umniedziala.jfdd14.is-academy.pl/ "To the app")
+
 Here is the landing page about the Tripcity app: [Landing Page](http://www.umniedziala.jfdd14.is-academy.pl/ "To the landing page")
 <br />
-And here is the mini-game: [Mini Game](http://www.umniedziala.jfdd14.is-academy.pl/game.html "To the landing page")
+And here is the mini-game: [Mini Game](http://www.umniedziala.jfdd14.is-academy.pl/game.html "To the game")
+
+![tripcity-attraction-view](https://user-images.githubusercontent.com/60198567/79464831-e2180d00-7ffa-11ea-8d8f-987f0bd3a0f4.gif)
 
 ## Technologies
   - the app is built in React using class as well as function components (hooks)
