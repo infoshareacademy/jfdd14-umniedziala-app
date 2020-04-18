@@ -38,7 +38,7 @@ class Header extends Component {
                     <div className="header__rightBox">
                         {this.state.menuOpen ? <i className="fas fa-times header__icon" onClick={this.handleToggleMenuVisibility}></i> : <i className="fas fa-bars header__icon" onClick={this.handleToggleMenuVisibility}></i>}
                     </div>
-                    <LoginButton />
+                    {/* <LoginButton /> */}
                 </header>
                 <Sidebar
                     visibility={this.state.menuOpen ? "sidebar visible" : "sidebar"}

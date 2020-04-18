@@ -1,27 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { Input, Button, Form } from "semantic-ui-react";
-import { useState, useContext } from "react";
-import { UserContext } from "../../contexts/UserContext";
-import { logIn } from "../../services";
+import { register } from "../../services";
 
-function Login() {
+function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const userData = useContext(UserContext);
-  const { setUserId } = userData;
-
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
-  const handleClick = () => {
-    logIn(email, password)
+  const handleClick = (email, password) => {
+    register(email, password)
       .then(data => {
-        setUserId(data.localId);
-        //display toast: Zalogowano!
+        //display toast: Rejestracja przebiegła pomyślnie. Zaloguj się na swoje konto
       })
-      .catch((error) => {
-        setUserId("");
-        //display toast: Błąd logowania. Niepoprawny email lub hasło
+      .catch(() => {
+        //display toast: Nie udało się zarejestrować. Użyj innego adresu email lub hasła
       });
     setEmail("");
     setPassword("");
@@ -31,7 +24,7 @@ function Login() {
     // TODO: stylowanie widoku: RWD + fonty
     <div className="dashboard">
       <h2>
-        Zaloguj się na swoje konto tripcity:
+        Utwórz konto w tripcity, aby dodawać własne miejsca do bazy i zarządzać ulubionymi atrakcjami:
       </h2>
       <Form>
         <Form.Group widths="equal">
@@ -50,11 +43,15 @@ function Login() {
             placeholder="Podaj hasło"
             type="password"
           />
-          <Button onClick={() => handleClick(email, password)}>Zaloguj</Button>
+          <Button
+            onClick={() => handleClick(email, password)}
+          >
+            Zarejestruj
+          </Button>
         </Form.Group>
       </Form>
     </div>
   );
 }
 
-export default Login;
+export default Register;

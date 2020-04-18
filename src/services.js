@@ -1,9 +1,7 @@
 const ATTRACTIONS_URL = "https://tripcity-app.firebaseio.com/attractions/";
-
-const API_KEY = 'AIzaSyD2TGrCzks3qlgYeCkAIrqAxdXgM4xJxOo';
-
-const SIG_IN_URL = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${API_KEY}`
-
+const API_KEY = "AIzaSyD2TGrCzks3qlgYeCkAIrqAxdXgM4xJxOo";
+const REGISTER_URL = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${API_KEY}`;
+const LOG_IN_URL = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}`;
 
 const favoriteAttractionIdsKey = "favoriteAttractionIds";
 const getFavoriteAttractionIdsFromLocalStorage = () =>
@@ -41,14 +39,12 @@ export const toggleFavorite = (attractionId) =>
       localStorage.setItem(favoriteAttractionIdsKey, data);
       return;
     }
-
     if (attractionIds[attractionId] === true) {
       delete attractionIds[attractionId];
       const data = JSON.stringify(attractionIds);
       localStorage.setItem(favoriteAttractionIdsKey, data);
       return;
     }
-
     attractionIds[attractionId] = true;
     const data = JSON.stringify(attractionIds);
     localStorage.setItem(favoriteAttractionIdsKey, data);
@@ -65,35 +61,77 @@ export const getFavoriteAttractionsAsArray = () =>
     )
   );
 
-export const SignIn = (email, password) => {
-
-    const credentials = {
-      email,
-      password,
-      returnSecureToken: true,
-    };
-
-    return fetch(
-      SIG_IN_URL,
-      {
-        method: 'POST',
-        body: JSON.stringify(credentials)
+export const register = (email, password) => {
+  const credentials = {
+    email,
+    password,
+    returnSecureToken: true,
+  };
+  return fetch(REGISTER_URL, {
+    method: "POST",
+    body: JSON.stringify(credentials),
+  })
+    .then((response) => {
+      if (response.ok) {
+        return response;
       }
-    )
-      .then((response) => {
-        if (response.ok) {
-          return response
-        }
-        return Promise.reject(response)
-      })
-      .then((response) => response.json())
-      .then((data) => {
-        const { localId, idToken, email, refreshToken } = data
+      return Promise.reject(response);
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      return data;
+    });
+};
 
-        localStorage.setItem('appData', JSON.stringify({  idToken, refreshToken }));
-        
-      
-        return data
-      })
+export const logIn = (email, password) => {
+  const credentials = {
+    email,
+    password,
+    returnSecureToken: true,
+  };
+  return fetch(LOG_IN_URL, {
+    method: "POST",
+    body: JSON.stringify(credentials),
+  })
+    .then((response) => {
+      if (response.ok) {
+        return response;
+      }
+      return Promise.reject(response);
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      const { idToken, refreshToken } = data;
+      localStorage.setItem(
+        "tripcityUser",
+        JSON.stringify({ idToken, refreshToken })
+      );
+      return data;
+    });
+};
 
-  }
+export const logOut = () => {
+  localStorage.removeItem("tripcityUser");
+};
+
+// {
+//   "rules": {
+//     ".read": "auth !== null",
+//     ".write": "false",
+//     "messages": {
+//       "$messageKey": {
+//         ".write":  "auth !== null && (!data.exists() || (data.child('uuid').val() === auth.uid))"
+//       }
+//     }
+//   }
+// }
+// {
+//   "rules": {
+//     "users": {
+//       "$uid": {
+//         ".read": "$uid === auth.uid",
+//         ".write": "$uid === auth.uid"
+//       }
+//     }
+//   }
+// }

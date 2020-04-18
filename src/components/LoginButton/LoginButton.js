@@ -9,7 +9,7 @@ function LoginButton(props) {
             <Link to="/login">
                 <Button>Zaloguj się</Button>
             </Link>
-            <Link to="/signin">
+            <Link to="/register">
                 <Button>Zarejstruj się</Button>
             </Link>
         </div>

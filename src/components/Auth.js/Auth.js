@@ -1,39 +1,11 @@
-import React from 'react';
-import { logIn, isTokenInStorage } from './firebaseAuth';
+import { useContext } from "react";
+import { UserContext } from "../../contexts/UserContext";
 
-const REFRESH_INTERVAL = 100
-const Auth = (props) => {
-    const [isLoggedIn, setLoggedIn] = useState(isTokenInStorage())
-    // @TODO - loading indicator when logging in
-  
-    useEffect(() => {
-        const id = setInterval(
-          () => setLoggedIn(isTokenInStorage()),
-          REFRESH_INTERVAL
-        )
-    
-        return () => {
-          clearInterval(id)
-        }
-      }, [])
+function Auth(props) {
+  const userData = useContext(UserContext);
+  const { userId } = userData;
 
-      const onLogInClick = (email, password) => {
-        return logIn(email, password)
-          .then(() => {
-            setLoggedIn(true)
-          })
-          .catch((err) => {
-            alert('Error logging in!')
-            console.log(err)
-            setLoggedIn(false)
-          })
-      }
-    
-      return (
-        !isLoggedIn ?
-          <LoginForm onLogInClick={onLogInClick} />
-          :
-          props.children
-      )
-      
-}
+  return !userId ? null : props.children;
+};
+
+export default Auth;
