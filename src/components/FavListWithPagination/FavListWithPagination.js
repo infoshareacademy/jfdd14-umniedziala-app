@@ -18,6 +18,7 @@ class FavListWithPagination extends Component {
 
   componentDidUpdate() {
     this.sendFavouritesToFirebase(this.state.attractions);
+    console.log(this.state.attractions);
   }
 
   //adding favourites to firebase for user ID
@@ -30,6 +31,21 @@ class FavListWithPagination extends Component {
         body: JSON.stringify(attraction),
       }
     );
+  //get favoutites from firebase for user ID
+  getFavoritesFromFirebase = () =>
+    fetch(
+      `https://tripcity-app.firebaseio.com/users/${this.props.userId}/favourites` +
+        ".json"
+    )
+      .then((data) => {
+        console.log(data);
+        return data.json();
+      })
+      .then((data) => {
+        this.setState({
+          attraction: data,
+        });
+      });
 
   refreshAttractions = () => {
     getFavoriteAttractionsAsArray().then((attractions) =>
@@ -60,7 +76,7 @@ class FavListWithPagination extends Component {
       activePage * favsPerPage - favsPerPage,
       activePage * favsPerPage
     );
-    console.log(attractions);
+    //console.log(attractions);
     return (
       <main className="favList__list">
         <div className="favList__cardsBox">
