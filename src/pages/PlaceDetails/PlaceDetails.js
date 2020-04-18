@@ -13,6 +13,24 @@ class PlaceDetails extends Component {
     favoriteAttractionIds: null,
   };
 
+  componentDidMount() {
+    const attractionId = this.props.match.params.id;
+
+    getAttractionById(attractionId).then((attraction) => {
+      this.setState({
+        attraction,
+      });
+    });
+
+    this.refreshFavorites();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.attractions === this.state.attractions) {
+      this.refreshFavorites();
+    }
+  }
+
   toggleFavorite = () => {
     const attractionId = this.props.match.params.id;
     toggleFavorite(attractionId).then(this.refreshFavorites);
@@ -25,18 +43,6 @@ class PlaceDetails extends Component {
       });
     });
   };
-
-  componentDidMount() {
-    const attractionId = this.props.match.params.id;
-
-    getAttractionById(attractionId).then((attraction) => {
-      this.setState({
-        attraction,
-      });
-    });
-
-    this.refreshFavorites();
-  }
 
   render() {
     const { attraction } = this.state;
@@ -72,7 +78,9 @@ class PlaceDetails extends Component {
               <h3 className="dashboard__placeDetails--location">
                 {attraction.location}
               </h3>
-              <h4 className="dashboard__placeDetails--type">{attraction.type}</h4>
+              <h4 className="dashboard__placeDetails--type">
+                {attraction.type}
+              </h4>
               <p className="dashboard__placeDetails--priceRange">
                 <i className="dollar sign icon"></i>
                 {attraction.priceRange}

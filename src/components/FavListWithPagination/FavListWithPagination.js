@@ -16,36 +16,12 @@ class FavListWithPagination extends Component {
     this.refreshAttractions();
   }
 
-  componentDidUpdate() {
-    this.sendFavouritesToFirebase(this.state.attractions);
-    console.log(this.state.attractions);
+  //this one works but does fetch all the time
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.attractions !== this.state.attractions) {
+      this.refreshAttractions();
+    }
   }
-
-  //adding favourites to firebase for user ID
-  sendFavouritesToFirebase = (attraction) =>
-    fetch(
-      `https://tripcity-app.firebaseio.com/users/${this.props.userId}/favourites` +
-        ".json",
-      {
-        method: "PUT",
-        body: JSON.stringify(attraction),
-      }
-    );
-  //get favoutites from firebase for user ID
-  getFavoritesFromFirebase = () =>
-    fetch(
-      `https://tripcity-app.firebaseio.com/users/${this.props.userId}/favourites` +
-        ".json"
-    )
-      .then((data) => {
-        console.log(data);
-        return data.json();
-      })
-      .then((data) => {
-        this.setState({
-          attraction: data,
-        });
-      });
 
   refreshAttractions = () => {
     getFavoriteAttractionsAsArray().then((attractions) =>
@@ -96,7 +72,6 @@ class FavListWithPagination extends Component {
             );
           })}
         </div>
-
         {totalPages < 2 ? null : (
           <div className="dashboard__listAllPaginationBox">
             <Pagination
