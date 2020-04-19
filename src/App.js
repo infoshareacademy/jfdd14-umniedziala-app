@@ -9,7 +9,6 @@ import FavouriteList from "./pages/FavouriteList/FavouriteList";
 import Default from "./pages/Default/Default";
 import "semantic-ui-css/semantic.min.css";
 import { ToastContainer } from "react-toastify";
-import LoginPage from "./pages/Login/LoginPage";
 
 class App extends Component {
   render() {

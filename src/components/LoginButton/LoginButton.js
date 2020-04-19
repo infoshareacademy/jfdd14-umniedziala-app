@@ -2,7 +2,7 @@ import React from "react";
 import "./LoginPage.css";
 import { Button } from "semantic-ui-react";
 
-const LoginPage = () => {
+const LoginButton = () => {
   return (
     <div className="loginPage__dashboard">
       <div className="loginPage__header">
@@ -15,4 +15,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default LoginButton;
