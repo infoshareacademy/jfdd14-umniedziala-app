@@ -9,17 +9,25 @@ const favsPerPage = 6;
 class FavListWithPagination extends Component {
   state = {
     activePage: this.props.defaultPage,
-    attractions: []
+    attractions: [],
   };
 
   componentDidMount() {
     this.refreshAttractions();
+    const a = setInterval(() => {
+      console.log(a);
+      this.refreshAttractions();
+    }, 3000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(2);
   }
 
   refreshAttractions = () => {
     getFavoriteAttractionsAsArray().then((attractions) =>
       this.setState({
-        attractions
+        attractions,
       })
     );
   };
@@ -66,10 +74,7 @@ class FavListWithPagination extends Component {
           })}
         </div>
 
-        {totalPages < 2
-          ?
-          null
-          :
+        {totalPages < 2 ? null : (
           <div className="dashboard__listAllPaginationBox">
             <Pagination
               activePage={activePage}
@@ -83,7 +88,7 @@ class FavListWithPagination extends Component {
               lastItem={false}
             />
           </div>
-        }
+        )}
       </main>
     );
   }
