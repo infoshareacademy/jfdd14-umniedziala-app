@@ -9,12 +9,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100vw;
 }   
 
 .registerForm {
+    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100vw;
+    flex-direction: column;
 }
 
 
@@ -42,10 +46,14 @@
         align-items: center;
         justify-content: center;
         width: 100vw;
+        flex-direction: row;
+    }
+    .registerForm > * {
+        padding: 5px;
     }
 
     .ui.button {
-        font-size: 1.4rem !important ;
+        font-size: 1.2rem !important ;
     }
 
 }

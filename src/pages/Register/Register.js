@@ -66,8 +66,6 @@ function Register() {
         </h1>
       </div>
         <div className='registerForm'>
-          <Form>
-            <Form.Group widths="equal">
               <Input
                 onChange={handleEmailChange}
                 value={email}
@@ -90,8 +88,6 @@ function Register() {
               basic color='blue' 
               onClick={() => handleClick(email, password)}
               >Zarejestruj</Button>
-            </Form.Group>
-          </Form>
         </div>
       </div>
   );

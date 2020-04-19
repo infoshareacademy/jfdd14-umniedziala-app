@@ -72,8 +72,6 @@ function Login() {
         </h1>
       </div>
         <div className='loginForm'>
-          <Form>
-            <Form.Group widths="equal">
               <Input
                 onChange={handleEmailChange}
                 value={email}
@@ -96,8 +94,6 @@ function Login() {
               basic color='blue' 
               onClick={() => handleClick(email, password, toast.success)}
               >Zaloguj</Button>
-            </Form.Group>
-          </Form>
         </div>
       </div>
   );
