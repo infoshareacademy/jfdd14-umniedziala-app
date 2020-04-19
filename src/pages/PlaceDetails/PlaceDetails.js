@@ -18,7 +18,7 @@ class PlaceDetails extends Component {
 
   toggleFavorite = (userId) => {
     const attractionId = this.props.match.params.id;
-    toggleFavorite(attractionId, userId).then(this.refreshFavorites(userId));
+    toggleFavorite(attractionId, userId).then(() => this.refreshFavorites(userId));
   };
 
   refreshFavorites = (userId) => {

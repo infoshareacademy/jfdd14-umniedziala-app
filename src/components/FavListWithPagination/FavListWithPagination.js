@@ -4,6 +4,7 @@ import FavouriteCard from "../FavouriteCard/FavouriteCard";
 import { toggleFavorite, getFavoriteAttractionsAsArray } from "../../services";
 import "./FavListWithPagination.css";
 import { UserContext } from "../../contexts/UserContext";
+import { Link } from "react-router-dom";
 
 const favsPerPage = 6;
 
@@ -44,7 +45,7 @@ class FavListWithPagination extends Component {
   };
 
   toggleFavoriteById = (attractionId, userId) => {
-    toggleFavorite(attractionId, userId).then(this.refreshAttractions(userId));
+    toggleFavorite(attractionId, userId).then(() => this.refreshAttractions(userId));
   };
 
   render() {
@@ -59,6 +60,12 @@ class FavListWithPagination extends Component {
       activePage * favsPerPage
     );
     return (
+      favAttractions.length === 0 ?
+      <main className="favList__list">
+        <p>Nie masz jeszcze żadnych atrakcji w ulubionch!</p>
+        <p>Przejdź do zakładki <Link to="placelist">"wszystkie atrakcje"</Link> i znajdź coś dla siebie</p>
+      </main>
+      :
       <main className="favList__list">
         <div className="favList__cardsBox">
           {activePageList.map((attraction) => {

@@ -5,8 +5,7 @@ const LOG_IN_URL = `https://identitytoolkit.googleapis.com/v1/accounts:signInWit
 
 export const getFavoriteAttractionIdsFromFirebase = (userId) =>
   fetch(`https://tripcity-app.firebaseio.com/users/${userId}/favourites.json`)
-    .then(response => response.json())
-    .then(data => data);
+    .then((response) => response.json());
 
 export const getAttractions = () =>
   fetch(ATTRACTIONS_URL + ".json").then((response) => response.json());
@@ -25,7 +24,7 @@ export const getAttractionById = (id) =>
   getAttractions().then((attractions) => attractions[id] || null);
 
 export const getFavoriteAttractionIds = (userId) =>
-  getFavoriteAttractionIdsFromFirebase(userId) || null;
+  getFavoriteAttractionIdsFromFirebase(userId).then((attractions) => attractions || null);
 
 export const addAttraction = (attraction) =>
   fetch(ATTRACTIONS_URL + ".json", {
@@ -37,22 +36,20 @@ export const toggleFavorite = (attractionId, userId) =>
   getFavoriteAttractionIds(userId).then((attractionIds) => {
     if (attractionIds === null) {
       const data = JSON.stringify({ [attractionId]: true });
-      fetch(`https://tripcity-app.firebaseio.com/users/${userId}/favourites.json`, {
+      return fetch(`https://tripcity-app.firebaseio.com/users/${userId}/favourites.json`, {
         method: "PUT",
         body: data,
       });
-      return;
     }
     if (attractionIds[attractionId] === true) {
       delete attractionIds[attractionId];
-      fetch(`https://tripcity-app.firebaseio.com/users/${userId}/favourites/${attractionId}.json`, {
+      return fetch(`https://tripcity-app.firebaseio.com/users/${userId}/favourites/${attractionId}.json`, {
         method: "DELETE"
       });
-      return;
     }
     attractionIds[attractionId] = true;
     const data = JSON.stringify(attractionIds);
-    fetch(`https://tripcity-app.firebaseio.com/users/${userId}/favourites.json`, {
+    return fetch(`https://tripcity-app.firebaseio.com/users/${userId}/favourites.json`, {
       method: "PUT",
       body: data,
     });
