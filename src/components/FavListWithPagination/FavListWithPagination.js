@@ -14,14 +14,13 @@ class FavListWithPagination extends Component {
 
   componentDidMount() {
     this.refreshAttractions();
-    const a = setInterval(() => {
-      console.log(a);
+    setInterval(() => {
       this.refreshAttractions();
     }, 3000);
   }
 
   componentWillUnmount() {
-    clearInterval(2);
+    clearInterval();
   }
 
   refreshAttractions = () => {
