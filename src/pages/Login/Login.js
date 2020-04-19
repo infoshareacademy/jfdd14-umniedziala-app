@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { Input, Button, Form } from "semantic-ui-react";
 import { useState, useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
@@ -14,6 +15,8 @@ function Login() {
 
   const userData = useContext(UserContext);
   const { setUserId } = userData;
+
+  let history = useHistory(); 
 
   const loginSuccess = () => toast(
     "Zalogowano do Tripcity. Do zobaczenia na szlaku!", {
@@ -50,7 +53,8 @@ function Login() {
     logIn(email, password)
       .then(data => {
         setUserId(data.localId);
-        loginSuccess()
+        loginSuccess();
+        history.push('/');
       })
       .catch((error) => {
         setUserId("");
@@ -61,7 +65,6 @@ function Login() {
   };
 
   return (
-    // TODO: stylowanie widoku: RWD + fonty
     <div className="dashboard">
       <div className='loginTitle'>
         <h1 className='loginTitle_text'>

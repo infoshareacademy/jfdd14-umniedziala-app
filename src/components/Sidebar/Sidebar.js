@@ -1,19 +1,40 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import FacebookButton from "../../components/FacebookButton/FacebookButton";
 import "./Sidebar.css";
 import { UserContext } from "../../contexts/UserContext";
 import { logOut } from "../../services";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { css } from 'glamor';
 
 function Sidebar(props) {
   const userData = useContext(UserContext);
   const { userId, setUserId } = userData;
 
+  let history = useHistory(); 
+
+  const logoutSuccess = () => toast(
+    "Wylogowano z Tripcity!", {
+    className: css({
+      background: 'white'
+    }),
+    bodyClassName: css({
+      fontSize: '20px',
+      color: 'var(--color-blue)'
+    }),
+    progressClassName: css({
+      background: "var(--color-blue)"
+    }),
+    position: toast.POSITION.BOTTOM_LEFT,
+  });
+
   const handleLogOutClick = () => {
     logOut();
     setUserId("");
     props.changeVisibility();
-    //toast: Wylogowano!
+    logoutSuccess();
+    history.push('/');
   };
 
   return (
