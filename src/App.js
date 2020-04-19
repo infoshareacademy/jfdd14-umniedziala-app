@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Home from "./pages/Home/Home";
@@ -9,11 +9,26 @@ import FavouriteList from "./pages/FavouriteList/FavouriteList";
 import Default from "./pages/Default/Default";
 import "semantic-ui-css/semantic.min.css";
 import { ToastContainer } from "react-toastify";
+import { getAttractionsAsArray } from "./services";
+import { AttractionsContext } from "./contexts/AttractionsContext";
 
-class App extends Component {
-  render() {
-    return (
-      <BrowserRouter>
+function App() {
+  const [attractionList, setAttractionList] = useState([]);
+
+  const attractionData = {
+    attractionList,
+    setAttractionList,
+  };
+
+  useEffect(() => {
+    getAttractionsAsArray().then((attractions) =>
+      setAttractionList(attractions)
+    );
+  }, []);
+
+  return (
+    <BrowserRouter>
+      <AttractionsContext.Provider value={attractionData}>
         <Header />
         <ToastContainer />
         <Switch>
@@ -24,9 +39,9 @@ class App extends Component {
           <Route path="/myfavourites" component={FavouriteList} />
           <Route component={Default} />
         </Switch>
-      </BrowserRouter>
-    );
-  }
+      </AttractionsContext.Provider>
+    </BrowserRouter>
+  );
 }
 
 export default App;
