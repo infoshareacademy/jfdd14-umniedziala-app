@@ -74,5 +74,9 @@ class Header extends Component {
       />
     </div>
   );
+<<<<<<< HEAD
+=======
+}
+>>>>>>> 7745faf662d030ae7211dd074f10f107bc228a72
 
 export default Header;
