@@ -3,14 +3,10 @@ import FavListWithPagination from "../../components/FavListWithPagination/FavLis
 import "./FavouriteList.css";
 
 class FavouriteList extends Component {
-  state = {
-    userId: "jYGN6TYDxWR0FgqrVTYdjvJoA9M3",
-  };
 
   render() {
     return (
       <FavListWithPagination
-        userId={this.state.userId}
         itemNameForStorage="tripcity-lastViewedFavPage"
         defaultPage={localStorage.getItem("tripcity-lastViewedFavPage") || 1}
       />

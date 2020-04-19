@@ -3,30 +3,34 @@ import { Pagination } from "semantic-ui-react";
 import FavouriteCard from "../FavouriteCard/FavouriteCard";
 import { toggleFavorite, getFavoriteAttractionsAsArray } from "../../services";
 import "./FavListWithPagination.css";
+import { UserContext } from "../../contexts/UserContext";
 
 const favsPerPage = 6;
 
 class FavListWithPagination extends Component {
+  static contextType = UserContext;
+
   state = {
     activePage: this.props.defaultPage,
-    attractions: [],
+    favAttractions: [],
   };
 
   componentDidMount() {
-    this.refreshAttractions();
+    const userId = this.context.userId;
+    this.refreshAttractions(userId);
   }
 
   //this one works but does fetch all the time
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.attractions !== this.state.attractions) {
-      this.refreshAttractions();
-    }
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevState.favAttractions !== this.state.favAttractions) {
+  //     this.refreshAttractions();
+  //   }
+  // }
 
-  refreshAttractions = () => {
-    getFavoriteAttractionsAsArray().then((attractions) =>
+  refreshAttractions = (userId) => {
+    getFavoriteAttractionsAsArray(userId).then((attractions) =>
       this.setState({
-        attractions,
+        favAttractions: attractions
       })
     );
   };
@@ -39,16 +43,18 @@ class FavListWithPagination extends Component {
     localStorage.setItem(this.props.itemNameForStorage, activePage);
   };
 
-  toggleFavoriteById = (attractionId) => {
-    toggleFavorite(attractionId).then(this.refreshAttractions);
+  toggleFavoriteById = (attractionId, userId) => {
+    toggleFavorite(attractionId, userId).then(this.refreshAttractions(userId));
   };
 
   render() {
-    const { activePage, attractions } = this.state;
+    const { activePage, favAttractions } = this.state;
 
-    const totalPages = Math.ceil(attractions.length / favsPerPage);
+    const userId = this.context.userId;
 
-    const activePageList = attractions.slice(
+    const totalPages = Math.ceil(favAttractions.length / favsPerPage);
+
+    const activePageList = favAttractions.slice(
       activePage * favsPerPage - favsPerPage,
       activePage * favsPerPage
     );
@@ -66,7 +72,7 @@ class FavListWithPagination extends Component {
                 location={attraction.location}
                 description={attraction.descriptionLong.slice(0, 200) + "..."}
                 price={"Przedział cenowy: " + attraction.priceRange}
-                toggleFavorite={() => this.toggleFavoriteById(attraction.id)}
+                toggleFavorite={() => this.toggleFavoriteById(attraction.id, userId)}
               />
             );
           })}
