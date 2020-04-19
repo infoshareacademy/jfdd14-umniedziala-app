@@ -3,6 +3,9 @@ import { Input, Button, Form } from "semantic-ui-react";
 import { useState, useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { logIn } from "../../services";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { css } from 'glamor';
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -11,6 +14,35 @@ function Login() {
   const userData = useContext(UserContext);
   const { setUserId } = userData;
 
+  const loginSuccess = () => toast(
+    "Zalogowano do Tripcity. Do zobaczenia na szlaku!", {
+    className: css({
+      background: 'white'
+    }),
+    bodyClassName: css({
+      fontSize: '20px',
+      color: 'var(--color-blue)'
+    }),
+    progressClassName: css({
+      background: "var(--color-blue)"
+    }),
+    position: toast.POSITION.BOTTOM_LEFT,
+  });
+  const loginFail = () => toast(
+    "Błąd logowania. Niepoprawny email lub hasło", {
+    className: css({
+      background: 'white'
+    }),
+    bodyClassName: css({
+      fontSize: '20px',
+      color: 'var(--color-blue)'
+    }),
+    progressClassName: css({
+      background: "var(--color-blue)"
+    }),
+    position: toast.POSITION.BOTTOM_LEFT,
+  });
+
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
   const handleClick = () => {
@@ -18,10 +50,15 @@ function Login() {
       .then(data => {
         setUserId(data.localId);
         //display toast: Zalogowano!
+        loginSuccess()
+        console.log('extra')
       })
       .catch((error) => {
         setUserId("");
         //display toast: Błąd logowania. Niepoprawny email lub hasło
+        loginFail();
+        console.log('dupa');
+
       });
     setEmail("");
     setPassword("");
@@ -50,7 +87,7 @@ function Login() {
             placeholder="Podaj hasło"
             type="password"
           />
-          <Button onClick={() => handleClick(email, password)}>Zaloguj</Button>
+          <Button onClick={() => handleClick(email, password, toast.success)}>Zaloguj</Button>
         </Form.Group>
       </Form>
     </div>

@@ -8,13 +8,6 @@ import './Header.css';
 class Header extends Component {
     state = {
         menuOpen: false,
-        LogInModal: false,
-        SigInModal: false,
-        LogInLogin: "",
-        LogInPassword: "",
-        SigInLogin: "",
-        SigInPassword: "",
-
     };
 
     handleToggleMenuVisibility = () => {
