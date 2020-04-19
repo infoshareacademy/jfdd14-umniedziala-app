@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-
 import FavListWithPagination from "../../components/FavListWithPagination/FavListWithPagination";
-
 import "./FavouriteList.css";
 
 class FavouriteList extends Component {
@@ -10,16 +8,12 @@ class FavouriteList extends Component {
   };
 
   render() {
-    return this.state.userId ? (
+    return (
       <FavListWithPagination
         userId={this.state.userId}
         itemNameForStorage="tripcity-lastViewedFavPage"
         defaultPage={localStorage.getItem("tripcity-lastViewedFavPage") || 1}
       />
-    ) : (
-      <p className="notLoggedText">
-        Zaloguj się aby wyświetlić Twoje ulubione aktrakcje
-      </p>
     );
   }
 }

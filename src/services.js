@@ -3,11 +3,11 @@ const ATTRACTIONS_URL = "https://tripcity-app.firebaseio.com/attractions/";
 const userId = "jYGN6TYDxWR0FgqrVTYdjvJoA9M4";
 
 const USER_ATTRACTIONS_URL =
-  `https://tripcity-app.firebaseio.com/users/${userId}/favourites` + ".json";
+  `https://tripcity-app.firebaseio.com/users/${userId}/favourites.json`;
 
 const ATTRACTION_ID_PATH_URL = `https://tripcity-app.firebaseio.com/users/${userId}/favourites`;
 
-const favoriteAttractionIdsKey = "favoriteAttractionIds";
+// const favoriteAttractionIdsKey = "favoriteAttractionIds";
 
 /* 
 const getFavoriteAttractionIdsFromLocalStorage = () =>

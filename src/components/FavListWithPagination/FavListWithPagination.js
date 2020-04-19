@@ -52,7 +52,6 @@ class FavListWithPagination extends Component {
       activePage * favsPerPage - favsPerPage,
       activePage * favsPerPage
     );
-    //console.log(attractions);
     return (
       <main className="favList__list">
         <div className="favList__cardsBox">
