@@ -23,7 +23,6 @@ class App extends Component {
           <Route path="/placedetails/:id" component={PlaceDetails} />
           <Route path="/placelist" component={PlaceList} />
           <Route path="/myfavourites" component={FavouriteList} />
-          <Route path="/login" component={LoginPage} />
           <Route component={Default} />
         </Switch>
       </BrowserRouter>
