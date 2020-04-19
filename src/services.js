@@ -1,4 +1,7 @@
 const ATTRACTIONS_URL = "https://tripcity-app.firebaseio.com/attractions/";
+const API_KEY = "AIzaSyD2TGrCzks3qlgYeCkAIrqAxdXgM4xJxOo";
+const REGISTER_URL = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${API_KEY}`;
+const LOG_IN_URL = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}`;
 
 const userId = "jYGN6TYDxWR0FgqrVTYdjvJoA9M4";
 
@@ -58,7 +61,6 @@ export const toggleFavorite = (attractionId) =>
       });
       return;
     }
-
     if (attractionIds[attractionId] === true) {
       delete attractionIds[attractionId];
       const data = JSON.stringify(attractionIds);
@@ -68,7 +70,6 @@ export const toggleFavorite = (attractionId) =>
       });
       return;
     }
-
     attractionIds[attractionId] = true;
     fetch(USER_ATTRACTIONS_URL, {
       method: "PATCH",
@@ -86,3 +87,78 @@ export const getFavoriteAttractionsAsArray = () =>
         favoriteIds !== null && favoriteIds[attraction.id] === true
     )
   );
+
+export const register = (email, password) => {
+  const credentials = {
+    email,
+    password,
+    returnSecureToken: true,
+  };
+  return fetch(REGISTER_URL, {
+    method: "POST",
+    body: JSON.stringify(credentials),
+  })
+    .then((response) => {
+      if (response.ok) {
+        return response;
+      }
+      return Promise.reject(response);
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      return data;
+    });
+};
+
+export const logIn = (email, password) => {
+  const credentials = {
+    email,
+    password,
+    returnSecureToken: true,
+  };
+  return fetch(LOG_IN_URL, {
+    method: "POST",
+    body: JSON.stringify(credentials),
+  })
+    .then((response) => {
+      if (response.ok) {
+        return response;
+      }
+      return Promise.reject(response);
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      const { idToken, refreshToken } = data;
+      localStorage.setItem(
+        "tripcityUser",
+        JSON.stringify({ idToken, refreshToken })
+      );
+      return data;
+    });
+};
+
+export const logOut = () => {
+  localStorage.removeItem("tripcityUser");
+};
+
+// {
+//   "rules": {
+//     ".read": "auth !== null",
+//     ".write": "false",
+//     "messages": {
+//       "$messageKey": {
+//         ".write":  "auth !== null && (!data.exists() || (data.child('uuid').val() === auth.uid))"
+//       }
+//     }
+//   }
+// }
+// {
+//   "rules": {
+//     "users": {
+//       "$uid": {
+//         ".read": "$uid === auth.uid",
+//         ".write": "$uid === auth.uid"
+//       }
+//     }
+//   }
+// }

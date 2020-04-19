@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { css } from 'glamor';
 
 
+
 const options = [
   { key: 'Gda', text: 'Gdańsk', value: 'Gdańsk' },
   { key: 'Sop', text: 'Sopot', value: 'Sopot' },
@@ -106,7 +107,7 @@ class FormAddPlace extends Component {
               name='img'
               onChange={this.handleTextChange}
               label='Zdjęcie'
-              placeholder='Zdjęcie'
+              placeholder='Proszę podać URL'
               value={this.state.img}
             />
             <Form.Select
