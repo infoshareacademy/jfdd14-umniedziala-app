@@ -2,7 +2,6 @@ import React from "react";
 import "../SearchAdvanced/SearchAdvanced.css";
 import DropDownInput from "../DropDown/DropDown";
 import Range from "../Range/Range";
-import { Button } from "semantic-ui-react";
 
 function SearchAdvanced(props) {
   return (

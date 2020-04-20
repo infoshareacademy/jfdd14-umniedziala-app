@@ -34,9 +34,9 @@
   .search-advanced__fields {
     width: 60%;
   }
-  .search-advanced_clear-btn {
+  #root > main > div > div > div.search-advanced__wrapper > div > button {
     margin-top: 1rem !important;
-    font-size: 0.8rem !important;
+    font-size: 1rem !important;
   }
 }
 
