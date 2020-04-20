@@ -58,7 +58,7 @@ function SearchBar() {
     setRangeValue(getKeyByValue(Number(evt)));
   };
 
-  const filteredResults = attractionList
+  let filteredResults = attractionList
     .filter((el) => el.name.toLowerCase().includes(inputValue.toLowerCase()))
     .filter((el) => {
       const typeLowerCase =
@@ -101,6 +101,12 @@ function SearchBar() {
       }
     });
 
+  const clearSearchFilters = (event) => {
+    setCategoryValue([]);
+    setLocationValue([]);
+    setRangeValue("wszystkie");
+  };
+
   return (
     <div className="search-bar__wrapper">
       <div className="search-bar__default">
@@ -129,19 +135,19 @@ function SearchBar() {
           locationValue={locationValue}
           rangeValue={rangeOptions[rangeValue]}
           onRangeValueChange={onRangeValueChange}
+          onClick={clearSearchFilters}
         />
       )}
       <div className="search-bar_results">
-        {filteredResults.length === 0
-          ?
+        {filteredResults.length === 0 ? (
           <h3>Brak wyników</h3>
-          :
+        ) : (
           <ListWithPagination
             list={filteredResults}
             itemNameForStorage="tripcity-lastViewedPage"
             defaultPage={localStorage.getItem("tripcity-lastViewedPage") || 1}
           />
-        }
+        )}
       </div>
     </div>
   );

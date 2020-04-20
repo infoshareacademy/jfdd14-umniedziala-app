@@ -32,6 +32,12 @@ function SearchAdvanced(props) {
           value={props.rangeValue}
           onChange={props.onRangeValueChange}
         />
+        <button
+          className="ui button search-advanced_clear-btn"
+          onClick={props.onClick}
+        >
+          Wyczyść filtry
+        </button>
       </div>
     </div>
   );

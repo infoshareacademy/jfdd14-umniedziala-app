@@ -24,9 +24,19 @@
   background-color: var(--color-blue);
 }
 
+.search-advanced_clear-btn {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+  font-size: 0.9rem !important;
+}
+
 @media (min-width: 900px) {
   .search-advanced__fields {
     width: 60%;
+  }
+  #root > main > div > div > div.search-advanced__wrapper > div > button {
+    margin-top: 1rem !important;
+    font-size: 1rem !important;
   }
 }
 
