@@ -130,25 +130,3 @@ export const logIn = (email, password) => {
 export const logOut = () => {
   localStorage.removeItem("tripcityUser");
 };
-
-// {
-//   "rules": {
-//     ".read": "auth !== null",
-//     ".write": "false",
-//     "messages": {
-//       "$messageKey": {
-//         ".write":  "auth !== null && (!data.exists() || (data.child('uuid').val() === auth.uid))"
-//       }
-//     }
-//   }
-// }
-// {
-//   "rules": {
-//     "users": {
-//       "$uid": {
-//         ".read": "$uid === auth.uid",
-//         ".write": "$uid === auth.uid"
-//       }
-//     }
-//   }
-// }
