@@ -1,0 +1,22 @@
+.loginPage__dashboard {
+  padding: 300px 10px 10px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.loginPage__header {
+  display: flex;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+@media (min-width: 900px) {
+  .loginPage__dashboard {
+    padding: 200px 10px 10px 230px;
+  }
+}

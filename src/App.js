@@ -7,17 +7,27 @@ import PlaceDetails from "./pages/PlaceDetails/PlaceDetails";
 import PlaceList from "./pages/PlaceList/PlacesList";
 import FavouriteList from "./pages/FavouriteList/FavouriteList";
 import Default from "./pages/Default/Default";
+import Register from "./pages/Register/Register";
+import Login from "./pages/Login/Login";
 import "semantic-ui-css/semantic.min.css";
 import { ToastContainer } from "react-toastify";
 import { getAttractionsAsArray } from "./services";
 import { AttractionsContext } from "./contexts/AttractionsContext";
+import { UserContext } from "./contexts/UserContext";
+import Auth from "./components/Auth.js/Auth";
 
 function App() {
   const [attractionList, setAttractionList] = useState([]);
+  const [userId, setUserId] = useState("");
 
   const attractionData = {
     attractionList,
     setAttractionList,
+  };
+
+  const userData = {
+    userId,
+    setUserId,
   };
 
   /* useEffect(() => {
@@ -40,18 +50,36 @@ function App() {
 
   return (
     <BrowserRouter>
-      <AttractionsContext.Provider value={attractionData}>
-        <Header />
-        <ToastContainer />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/addnewplace" component={AddNewPlace} />
-          <Route path="/placedetails/:id" component={PlaceDetails} />
-          <Route path="/placelist" component={PlaceList} />
-          <Route path="/myfavourites" component={FavouriteList} />
-          <Route component={Default} />
-        </Switch>
-      </AttractionsContext.Provider>
+      <UserContext.Provider value={userData}>
+        <AttractionsContext.Provider value={attractionData}>
+          <Header />
+          <ToastContainer />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/placedetails/:id" component={PlaceDetails} />
+            <Route path="/placelist" component={PlaceList} />
+            <Route
+              path="/myfavourites"
+              component={(props) => (
+                <Auth>
+                  <FavouriteList {...props} />
+                </Auth>
+              )}
+            />
+            <Route
+              path="/addnewplace"
+              component={(props) => (
+                <Auth>
+                  <AddNewPlace {...props} />
+                </Auth>
+              )}
+            />
+            <Route path="/register" component={Register} />
+            <Route path="/login" component={Login} />
+            <Route component={Default} />
+          </Switch>
+        </AttractionsContext.Provider>
+      </UserContext.Provider>
     </BrowserRouter>
   );
 }
