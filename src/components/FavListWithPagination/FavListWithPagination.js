@@ -3,23 +3,28 @@ import { Pagination } from "semantic-ui-react";
 import FavouriteCard from "../FavouriteCard/FavouriteCard";
 import { toggleFavorite, getFavoriteAttractionsAsArray } from "../../services";
 import "./FavListWithPagination.css";
+import { UserContext } from "../../contexts/UserContext";
+import { Link } from "react-router-dom";
 
 const favsPerPage = 6;
 
 class FavListWithPagination extends Component {
+  static contextType = UserContext;
+
   state = {
     activePage: this.props.defaultPage,
-    attractions: []
+    favAttractions: [],
   };
 
   componentDidMount() {
-    this.refreshAttractions();
+    const userId = this.context.userId;
+    this.refreshAttractions(userId);
   }
 
-  refreshAttractions = () => {
-    getFavoriteAttractionsAsArray().then((attractions) =>
+  refreshAttractions = (userId) => {
+    getFavoriteAttractionsAsArray(userId).then((attractions) =>
       this.setState({
-        attractions
+        favAttractions: attractions,
       })
     );
   };
@@ -32,21 +37,32 @@ class FavListWithPagination extends Component {
     localStorage.setItem(this.props.itemNameForStorage, activePage);
   };
 
-  toggleFavoriteById = (attractionId) => {
-    toggleFavorite(attractionId).then(this.refreshAttractions);
+  toggleFavoriteById = (attractionId, userId) => {
+    toggleFavorite(attractionId, userId).then(() =>
+      this.refreshAttractions(userId)
+    );
   };
 
   render() {
-    const { activePage, attractions } = this.state;
+    const { activePage, favAttractions } = this.state;
 
-    const totalPages = Math.ceil(attractions.length / favsPerPage);
+    const userId = this.context.userId;
 
-    const activePageList = attractions.slice(
+    const totalPages = Math.ceil(favAttractions.length / favsPerPage);
+
+    const activePageList = favAttractions.slice(
       activePage * favsPerPage - favsPerPage,
       activePage * favsPerPage
     );
-
-    return (
+    return favAttractions.length === 0 ? (
+      <main className="favList__list">
+        <p>Nie masz jeszcze żadnych atrakcji w ulubionch! </p>
+        <p>
+          Przejdź do zakładki <Link to="placelist">"wszystkie atrakcje"</Link> i
+          znajdź coś dla siebie
+        </p>
+      </main>
+    ) : (
       <main className="favList__list">
         <div className="favList__cardsBox">
           {activePageList.map((attraction) => {
@@ -60,16 +76,14 @@ class FavListWithPagination extends Component {
                 location={attraction.location}
                 description={attraction.descriptionLong.slice(0, 200) + "..."}
                 price={"Przedział cenowy: " + attraction.priceRange}
-                toggleFavorite={() => this.toggleFavoriteById(attraction.id)}
+                toggleFavorite={() =>
+                  this.toggleFavoriteById(attraction.id, userId)
+                }
               />
             );
           })}
         </div>
-
-        {totalPages < 2
-          ?
-          null
-          :
+        {totalPages < 2 ? null : (
           <div className="dashboard__listAllPaginationBox">
             <Pagination
               activePage={activePage}
@@ -83,7 +97,7 @@ class FavListWithPagination extends Component {
               lastItem={false}
             />
           </div>
-        }
+        )}
       </main>
     );
   }
