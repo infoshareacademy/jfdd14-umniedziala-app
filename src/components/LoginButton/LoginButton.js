@@ -1,18 +1,18 @@
 import React from "react";
-import "./LoginPage.css";
 import { Button } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 
-const LoginButton = () => {
+function LoginButton(props) {
   return (
-    <div className="loginPage__dashboard">
-      <div className="loginPage__header">
-        <p>Zaloguj się, aby dodawać i zobaczyć swoje ulubione atrakcje</p>
-      </div>
-      <div className="loginPage__button">
-        <Button basic color="blue" content="Zaloguj się" size="massive" />
-      </div>
+    <div>
+      <Link to="/login">
+        <Button>Zaloguj się</Button>
+      </Link>
+      <Link to="/register">
+        <Button>Zarejstruj się</Button>
+      </Link>
     </div>
   );
-};
+}
 
 export default LoginButton;
