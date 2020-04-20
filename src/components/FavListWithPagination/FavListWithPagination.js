@@ -21,17 +21,10 @@ class FavListWithPagination extends Component {
     this.refreshAttractions(userId);
   }
 
-  //this one works but does fetch all the time
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (prevState.favAttractions !== this.state.favAttractions) {
-  //     this.refreshAttractions();
-  //   }
-  // }
-
   refreshAttractions = (userId) => {
     getFavoriteAttractionsAsArray(userId).then((attractions) =>
       this.setState({
-        favAttractions: attractions
+        favAttractions: attractions,
       })
     );
   };
@@ -45,7 +38,9 @@ class FavListWithPagination extends Component {
   };
 
   toggleFavoriteById = (attractionId, userId) => {
-    toggleFavorite(attractionId, userId).then(() => this.refreshAttractions(userId));
+    toggleFavorite(attractionId, userId).then(() =>
+      this.refreshAttractions(userId)
+    );
   };
 
   render() {
@@ -59,13 +54,15 @@ class FavListWithPagination extends Component {
       activePage * favsPerPage - favsPerPage,
       activePage * favsPerPage
     );
-    return (
-      favAttractions.length === 0 ?
+    return favAttractions.length === 0 ? (
       <main className="favList__list">
-        <p>Nie masz jeszcze żadnych atrakcji w ulubionch!</p>
-        <p>Przejdź do zakładki <Link to="placelist">"wszystkie atrakcje"</Link> i znajdź coś dla siebie</p>
+        <p>Nie masz jeszcze żadnych atrakcji w ulubionch! </p>
+        <p>
+          Przejdź do zakładki <Link to="placelist">"wszystkie atrakcje"</Link> i
+          znajdź coś dla siebie
+        </p>
       </main>
-      :
+    ) : (
       <main className="favList__list">
         <div className="favList__cardsBox">
           {activePageList.map((attraction) => {
@@ -79,7 +76,9 @@ class FavListWithPagination extends Component {
                 location={attraction.location}
                 description={attraction.descriptionLong.slice(0, 200) + "..."}
                 price={"Przedział cenowy: " + attraction.priceRange}
-                toggleFavorite={() => this.toggleFavoriteById(attraction.id, userId)}
+                toggleFavorite={() =>
+                  this.toggleFavoriteById(attraction.id, userId)
+                }
               />
             );
           })}

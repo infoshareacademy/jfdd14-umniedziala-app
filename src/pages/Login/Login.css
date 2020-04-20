@@ -2,5 +2,60 @@
     padding: 70px 10px 10px 10px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    text-align: center;
+    height: 50vh;
 }
+.loginTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+}   
+
+.loginForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    flex-direction: column;
+}
+
+
+@media (min-width: 900px) {
+
+    .dashboard {
+        padding: 70px 10px 10px 230px;
+        display: flex;
+        height: 50vh;
+    }
+
+    .loginTitle {
+        display: flex;
+        text-align: center;
+        padding-bottom: 20px;
+        font-size: 50px;
+        width: 100vw;
+    }
+
+    .loginTitle_text {
+        font-size: 40px;
+        text-align: center;
+    }
+       
+    .loginForm {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        flex-direction: row;
+    }
+    .loginForm > * {
+        padding: 5px;
+    }
+
+    .ui.button {
+        font-size: 1.2rem !important ;
+    }
+
+}
+

@@ -18,12 +18,3 @@ const CardComponent = (props) => (
 );
 
 export default CardComponent;
-
-// przykładowe uzycie elementu card
-/* <CardComponent
-            link={'/placeadded'}
-            image={atractionData['0'].img}
-            meta={`${atractionData['0'].name}, ${atractionData['0'].location}`} // wyświetlają się dwie pozycje (name + lokacja)
-            description={atractionData['0'].descriptionLong.slice(0, 100) + "..."}
-            price={"Przedział cenowy: " + " " + " " + atractionData['0'].priceRange}
-          /> */

@@ -18,7 +18,9 @@ class PlaceDetails extends Component {
 
   toggleFavorite = (userId) => {
     const attractionId = this.props.match.params.id;
-    toggleFavorite(attractionId, userId).then(() => this.refreshFavorites(userId));
+    toggleFavorite(attractionId, userId).then(() =>
+      this.refreshFavorites(userId)
+    );
   };
 
   refreshFavorites = (userId) => {
@@ -41,12 +43,6 @@ class PlaceDetails extends Component {
 
     this.refreshFavorites(userId);
   }
-
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (prevState.attractions === this.state.attractions) {
-  //     this.refreshFavorites();
-  //   }
-  // }
 
   render() {
     const { attraction } = this.state;

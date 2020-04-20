@@ -1,8 +1,32 @@
 .dashboard {
     padding: 70px 10px 10px 10px;
+}
+
+.dashboard__info {
+    text-align: center;
+    padding: 20px;
+    width: 100vw;
+}
+
+.dashboard__title {
+    font-family: Comfortaa;
+}
+
+.dashboard__icon {
+    color: var(--color-yellow);
+    font-size: 1.3rem;
+}
+
+.dashboard__special {
+    font-weight: bold;
+    color: var(--color-blue);
+}
+
+.dashboard__charts {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100vw;
 }
 
 .dashboard__chart {
