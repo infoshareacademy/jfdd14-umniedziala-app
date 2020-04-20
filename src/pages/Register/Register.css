@@ -1,0 +1,59 @@
+.dashboard {
+    padding: 70px 10px 10px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    height: 50vh;
+}
+.registerTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+}   
+
+.registerForm {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    flex-direction: column;
+}
+
+
+@media (min-width: 900px) {
+    
+    .dashboard {
+        padding: 70px 10px 10px 230px;
+        display: flex;
+        height: 50vh;
+    }
+
+    .registerTitle {
+        display: flex;
+        text-align: center;
+        padding-bottom: 20px;
+        font-size: 50px;
+    }
+
+    .registerTitle_text {
+        font-size: 30px;
+    }
+       
+    .registerForm {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        flex-direction: row;
+    }
+    .registerForm > * {
+        padding: 5px;
+    }
+
+    .ui.button {
+        font-size: 1.2rem !important ;
+    }
+
+}
