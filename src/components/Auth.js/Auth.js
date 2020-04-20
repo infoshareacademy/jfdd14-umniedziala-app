@@ -7,7 +7,7 @@ function Auth(props) {
   const userData = useContext(UserContext);
   const { userId } = userData;
 
-  return <>{!userId ? <LoginView /> : props.children}</>;
+  return !userId ? <LoginView /> : props.children;
 }
 
 export default Auth;
