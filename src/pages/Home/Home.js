@@ -8,10 +8,10 @@ class Home extends Component {
     return (
       <main className="dashboard">
         <section className="dashboard__info">
-            <h3 className="dashboard__title">
+            <h2 className="dashboard__title">
                 Cześć! Witaj w aplikacji <span className="dashboard__special">tripcity</span>!
-            </h3>
-            <p>
+            </h2>
+            <p className="dashboard__text">
                 Jeżeli planujesz <span className="dashboard__special">wizytę w Trójmieście</span>, nasza aplikacja pomoże Ci <span className="dashboard__special">znaleźć miejsca</span>, które mogą Cię zainteresować.
                 <br />
                 <i className="fas fa-long-arrow-alt-right dashboard__icon"/>
@@ -27,15 +27,15 @@ class Home extends Component {
         </section>
         <section className="dashboard__charts">
           <div className="dashboard__chart">
-            <h4 className="dashboard__chartTitle">
+            <h3 className="dashboard__chartTitle">
               Atrakcje z podziałem na miasta i zakresy cenowe:
-            </h4>
+            </h3>
             <FavBarChart />
           </div>
           <div className="dashboard__chart">
-            <h4 className="dashboard__chartTitle">
+            <h3 className="dashboard__chartTitle">
               Ilość atrakcji w różnych kategoriach:
-            </h4>
+            </h3>
             <CategoryPieChart />
           </div>
         </section>

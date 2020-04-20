@@ -61,10 +61,10 @@ function Register() {
   return (
     <div className="dashboard">
       <div className="registerTitle">
-        <h1 className="registerTitle_text">
+        <h2 className="registerTitle_text">
           Utwórz konto w tripcity, aby dodawać własne miejsca do bazy i
           zarządzać ulubionymi atrakcjami:
-        </h1>
+        </h2>
       </div>
       <div className="registerForm">
         <Input

@@ -10,7 +10,13 @@
     align-items: center;
     justify-content: center;
     width: 100vw;
-}   
+}
+
+.registerTitle_text {
+    font-family: Comfortaa;
+    text-align: center;
+    width: 90%;
+}
 
 .registerForm {
     padding: 10px;
@@ -33,12 +39,11 @@
     .registerTitle {
         display: flex;
         text-align: center;
-        padding-bottom: 20px;
         font-size: 50px;
     }
 
     .registerTitle_text {
-        font-size: 30px;
+        width: 75%;
     }
        
     .registerForm {

@@ -19,7 +19,7 @@ function Login() {
   let history = useHistory();
 
   const loginSuccess = () =>
-    toast("Zalogowano do Tripcity. Do zobaczenia na szlaku!", {
+    toast("Zalogowano do Tripcity. Miłego zwiedzania!", {
       className: css({
         background: "white",
       }),
@@ -67,9 +67,9 @@ function Login() {
   return (
     <div className="dashboard">
       <div className="loginTitle">
-        <h1 className="loginTitle_text">
+        <h2 className="loginTitle_text">
           Zaloguj się na swoje konto tripcity:
-        </h1>
+        </h2>
       </div>
       <div className="loginForm">
         <Input
