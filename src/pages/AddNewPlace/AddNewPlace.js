@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { Form, Popup, Button } from 'semantic-ui-react';
-import { addAttraction } from '../../services';
+import { addAttraction, getAttractionsAsArray } from '../../services';
 import './AddNewPlace.css';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { css } from 'glamor';
-
-
+import { AttractionsContext } from "../../contexts/AttractionsContext";
 
 const options = [
   { key: 'Gda', text: 'Gdańsk', value: 'Gdańsk' },
@@ -33,11 +32,15 @@ class FormAddPlace extends Component {
     descriptionLong: "",
     terms: false,
   };
+  static contextType = AttractionsContext;
 
   handleTextChange = (e, { value, name }) => this.setState({ [name]: value });
   handleCheckboxChange = (e, { checked, name }) => this.setState({ [name]: checked });
 
-  addToData = () => addAttraction(this.state);
+  addToData = () => addAttraction(this.state)
+    .then(() => getAttractionsAsArray()
+      .then((attractions) => this.context.setAttractionList(attractions))
+    );
 
   resetState = () => this.setState({
     name: "",
