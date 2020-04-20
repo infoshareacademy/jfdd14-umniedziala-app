@@ -3,9 +3,10 @@ const API_KEY = "AIzaSyD2TGrCzks3qlgYeCkAIrqAxdXgM4xJxOo";
 const REGISTER_URL = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${API_KEY}`;
 const LOG_IN_URL = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}`;
 
-const favoriteAttractionIdsKey = "favoriteAttractionIds";
-const getFavoriteAttractionIdsFromLocalStorage = () =>
-  JSON.parse(localStorage.getItem(favoriteAttractionIdsKey));
+export const getFavoriteAttractionIdsFromFirebase = (userId) =>
+  fetch(
+    `https://tripcity-app.firebaseio.com/users/${userId}/favourites.json`
+  ).then((response) => response.json());
 
 export const getAttractions = () =>
   fetch(ATTRACTIONS_URL + ".json").then((response) => response.json());
@@ -23,8 +24,10 @@ export const getAttractionsAsArray = () =>
 export const getAttractionById = (id) =>
   getAttractions().then((attractions) => attractions[id] || null);
 
-export const getFavoriteAttractionIds = () =>
-  Promise.resolve(getFavoriteAttractionIdsFromLocalStorage() || null);
+export const getFavoriteAttractionIds = (userId) =>
+  getFavoriteAttractionIdsFromFirebase(userId).then(
+    (attractions) => attractions || null
+  );
 
 export const addAttraction = (attraction) =>
   fetch(ATTRACTIONS_URL + ".json", {
@@ -32,28 +35,42 @@ export const addAttraction = (attraction) =>
     body: JSON.stringify(attraction),
   });
 
-export const toggleFavorite = (attractionId) =>
-  getFavoriteAttractionIds().then((attractionIds) => {
+export const toggleFavorite = (attractionId, userId) =>
+  getFavoriteAttractionIds(userId).then((attractionIds) => {
     if (attractionIds === null) {
       const data = JSON.stringify({ [attractionId]: true });
-      localStorage.setItem(favoriteAttractionIdsKey, data);
-      return;
+      return fetch(
+        `https://tripcity-app.firebaseio.com/users/${userId}/favourites.json`,
+        {
+          method: "PUT",
+          body: data,
+        }
+      );
     }
     if (attractionIds[attractionId] === true) {
       delete attractionIds[attractionId];
-      const data = JSON.stringify(attractionIds);
-      localStorage.setItem(favoriteAttractionIdsKey, data);
-      return;
+      return fetch(
+        `https://tripcity-app.firebaseio.com/users/${userId}/favourites/${attractionId}.json`,
+        {
+          method: "DELETE",
+        }
+      );
     }
     attractionIds[attractionId] = true;
     const data = JSON.stringify(attractionIds);
-    localStorage.setItem(favoriteAttractionIdsKey, data);
+    return fetch(
+      `https://tripcity-app.firebaseio.com/users/${userId}/favourites.json`,
+      {
+        method: "PUT",
+        body: data,
+      }
+    );
   });
 
-export const getFavoriteAttractionsAsArray = () =>
+export const getFavoriteAttractionsAsArray = (userId) =>
   Promise.all([
     getAttractionsAsArray(),
-    getFavoriteAttractionIds(),
+    getFavoriteAttractionIds(userId),
   ]).then(([attractions, favoriteIds]) =>
     attractions.filter(
       (attraction) =>
@@ -113,4 +130,3 @@ export const logIn = (email, password) => {
 export const logOut = () => {
   localStorage.removeItem("tripcityUser");
 };
-
