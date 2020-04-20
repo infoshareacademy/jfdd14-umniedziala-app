@@ -6,10 +6,15 @@
     text-align: center;
     padding: 20px;
     width: 100vw;
+    margin-bottom: 36px;
 }
 
 .dashboard__title {
     font-family: Comfortaa;
+}
+
+.dashboard__text {
+    font-size: 1.3rem;
 }
 
 .dashboard__icon {
