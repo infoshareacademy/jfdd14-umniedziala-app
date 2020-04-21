@@ -85,10 +85,10 @@ class FormAddPlace extends Component {
   render() {
     const button =
       this.state.terms ?
-        <Form.Button type='submit'>Dodaj atrakcję</Form.Button>
+        <Form.Button basic color="blue" type='submit'>Dodaj atrakcję</Form.Button>
         :
         <Popup content='Wypełnij wszystkie pola oraz zaznacz wymagane zgody.' 
-        trigger={<Button>Dodaj atrakcję</Button>} />
+        trigger={<Button basic color="blue">Dodaj atrakcję</Button>} />
 
 
     return (
