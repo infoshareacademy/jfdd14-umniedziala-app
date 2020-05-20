@@ -29,11 +29,14 @@ export const getFavoriteAttractionIds = (userId) =>
     (attractions) => attractions || null
   );
 
-export const addAttraction = (attraction) =>
-  fetch(ATTRACTIONS_URL + ".json", {
+export const addAttraction = (attraction) => {
+  const idToken = JSON.parse(localStorage.getItem("tripcityUser")).idToken;
+  return fetch(ATTRACTIONS_URL + ".json?auth=" + idToken, {
     method: "POST",
     body: JSON.stringify(attraction),
   });
+}
+  
 
 export const toggleFavorite = (attractionId, userId) =>
   getFavoriteAttractionIds(userId).then((attractionIds) => {

@@ -37,10 +37,12 @@ class FormAddPlace extends Component {
   handleTextChange = (e, { value, name }) => this.setState({ [name]: value });
   handleCheckboxChange = (e, { checked, name }) => this.setState({ [name]: checked });
 
-  addToData = () => addAttraction(this.state)
-    .then(() => getAttractionsAsArray()
+  addToData = () => 
+    addAttraction(this.state)
+      .then(() => getAttractionsAsArray()
       .then((attractions) => this.context.setAttractionList(attractions))
-    );
+      )
+    ;
 
   resetState = () => this.setState({
     name: "",
